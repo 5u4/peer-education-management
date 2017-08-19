@@ -14,11 +14,11 @@ public signup(firstname, lastname, prefername, student_id, password);
 
 ## Member
 ### Attributes
-student_id // FIC student id, i.e. "wonsd1503" PRIMARY KEY
-prefername
-firstname
-lastname
-section_time
+student_id // FIC student id, i.e. "wonsd1503" PRIMARY KEY <br />
+prefername <br />
+firstname <br />
+lastname <br />
+section_time <br />
 ### Get Section Time: return a PEducator's section time
 public get_section_time(student_id);
 

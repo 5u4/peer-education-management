@@ -7,7 +7,7 @@ include_once '../configs/config.php';
 class Authentication {
 
 
-  function login() {
+  function login($db) {
 
     session_start();
 
@@ -16,9 +16,9 @@ class Authentication {
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT id FROM managers WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$mypassword'";
       $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $row = mysqli_fetch_array($result);
       
       $count = mysqli_num_rows($result);
       
@@ -26,10 +26,11 @@ class Authentication {
 		
       if($count == 1) {
         $_SESSION['current_user'] = $myusername;
-         
-        header("location: index.php");
+        return 0;
+
       } else {
         $error = "Your Login Name or Password is invalid";
+	return 1;
       }
     }
   } // end of login()
@@ -45,7 +46,9 @@ class Authentication {
 	$data = mysqli_query($con, $query) or die(mysqli_error());
 	if($data)
 	{
-	echo "YOUR REGISTRATION IS COMPLETED.";
+	  return 0;
+	} else {
+	  echo 'Failed to create new user.';	
 	}
 } // end of NewUser()
 
@@ -55,21 +58,34 @@ class Authentication {
 
 	if(!empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['password']) && !empty($_POST['cpassword']))   //checking the 'user' name which is from Sign-Up.html, is it empty or have some text
 	{
+
+	  // check if confirm password is correct
+	  if($_POST['password'] != $_POST['cpassword']) {
+	    echo 'Please confirm your password.';
+	    return 1;
+	  }
+
+
+
 	  $query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$_POST[username]' AND password = '$_POST[password]'") or die(mysqli_error());
 
 	  if(!$row = mysqli_fetch_array($query) or die(mysqli_error()))
 	  {
-            $this->NewUser($con);
+            if($this->NewUser($con) == 0) {
+		return 0;
+	    }
 	  }
 	  else
 	  {
             echo "User already exists.";
+	    return 1;
 	  }
 
 	}
 	else // if the form was not filled properly
 	{
           echo "Please fill out the form properly.";
+	  return 1;
 	}
 
 

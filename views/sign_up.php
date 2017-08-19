@@ -34,5 +34,5 @@
 </html>
 
 
-Read more: http://mrbool.com/how-to-create-a-sign-up-form-registration-with-php-and-mysql/28675#ixzz4qAekKUEA
+
 

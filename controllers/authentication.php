@@ -3,7 +3,7 @@
 // https://www.tutorialspoint.com/php/php_mysql_login.htm
 
 class Authentication {
-  public login() {
+  public function login() {
     echo "<?php include("config.php"); ?>";
     echo "<?php session_start(); ?>"
 

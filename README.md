@@ -13,29 +13,32 @@ public logout(); <br /> <br />
 // Signup: write info into database  <br />
 public signup(firstname, lastname, prefername, student_id, password); <br /> <br />
 
-## Member
+## Manager
 ### Attributes
-student_id // FIC student id, i.e. "wonsd1503" PRIMARY KEY <br />
-prefername <br />
-firstname <br />
-lastname <br />
+manager_id // PRIMARY KEY <br />
+username <br />
+password <br />
+first_name <br />
+last_name <br />
 section_time <br />
 ### Methods
 // Get Section Time: return a PEducator's section time <br />
 public get_section_time(student_id); <br />
 
-## PEducator extends Member
+## PEducator
 ### Attributes
 id // AUTO_INCREMENT PRIMARY KEY <br />
+student_id // FIC student id <br />
+first_name <br />
+last_name <br />
+section_time <br />
 ### Methods
+// Get Section Time: return a PEducator's section time <br />
+public get_section_time(student_id); <br />
 // Get Courses: return all courses a PEducator can teach <br />
 public get_courses(student_id);  <br /> <br />
 // Get Weekly Contributed Hours: return a PEducator's attended hours in a specific week <br />
 public get_weekly_contributed_hrs(student_id, semester_id, week_number); <br /> <br />
-
-## Manager extends Member
-### Attributes
-id // AUTO_INCREMENT PRIMARY KEY <br />
 
 ## Courses
 ### Attributes

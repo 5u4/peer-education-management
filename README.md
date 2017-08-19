@@ -4,13 +4,14 @@
 
 ## Authentication
 ### Attributes 
-current_user // store either student_id or null
-### Login: pull FIC student_id from database and pwd, compare, set current_user 
-public login(student_id, encrypted_password);
-### Logout: set current_user to null 
-public logout();
-### Signup: write info into database 
-public signup(firstname, lastname, prefername, student_id, password);
+current_user // store either student_id or null <br />
+### Methods
+// Login: pull FIC student_id from database and pwd, compare, set current_user  <br />
+public login(student_id, encrypted_password); <br /> <br />
+// Logout: set current_user to null  <br />
+public logout(); <br /> <br />
+// Signup: write info into database  <br />
+public signup(firstname, lastname, prefername, student_id, password); <br /> <br />
 
 ## Member
 ### Attributes
@@ -19,26 +20,29 @@ prefername <br />
 firstname <br />
 lastname <br />
 section_time <br />
-### Get Section Time: return a PEducator's section time
-public get_section_time(student_id);
+### Methods
+// Get Section Time: return a PEducator's section time <br />
+public get_section_time(student_id); <br />
 
 ## PEducator extends Member
 ### Attributes
-id // AUTO_INCREMENT PRIMARY KEY
-### Get Courses: return all courses a PEducator can teach
-public get_courses(student_id); 
-### Get Weekly Contributed Hours: return a PEducator's attended hours in a specific week
-public get_weekly_contributed_hrs(student_id, semester_id, week_number);
+id // AUTO_INCREMENT PRIMARY KEY <br />
+### Methods
+// Get Courses: return all courses a PEducator can teach <br />
+public get_courses(student_id);  <br /> <br />
+// Get Weekly Contributed Hours: return a PEducator's attended hours in a specific week <br />
+public get_weekly_contributed_hrs(student_id, semester_id, week_number); <br /> <br />
 
 ## Manager extends Member
 ### Attributes
-id // AUTO_INCREMENT PRIMARY KEY
+id // AUTO_INCREMENT PRIMARY KEY <br />
 
 ## Courses
 ### Attributes
-course_id // i.e. "MATH100"
-### Get Total Count: returns a courses total times been taught
-public get_total_count(course_id);
-### Get PEducator for Course: returns all PEducators that can teach the course
-public get_peducator_for_course(course_id);
+course_id // i.e. "MATH100" <br />
+### Methods
+// Get Total Count: returns a courses total times been taught <br />
+public get_total_count(course_id); <br /> <br />
+// Get PEducator for Course: returns all PEducators that can teach the course <br />
+public get_peducator_for_course(course_id); <br /> <br />
 

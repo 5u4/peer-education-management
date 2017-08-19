@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mysql_code/members" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/manager.php" afterPath="$PROJECT_DIR$/controllers/manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/test.php" afterPath="$PROJECT_DIR$/views/test.php" />
-    </list>
+    <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +24,8 @@
       <file leaf-file-name="manager.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <marker date="1503174641000" expanded="true" signature="850:924" ph="SELECT * FRO... managers" />
                 <marker date="1503174641000" expanded="true" signature="1926:2013" ph="UPDATE manag... " />
@@ -186,12 +181,12 @@
       <workItem from="1503114395099" duration="1656000" />
       <workItem from="1503119176631" duration="3396000" />
       <workItem from="1503132220582" duration="1525000" />
-      <workItem from="1503171527662" duration="3091000" />
+      <workItem from="1503171527662" duration="3353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11133000" />
+    <option name="totallyTimeSpent" value="11395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="799" y="23" width="879" height="987" extended-state="0" />
@@ -495,8 +490,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/manager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <marker date="1503174641000" expanded="true" signature="850:924" ph="SELECT * FRO... managers" />
             <marker date="1503174641000" expanded="true" signature="1926:2013" ph="UPDATE manag... " />

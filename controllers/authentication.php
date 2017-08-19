@@ -15,7 +15,6 @@ class Authentication {
     $sql = "SELECT id FROM managers WHERE username = '$myusername' and password = '$mypassword'";
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
       
     $count = mysqli_num_rows($result);
       

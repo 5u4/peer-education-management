@@ -1,4 +1,12 @@
 <!DOCTYPE HTML>
+
+<?php 
+
+// include database information and connection
+include("../configs/config.php"); 
+
+?>
+
 <html>
 <head>
 <title>Sign-Up</title>

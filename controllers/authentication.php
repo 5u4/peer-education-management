@@ -4,7 +4,7 @@
 
 class Authentication {
   public function login() {
-    echo "<?php include("config.php"); ?>";
+    echo "<?php include("../configs/config.php"); ?>";
     echo "<?php session_start(); ?>"
 
   if($_SERVER["REQUEST_METHOD"] == "POST") {

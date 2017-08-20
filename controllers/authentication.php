@@ -9,7 +9,7 @@ class Authentication {
   // this variable stores current user's id
   private $current_user = 'null';
 
-  function login($myusername, $mypassword, $con) {
+  public function login($myusername, $mypassword, $con) {
 
     session_start();
 
@@ -37,7 +37,7 @@ class Authentication {
   } // end of login()
 
 
-  function NewUser($con) {
+  public function NewUser($con) {
 
 	$first_name = $_POST['first_name'];
 	$last_name = $_POST['last_name'];
@@ -55,7 +55,7 @@ class Authentication {
 
 
 
-  function SignUp($con) {
+  public function SignUp($con) {
 
 	if(!empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['password']) && !empty($_POST['cpassword']))   //checking the 'user' name which is from Sign-Up.html, is it empty or have some text
 	{

@@ -4,7 +4,7 @@
 
 ## Authentication
 ### Attributes 
-current_user // store either student_id or null <br />
+current_user // store either manager_id or null <br />
 ### Methods
 // Login: pull manager's manager_id from database and authenticate.  <br />
 public login(username, password, db_connection); <br /> <br />

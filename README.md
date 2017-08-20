@@ -6,11 +6,11 @@
 ### Attributes 
 current_user // store either student_id or null <br />
 ### Methods
-// Login: pull FIC student_id from database and pwd, compare, set current_user  <br />
+// Login: pull manager's manager_id from database and authenticate.  <br />
 public login(username, password, db_connection); <br /> <br />
-// Logout: set current_user to null  <br />
+// Logout: set current_user to null. Destroy current session.  <br />
 public logout(); <br /> <br />
-// Signup: write info into database  <br />
+// Signup: Create new user.  <br />
 public signup(firstname, lastname, username, password, db_connection); <br /> <br />
 
 ## Manager

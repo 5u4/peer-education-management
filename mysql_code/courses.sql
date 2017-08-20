@@ -1,22 +1,19 @@
 CREATE TABLE courses (
-  course_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  course_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   course_name CHAR(7) NOT NULL UNIQUE,
-  total_times_been_taught INT(11) UNSIGNED,
-  PRIMARY KEY ('course_id')
+  total_times_been_taught INT(11) UNSIGNED
 );
 
 CREATE TABLE sections (
-  section_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  section_id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   section_seme CHAR(6) NOT NULL UNIQUE,
-  section_slot VARCHAR(30) NOT NULL,
-  PRIMARY KEY ('section_id')
+  section_name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE course_sections (
-  course_id INT(11) UNSIGNED NOT NULL,
-  section_id INT(11) UNSIGNED NOT NULL,
+  course_id INT(11) UNSIGNED NOT NULL PRIMARY KEY,
+  section_id INT(11) UNSIGNED NOT NULL PRIMARY KEY,
   times_been_taught INT(11) UNSIGNED,
-  PRIMARY KEY ('course_id', 'section_id'),
   FOREIGN KEY (course_id) REFERENCES courses(course_id) ON UPDATE CASCADE,
   FOREIGN KEY (section_id) REFERENCES sections(section_id) ON UPDATE CASCADE
 );

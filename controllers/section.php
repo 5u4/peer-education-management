@@ -1,11 +1,12 @@
 <?php
-include '../configs/config.php';
+include_once '../configs/config.php';
 
 // ----------------------
 // Section description
 // ----------------------
 // initialize a Section: new Section($section_id)
 // get methods: get_attributes() returns attributes
+// set methods: set_attributes_to($new_value) returns true/false
 
 // ----------------------
 // other functions
@@ -28,7 +29,7 @@ class Section {
     // ----------------------
     private $section_id;
     private $section_seme;
-    private $section_slot;
+    private $section_name;
 
     // ----------------------
     // constructor
@@ -49,7 +50,7 @@ class Section {
 
         // set attributes
         $this->section_seme = $row['section_seme'];
-        $this->section_slot = $row['section_slot'];
+        $this->section_name = $row['section_name'];
     }
 
     // ----------------------
@@ -59,16 +60,42 @@ class Section {
         return $this->section_seme;
     }
 
-    public function get_section_slot() {
-        return $this->section_slot;
+    public function get_section_name() {
+        return $this->section_name;
+    }
+
+    // ----------------------
+    // set functions
+    // ----------------------
+    public function set_section_name_to($section_name) {
+        // update database
+        $sql = "UPDATE sections 
+                SET section_name=$section_name 
+                WHERE section_id=$this->section_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        // set new section_name
+        if ($result) {
+            $this->section_name = $section_name;
+            return true;
+        }
+        return false;
     }
 }
 
-function insert_section($section_seme, $section_slot) {
+function insert_section($section_seme, $section_name) {
     // insert database
-    $sql = "INSERT INTO sections (section_seme, section_slot)
-            VALUES ('$section_seme', '$section_slot');";
-    $result = mysqli_query(connection(), $sql);
-    return $result;
+    $con = connection();
+    $sql = "INSERT INTO sections (section_seme, section_name)
+            VALUES ('$section_seme', '$section_name');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+
+    // get section id and return
+    $section_id = mysqli_insert_id($con);
+    echo 'Section with id '.$section_id.' is inserted.';
+    return new Section($section_id);
 }
 ?>

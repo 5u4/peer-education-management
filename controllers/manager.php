@@ -1,12 +1,12 @@
 <?php
-include '../configs/config.php';
+include_once '../configs/config.php';
 
 // ----------------------
 // Manager description
 // ----------------------
 // initialize a Manager: new Manager($manager_id)
 // get methods: get_attributes() returns attributes
-// set methods: set_attributes_to(new_value) return true/false
+// set methods: set_attributes_to($new_value) return true/false
 
 // ----------------------
 // other functions
@@ -79,61 +79,61 @@ class Manager {
     // ----------------------
     // set functions
     // ----------------------
-    public function set_username_to($name) {
+    public function set_username_to($username) {
         // update database
         $sql = "UPDATE managers 
-                SET username=$name 
+                SET username=$username 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new result to user_name
+        // set new username
         if ($result) {
-            $this->username = $name;
+            $this->username = $username;
             return true;
         }
         return false;
     }
 
-    public function set_first_name_to($name) {
+    public function set_first_name_to($first_name) {
         // update database
         $sql = "UPDATE managers 
-                SET first_name=$name 
+                SET first_name=$first_name 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new result to user_name
+        // set new first_name
         if ($result) {
-            $this->first_name = $name;
+            $this->first_name = $first_name;
             return true;
         }
         return false;
     }
 
-    public function set_last_name_to($name) {
+    public function set_last_name_to($last_name) {
         // update database
         $sql = "UPDATE managers 
-                SET last_name=$name 
+                SET last_name=$last_name 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new result to user_name
+        // set new last_name
         if ($result) {
-            $this->last_name = $name;
+            $this->last_name = $last_name;
             return true;
         }
         return false;
     }
 
-    public function set_section_time_to($time_slot) {
+    public function set_section_time_to($section_time) {
         // update database
         $sql = "UPDATE managers 
-                SET section_time=$time_slot 
+                SET section_time=$section_time 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new result to section_time
+        // set new section_time
         if ($result) {
-            $this->section_time = $time_slot;
+            $this->section_time = $section_time;
             return true;
         }
         return false;

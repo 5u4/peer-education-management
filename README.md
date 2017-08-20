@@ -31,7 +31,10 @@ PE_id // AUTO_INCREMENT PRIMARY KEY <br />
 student_id // FIC student id <br />
 first_name <br />
 last_name <br />
-section_time <br />
+section_id<br />
+courses (from other table)<br />
+weekly_contributed_hours (from other table)<br />
+
 ### Methods
 // Get Section Time: return a PEducator's section time <br />
 public get_section_time(student_id); <br />
@@ -39,6 +42,10 @@ public get_section_time(student_id); <br />
 public get_courses(student_id);  <br /> <br />
 // Get Weekly Contributed Hours: return a PEducator's attended hours in a specific week <br />
 public get_weekly_contributed_hrs(student_id, semester_id, week_number); <br /> <br />
+// Set Section id
+// Set Courses (from other table)
+// Set Weekly Contributed Hours (from other table)
+// Set PE inoformation (including deleting PE)
 
 ## Courses
 ### Attributes

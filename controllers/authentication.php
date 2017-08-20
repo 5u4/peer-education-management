@@ -1,8 +1,26 @@
 <?php
-
-// https://www.tutorialspoint.com/php/php_mysql_login.htm
-
 include_once '../configs/config.php';
+
+// ----------------------
+// authentication description
+// ----------------------
+// 
+// 
+// 
+
+// ----------------------
+// attributes
+// ----------------------
+// 
+//  
+
+// ----------------------
+// functions
+// ----------------------
+// 
+//  
+
+
 
 class Authentication {
 

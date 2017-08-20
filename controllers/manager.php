@@ -11,8 +11,8 @@ include '../configs/config.php';
 // ----------------------
 // other functions
 // ----------------------
-// insert a manager into database: insert_manager($user_name, $first_name,
-//                                 $last_name, $section_time) returns true/false
+// insert a manager into database: insert_manager($username, $password, $first_name,
+//                                 $last_name, $section_time) returns new Manager
 
 class Manager {
     // ----------------------
@@ -24,7 +24,7 @@ class Manager {
     // Manager attributes
     // ----------------------
     private $manager_id;
-    private $user_name;
+    private $username;
     private $first_name;
     private $last_name;
     private $section_time;
@@ -47,7 +47,7 @@ class Manager {
         $row = mysqli_fetch_assoc($result);
 
         // set attributes
-        $this->user_name = $row['user_name'];
+        $this->username = $row['username'];
         $this->first_name = $row['first_name'];
         $this->last_name = $row['last_name'];
         $this->section_time = $row['section_time'];
@@ -60,8 +60,8 @@ class Manager {
         return $this->manager_id;
     }
 
-    public function get_user_name() {
-        return $this->user_name;
+    public function get_username() {
+        return $this->username;
     }
 
     public function get_first_name() {
@@ -79,16 +79,16 @@ class Manager {
     // ----------------------
     // set functions
     // ----------------------
-    public function set_user_name_to($name) {
+    public function set_username_to($name) {
         // update database
         $sql = "UPDATE managers 
-                SET user_name=$name 
+                SET username=$name 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
         // set new result to user_name
         if ($result) {
-            $this->user_name = $name;
+            $this->username = $name;
             return true;
         }
         return false;
@@ -137,22 +137,22 @@ class Manager {
             return true;
         }
         return false;
-
-        /*// extra checking code for updating
-        $select_sql = "SELECT *
-           FROM managers
-           WHERE manager_id=$this->manager_id;";
-        $select_result = mysqli_query($this->connect_to_db, $select_sql);
-        $new_section_time = mysqli_fetch_assoc($select_result);
-        $this->section_time = $new_section_time['section_time'];//*/
     }
 }
 
-function insert_manager($user_name, $first_name, $last_name, $section_time) {
+function insert_manager($username, $password, $first_name, $last_name, $section_time) {
     // insert database
-    $sql = "INSERT INTO managers (user_name, first_name, last_name, section_time)
-            VALUES ('$user_name', '$first_name', '$last_name', '$section_time');";
-    $result = mysqli_query(connection(), $sql);
-    return $result;
+    $con = connection();
+    $sql = "INSERT INTO managers (username, password, first_name, last_name, section_time)
+            VALUES ('$username', '$password', '$first_name', '$last_name', '$section_time');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+
+    // get manager id and return
+    $manager_id = mysqli_insert_id($con);
+    echo 'Manager with id '.$manager_id.' is inserted.';
+    return new Manager($manager_id);
 }
 ?>

@@ -23,6 +23,9 @@ class Manager {
     private $last_name;
     private $section_time;
 
+    // ----------------------
+    // constructor
+    // ----------------------
     function __construct($manager_id) {
         // set connection
         $this->connect_to_db = connection();

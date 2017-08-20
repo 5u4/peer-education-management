@@ -4,93 +4,96 @@ include_once '../configs/config.php';
 // ----------------------
 // authentication description
 // ----------------------
-// 
-// 
+// When you want to perform actions such as login, sign up, logout,
+// you should instantiate this class and call corresponding methods.
 // 
 
 // ----------------------
 // attributes
 // ----------------------
-// 
+// $current_user : stores current user's id. Was initiated as NULL.
 //  
 
 // ----------------------
-// functions
+// methods
 // ----------------------
-// 
-//  
+// login(username, password, db_connection)
+// signup(first name, last name, username, password, db_connection)
+// logout()
 
 
 
 class Authentication {
 
-  // this variable stores current user's id
-  private $current_user = 'null';
+ 	// this variable stores current user's id
+ 	private $current_user = 'null';
 
-  public function login($myusername, $mypassword, $con) {
+ 	public function login($myusername, $mypassword, $con) {
 
-    session_start();
+		session_start();
 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
+		if($_SERVER["REQUEST_METHOD"] == "POST") {
       
-      $sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$mypassword'";
-      $result = mysqli_query($con,$sql);
-      $row = mysqli_fetch_array($result);
+			$sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$mypassword'";
+			$result = mysqli_query($con,$sql);
+			$row = mysqli_fetch_array($result);
       
-      $count = mysqli_num_rows($result);
+			$count = mysqli_num_rows($result);
       
-    // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-        $_SESSION['current_username'] = $myusername;
-	$current_user = $row['manager_id'];
-	$_SESSION['manager_id'] = $current_user;
-        return 0;
 
-      } else {
-        $error = "Your Login Name or Password is invalid";
-	return 1;
-      }
-    }
-  } // end of login()
+			// If result matched $myusername and $mypassword, table row must be 1 row		
+			if($count == 1) {
+				$_SESSION['current_username'] = $myusername;
+				$current_user = $row['manager_id'];
+				$_SESSION['manager_id'] = $current_user;
+				return 0;
 
-
-
-  public function SignUp($first_name, $last_name, $username, $password, $con) {
-
-	  $query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$username'");
-
-	  if(mysqli_fetch_array($query) == 0)
-	  {
-            	// Creating new user..
-		$query = "INSERT INTO managers (first_name,last_name,username,password) VALUES ('$first_name','$last_name','$username','$password')";
-		$data = mysqli_query($con, $query);
-		if($data)
-		{
-	 	  return 0;
-		} else {
-		  echo 'Failed to create new user.';
-		  return 1;
+			} else {
+				$error = "Your Login Name or Password is invalid";
+				return 1;
+			}
 		}
-		
-	  }
-	  else
-	  {
-	    echo 'User already exists.';
-	    return 444;
-	  }
-
-} // end of SignUp()
+	} // end of login()
 
 
-  public function logout() {
+
+	public function signup($first_name, $last_name, $username, $password, $con) {
+
+		$query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$username'");
+
+		if(mysqli_fetch_array($query) == 0)
+		{
+			// Creating new user..
+			$query = "INSERT INTO managers (first_name,last_name,username,password) VALUES ('$first_name','$last_name','$username','$password')";
+
+			$data = mysqli_query($con, $query);
+
+			if($data)
+			{
+				return 0;
+			} else {
+				echo 'Failed to create new user.';
+				return 1;
+			}
+		}
+		else
+	  	{
+			echo 'User already exists.';
+			return 444;
+		}
+
+	} // end of signup()
+
+
+
+	public function logout() {
 	
-	session_start();
-	session_destroy();
+		session_start();
+		session_destroy();
 
-	header('Location: ../index.php');
+		header('Location: ../index.php');
 
-} // end of logout()
+	} // end of logout()
 
 
 

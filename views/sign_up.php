@@ -50,16 +50,17 @@ if(isset($_POST['submit'])) {
 	// check the forms
 	if(!empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['password']) && !empty($_POST['cpassword'])) {
 
-	  // check if confirm password is correct
-	  if($_POST['password'] != $_POST['cpassword']) {
-	    echo 'Please confirm your password.';
+		// check if confirm password is correct
+		if($_POST['password'] != $_POST['cpassword']) {
+			echo 'Please confirm your password.';
+			return 1;
 
-	} 
+		} 
 	}
 	else // if the form was not filled properly
 	{
-          echo "Please fill out the form properly.";
-	  return 1;
+		echo "Please fill out the form properly.";
+		return 1;
 	}
 
 
@@ -71,7 +72,7 @@ if(isset($_POST['submit'])) {
 
 
 	$authentication = new Authentication();
-	$result_code = $authentication -> SignUp($first_name, $last_name, $username, $password, $con);
+	$result_code = $authentication -> signup($first_name, $last_name, $username, $password, $con);
 	if($result_code == 0) {
 		session_start();
 		$_SESSION['registration_status'] = 'success';

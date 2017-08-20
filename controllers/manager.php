@@ -2,11 +2,17 @@
 include '../configs/config.php';
 
 // ----------------------
-// Manager Description
+// Manager description
 // ----------------------
-// initialize a Manager: new Manager(manager_id)
+// initialize a Manager: new Manager($manager_id)
 // get methods: get_attributes() returns attributes
-// set methods: set_attributes_to(new_value) return true/false;
+// set methods: set_attributes_to(new_value) return true/false
+
+// ----------------------
+// other functions
+// ----------------------
+// insert a manager into database: insert_manager($user_name, $first_name,
+//                                 $last_name, $section_time) returns true/false
 
 class Manager {
     // ----------------------
@@ -138,7 +144,15 @@ class Manager {
            WHERE manager_id=$this->manager_id;";
         $select_result = mysqli_query($this->connect_to_db, $select_sql);
         $new_section_time = mysqli_fetch_assoc($select_result);
-        $this->section_time = $new_section_time['section_time'];*/
+        $this->section_time = $new_section_time['section_time'];//*/
     }
+}
+
+function insert_manager($user_name, $first_name, $last_name, $section_time) {
+    // insert database
+    $sql = "INSERT INTO managers (user_name, first_name, last_name, section_time)
+            VALUES ('$user_name', '$first_name', '$last_name', '$section_time');";
+    $result = mysqli_query(connection(), $sql);
+    return $result;
 }
 ?>

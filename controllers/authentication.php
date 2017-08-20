@@ -6,6 +6,8 @@ include_once '../configs/config.php';
 
 class Authentication {
 
+  // this variable stores current user's id
+  private $current_user = 'null';
 
   function login($db) {
 
@@ -25,7 +27,9 @@ class Authentication {
     // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($count == 1) {
-        $_SESSION['current_user'] = $myusername;
+        $_SESSION['current_username'] = $myusername;
+	$current_user = $row['manager_id'];
+	$_SESSION['manager_id'] = $current_user;
         return 0;
 
       } else {

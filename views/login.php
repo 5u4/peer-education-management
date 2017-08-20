@@ -37,8 +37,10 @@ Don't have account? <a href='sign_up.php'> Create account. </a>
 <?php
 
 if(isset($_POST['submit'])) {
+	$myusername = mysqli_real_escape_string($con,$_POST['username']);
+        $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
 	$authentication = new Authentication();
-	$result_code = $authentication->login($con);
+	$result_code = $authentication->login($myusername, $mypassword, $con);
 
 	if($result_code == 0) {
 		header('Location: ../index.php');

@@ -7,7 +7,7 @@
 current_user // store either student_id or null <br />
 ### Methods
 // Login: pull FIC student_id from database and pwd, compare, set current_user  <br />
-public login(student_id, encrypted_password); <br /> <br />
+public login(username, password, db_connection); <br /> <br />
 // Logout: set current_user to null  <br />
 public logout(); <br /> <br />
 // Signup: write info into database  <br />

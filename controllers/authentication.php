@@ -9,17 +9,14 @@ class Authentication {
   // this variable stores current user's id
   private $current_user = 'null';
 
-  function login($db) {
+  function login($myusername, $mypassword, $con) {
 
     session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
       $sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$mypassword'";
-      $result = mysqli_query($db,$sql);
+      $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result);
       
       $count = mysqli_num_rows($result);

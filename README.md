@@ -11,7 +11,7 @@ public login(username, password, db_connection); <br /> <br />
 // Logout: set current_user to null  <br />
 public logout(); <br /> <br />
 // Signup: write info into database  <br />
-public signup(firstname, lastname, prefername, student_id, password); <br /> <br />
+public signup(firstname, lastname, username, password, db_connection); <br /> <br />
 
 ## Manager
 ### Attributes

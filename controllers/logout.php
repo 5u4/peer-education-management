@@ -1,8 +1,7 @@
 <?php
+include_once '../controllers/authentication.php';
 
-session_start();
-session_destroy();
-
-header('Location: ../index.php');
+$authentication = new Authentication();
+$authentication->logout();
 
 ?>

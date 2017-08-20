@@ -37,60 +37,42 @@ class Authentication {
   } // end of login()
 
 
-  public function NewUser($con) {
 
-	$first_name = $_POST['first_name'];
-	$last_name = $_POST['last_name'];
-	$username = $_POST['username'];
-	$password =  $_POST['password'];
-	$query = "INSERT INTO managers (first_name,last_name,username,password) VALUES ('$first_name','$last_name','$username','$password')";
-	$data = mysqli_query($con, $query) or die(mysqli_error());
-	if($data)
-	{
-	  return 0;
-	} else {
-	  echo 'Failed to create new user.';	
-	}
-} // end of NewUser()
+  public function SignUp($first_name, $last_name, $username, $password, $con) {
 
+	  $query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$username'");
 
-
-  public function SignUp($con) {
-
-	if(!empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['password']) && !empty($_POST['cpassword']))   //checking the 'user' name which is from Sign-Up.html, is it empty or have some text
-	{
-
-	  // check if confirm password is correct
-	  if($_POST['password'] != $_POST['cpassword']) {
-	    echo 'Please confirm your password.';
-	    return 1;
-	  }
-
-
-
-	  $query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$_POST[username]' AND password = '$_POST[password]'") or die(mysqli_error());
-
-	  if(!$row = mysqli_fetch_array($query) or die(mysqli_error()))
+	  if(mysqli_fetch_array($query) == 0)
 	  {
-            if($this->NewUser($con) == 0) {
-		return 0;
-	    }
+            	// Creating new user..
+		$query = "INSERT INTO managers (first_name,last_name,username,password) VALUES ('$first_name','$last_name','$username','$password')";
+		$data = mysqli_query($con, $query);
+		if($data)
+		{
+	 	  return 0;
+		} else {
+		  echo 'Failed to create new user.';
+		  return 1;
+		}
+		
 	  }
 	  else
 	  {
-            echo "User already exists.";
-	    return 1;
+	    echo 'User already exists.';
+	    return 444;
 	  }
 
-	}
-	else // if the form was not filled properly
-	{
-          echo "Please fill out the form properly.";
-	  return 1;
-	}
-
-
 } // end of SignUp()
+
+
+  public function logout() {
+	
+	session_start();
+	session_destroy();
+
+	header('Location: ../index.php');
+
+} // end of logout()
 
 
 

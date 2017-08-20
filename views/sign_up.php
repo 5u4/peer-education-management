@@ -47,12 +47,37 @@ $con = connection();
 
 if(isset($_POST['submit'])) {
 	
+	// check the forms
+	if(!empty($_POST['username']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['password']) && !empty($_POST['cpassword'])) {
+
+	  // check if confirm password is correct
+	  if($_POST['password'] != $_POST['cpassword']) {
+	    echo 'Please confirm your password.';
+
+	} 
+	}
+	else // if the form was not filled properly
+	{
+          echo "Please fill out the form properly.";
+	  return 1;
+	}
+
+
+	// get values from form
+	$first_name = $_POST['first_name'];
+	$last_name = $_POST['last_name'];
+	$username = $_POST['username'];
+	$password =  $_POST['password'];
+
+
 	$authentication = new Authentication();
-	if($authentication -> SignUp($con) == 0) {
+	$result_code = $authentication -> SignUp($first_name, $last_name, $username, $password, $con);
+	if($result_code == 0) {
 		session_start();
 		$_SESSION['registration_status'] = 'success';
 		header('Location: ../index.php');
 	}
+
 
 }
 

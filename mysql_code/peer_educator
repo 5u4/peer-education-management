@@ -1,0 +1,9 @@
+CREATE TABLE `peer_education`.`peer_educator` (
+  `PE_id` INT NOT NULL AUTO_INCREMENT,
+  `student_id` INT NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `section_time` INT NULL,
+  PRIMARY KEY (`PE_id`),
+  UNIQUE INDEX `PE_id_UNIQUE` (`PE_id` ASC),
+  UNIQUE INDEX `student_id_UNIQUE` (`student_id` ASC));

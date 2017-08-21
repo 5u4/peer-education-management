@@ -5,8 +5,7 @@ CREATE TABLE peer_education.sections (
   section_id           int UNSIGNED NOT NULL  AUTO_INCREMENT,
   section_seme         char(6)  NOT NULL  ,
   section_name         varchar(30)  NOT NULL  ,
-  CONSTRAINT pk_sections PRIMARY KEY ( section_id ),
-  CONSTRAINT unique_sections UNIQUE ( section_seme )
+  CONSTRAINT pk_sections PRIMARY KEY ( section_id )
 ) engine=InnoDB;
 
 # --------------

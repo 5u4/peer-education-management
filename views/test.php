@@ -5,6 +5,7 @@ include_once '../controllers/section.php';
 include_once '../controllers/course.php';
 include_once '../controllers/announcement.php';
 include_once '../controllers/note.php';
+include_once '../controllers/peducator.php';
 
 
 // ----------------------
@@ -58,8 +59,13 @@ echo $section->get_section_name();
 
 /* insert section
 $section_seme = '201702';
-$section_name = 'NO SECTION';
+$section_name = 'SECTION 2';
 insert_section($section_seme, $section_name);
+//*/
+
+/* list all sections
+$section_seme = '201702';
+list_all_sections_on($section_seme);
 //*/
 
 // ----------------------
@@ -176,11 +182,10 @@ if ($manager->can_edit($announcement))
 //*/
 
 
+$current_user = new Manager(1);
 
 
-
-
-
+echo $pe = new peducators(2);
 
 
 

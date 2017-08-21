@@ -14,8 +14,7 @@ include_once '../configs/config.php';
 // initialize a Section: $section = get_section($section_id);
 // insert a section into database: insert_section($section_seme, $section_slot)
 //                                 return true/false
-// list all sections on a semester: list_all_sections_on($section_seme)
-//                                  return array[section_id]
+// list all sections on semester: list_all_sections_on($section_seme) return array[$section]
 // * list all courses on a section: list_all_courses_on($section_id)
 //                                return array[course_id]
 
@@ -114,5 +113,18 @@ function insert_section($section_seme, $section_name) {
     $section_id = mysqli_insert_id($con);
     echo 'Section with id '.$section_id.' is inserted.';
     return new Section($section_id);
+}
+
+function list_all_sections_on($section_seme) {
+    $con = connection();
+    $sql = "SELECT section_id
+            FROM sections
+            WHERE section_seme='$section_seme';";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+    $row = mysqli_fetch_array($result);
+    echo $row['section_id'];
 }
 ?>

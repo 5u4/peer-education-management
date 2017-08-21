@@ -22,7 +22,6 @@ include_once 'announcement.php';
 // create an announcement: insert_announcement($content) return new Announcement($announcement_id)
 // check if current_user posted the announcement: can_edit($announcement) return true/false
 
-
 class Manager {
     // ----------------------
     // database connection

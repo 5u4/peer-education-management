@@ -72,11 +72,10 @@ class Section {
     // ----------------------
     // set functions
     // ----------------------
-    // SET FUNCTION NOT WORKING
     public function set_section_name_to($section_name) {
         // update database
         $sql = "UPDATE sections 
-                SET section_name=$section_name 
+                SET section_name='$section_name' 
                 WHERE section_id=$this->section_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 

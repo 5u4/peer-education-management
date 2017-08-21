@@ -50,7 +50,7 @@ else
 $section = get_section(1);
 echo $section->get_section_seme();
 echo $section->get_section_name();
-$section->set_section_name_to('TUESDAY 12:00-2:30'); // SET FUNCTION IS NOT WORKING
+$section->set_section_name_to('TUESDAY 12:00-2:30');
 echo $section->get_section_name();
 //*/
 
@@ -64,16 +64,29 @@ insert_section($section_seme, $section_name);
 // Course testing code
 // ----------------------
 
+/* initializing a course
+$course_name = 'ECON105';
+if ($course = get_course($course_name))
+    echo 'true';
+else
+    echo 'false';
+//*/
+
 /* get method & set method
-$course = new_course('ECON103');
+$course_name = 'ECON103';
+$course = get_course($course_name);
 echo $course->get_course_id();
 echo $course->get_course_name();
 echo $course->get_total_times_been_taught();
-$course->set_course_name_to('ECON103');
+$course->set_course_name_to('ECON105');
 echo $course->get_course_name();
 // increase course count
 $course->increase_total_times_been_taught_by(1);
 echo $course->get_total_times_been_taught();
+//*/
+
+/* insert a course
+insert_course('CMPT130');
 //*/
 
 ?>

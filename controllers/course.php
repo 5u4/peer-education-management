@@ -12,6 +12,7 @@ include_once '../configs/config.php';
 // other functions
 // ----------------------
 // initialize a Course: $course = get_course($course_name);
+// insert a course: insert_course($course_name) return new Course($course_name)/false
 
 class Course {
     // ----------------------
@@ -106,12 +107,29 @@ class Course {
 }
 
 function get_course($course_name) {
-    $course = new Course($course_name);
-    if (!$course->get_course_id()) {
-        $course = null;
-        unset($course);
-        return false;
+    $con = connection();
+    $sql = "SELECT * 
+            FROM courses 
+            WHERE course_name='$course_name';";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_fetch_row($result))
+        return new Course($course_name);
+    else
+        return null;
+}
+
+function insert_course($course_name) {
+    // insert database
+    $con = connection();
+    $sql = "INSERT INTO courses (course_name)
+            VALUES ('$course_name');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
     }
-    return $course;
+
+    // get section id and return
+    echo 'course with name '.$course_name.' is inserted.';
+    return new Course($course_name);
 }
 ?>

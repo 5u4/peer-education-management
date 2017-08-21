@@ -106,6 +106,13 @@ class peducators {
 		$sql = "UPDATE peducators 
 		SET student_id='$stu_id' WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connection_to_db, $sql);
+
+		// Update object attributes
+		if ($result) {
+			$this->student_id = $stu_id;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_preferred_name($pname) {
@@ -113,6 +120,13 @@ class peducators {
 		$sql = "UPDATE peducators 
 		SET student_id='$pname' WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connection_to_db, $sql);
+
+		// Update object attributes
+		if ($result) {
+			$this->preferred_name = $pname;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_first_name($fname) {
@@ -120,6 +134,13 @@ class peducators {
 		$sql = "UPDATE peducators 
 		SET student_id='$fname' WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connection_to_db, $sql);
+
+		// Update object attributes
+		if ($result) {
+			$this->first_name = $fname;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_last_name($lname) {
@@ -127,6 +148,13 @@ class peducators {
 		$sql = "UPDATE peducators 
 		SET student_id='$lname' WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connection_to_db, $sql);
+
+		// Update object attributes
+		if ($result) {
+			$this->last_name = $lname;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_section_id($sec_id) {
@@ -134,6 +162,13 @@ class peducators {
 		$sql = "UPDATE peducators 
 		SET student_id='$sec_id' WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connection_to_db, $sql);
+
+		// Update object attributes
+		if ($result) {
+			$this->section_id = $sec_id;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_courses() {

@@ -37,7 +37,7 @@ courses (from other table)<br />
 weekly_contributed_hours (from other table)<br />
 
 ### Methods
-// Get Section Time: return a PEducator's section time <br />
+// Get Section ID: return a PEducator's section id<br />
 public get_section_time(student_id); <br />
 // Get Courses: return all courses a PEducator can teach <br />
 public get_courses(student_id);  <br /> <br />

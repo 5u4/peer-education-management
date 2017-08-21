@@ -58,7 +58,7 @@ echo $section->get_section_name();
 
 /* insert section
 $section_seme = '201702';
-$section_name = 'TUESDAY 12:00-2:30';
+$section_name = 'NO SECTION';
 insert_section($section_seme, $section_name);
 //*/
 
@@ -150,6 +150,29 @@ $manager_id = 1;
 $peducator_id = 1;
 $content = 'new content';
 insert_note($manager_id, $peducator_id, $content);
+//*/
+
+// ----------------------
+// manager & announcement
+// ----------------------
+
+/*
+// $manager = insert_manager('senhung', '123', 'senhung', 'wong', 1);
+
+$manager = get_manager(2);
+
+//$content = 'First Announcement';
+//$manager->insert_announcement($content);
+
+$announcement = get_announcement(1);
+if ($manager->can_edit($announcement))
+    echo 'true';
+else
+    echo 'false';
+
+$content = 'Change Content';
+if ($manager->can_edit($announcement))
+    $manager->edit_announcement($announcement, $content);
 //*/
 
 

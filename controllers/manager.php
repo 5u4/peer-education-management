@@ -1,5 +1,6 @@
 <?php
 include_once '../configs/config.php';
+include_once 'announcement.php';
 
 // ----------------------
 // Manager description
@@ -14,6 +15,13 @@ include_once '../configs/config.php';
 // initialize a Manager: $manager = get_manager($manager_id);
 // insert a manager into database: insert_manager($username, $password, $first_name,
 //                                 $last_name, $section_id) returns new Manager
+
+// ----------------------
+// announcement interaction
+// ----------------------
+// create an announcement: insert_announcement($content) return new Announcement($announcement_id)
+// check if current_user posted the announcement: can_edit($announcement) return true/false
+
 
 class Manager {
     // ----------------------
@@ -138,6 +146,37 @@ class Manager {
             return true;
         }
         return false;
+    }
+
+    // ----------------------
+    // announcement interaction
+    // ----------------------
+    public function insert_announcement($content) {
+        // insert database
+        $sql = "INSERT INTO announcements (manager_id, content)
+                VALUES ('$this->manager_id', '$content');";
+        $result = mysqli_query($this->connect_to_db, $sql);
+        if (!$result) {
+            die('Insert failed: '.mysqli_error($this->connect_to_db));
+        }
+
+        // get announcement id and return
+        $announcement_id = mysqli_insert_id($this->connect_to_db);
+        echo 'Announcement with id '.$announcement_id.' is inserted.';
+        return new Announcement($announcement_id);
+    }
+
+    public function can_edit($announcement) {
+        if ($this->manager_id == $announcement->get_manager_id())
+            return true;
+        return false;
+    }
+
+    public function edit_announcement($announcement, $content) {
+        if (!$this->can_edit($announcement))
+            return false;
+        $announcement->set_content_to($content);
+        return true;
     }
 }
 

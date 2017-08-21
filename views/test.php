@@ -4,6 +4,7 @@ include_once '../controllers/manager.php';
 include_once '../controllers/section.php';
 include_once '../controllers/course.php';
 include_once '../controllers/announcement.php';
+include_once '../controllers/note.php';
 
 
 // ----------------------
@@ -120,11 +121,36 @@ $content = 'new content';
 insert_announcement($manager_id, $content);
 //*/
 
+// ----------------------
+// Note testing code
+// ----------------------
 
+/* initializing a note
+$note_id = 1;
+if ($note = get_note($note_id))
+    echo 'true';
+else
+    echo 'false';
+//*/
 
+/* get method & set method
+$note_id = 2;
+$note = get_note($note_id);
+echo $note->get_manager_id().' ';
+echo $note->get_peducator_id().' ';
+echo $note->get_content().' ';
+echo $note->get_note_time().' ';
+$content = 'Change again';
+$note->set_content_to($content);
+echo $note->get_content().' ';
+//*/
 
-
-
+/* insert a note
+$manager_id = 1;
+$peducator_id = 1;
+$content = 'new content';
+insert_note($manager_id, $peducator_id, $content);
+//*/
 
 
 

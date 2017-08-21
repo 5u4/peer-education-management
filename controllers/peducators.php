@@ -2,6 +2,8 @@
 
 class peducators {
 
+	// Attributes
+	
 
 
 }

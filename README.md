@@ -25,10 +25,11 @@ section_time <br />
 // Get Section Time: return a PEducator's section time <br />
 public get_section_time(student_id); <br />
 
-## PEducator
+## peducators
 ### Attributes
-PE_id // AUTO_INCREMENT PRIMARY KEY <br />
+peducator_id // AUTO_INCREMENT PRIMARY KEY <br />
 student_id // FIC student id <br />
+preferred_name <br />
 first_name <br />
 last_name <br />
 section_id<br />

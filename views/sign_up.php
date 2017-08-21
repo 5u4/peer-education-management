@@ -77,6 +77,8 @@ if(isset($_POST['submit'])) {
 		session_start();
 		$_SESSION['registration_status'] = 'success';
 		header('Location: ../index.php');
+	} else {
+		echo 'Sign up failed.';
 	}
 
 

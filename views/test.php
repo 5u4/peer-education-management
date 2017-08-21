@@ -3,6 +3,7 @@
 include_once '../controllers/manager.php';
 include_once '../controllers/section.php';
 include_once '../controllers/course.php';
+include_once '../controllers/announcement.php';
 
 
 // ----------------------
@@ -86,7 +87,59 @@ echo $course->get_total_times_been_taught();
 //*/
 
 /* insert a course
-insert_course('CMPT130');
+$course_name = 'ENSC100';
+insert_course($course_name);
 //*/
+
+// ----------------------
+// Announcement testing code
+// ----------------------
+
+/* initializing an announcement
+$announcement_id = 2;
+if ($announcement = get_announcement($announcement_id))
+    echo 'true';
+else
+    echo 'false';
+//*/
+
+/* get method & set method
+$announcement_id = 1;
+$announcement = get_announcement($announcement_id);
+echo $announcement->get_manager_id().' ';
+echo $announcement->get_content().' ';
+echo $announcement->get_announcement_time().' ';
+$content = 'Change again';
+$announcement->set_content_to($content);
+echo $announcement->get_content().' ';
+//*/
+
+/* insert an announcement
+$manager_id = 1;
+$content = 'new content';
+insert_announcement($manager_id, $content);
+//*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

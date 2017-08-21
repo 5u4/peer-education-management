@@ -14,12 +14,12 @@ class peducators {
 
 
 
-	function __construct($peducator_id) {
+	function __construct($pe_id) {
 		// connection to db
 		$con = connection();
 
 		// send query to database
-		$sql = "SELECT * FROM managers WHERE peducator_id=$peducator_id;";
+		$sql = "SELECT * FROM peducators WHERE peducator_id=$pe_id;";
         	$result = mysqli_query($con, $sql);
         	$row = mysqli_fetch_assoc($result);
 

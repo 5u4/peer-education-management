@@ -11,7 +11,7 @@ include_once '../configs/config.php';
 // ----------------------
 // other functions
 // ----------------------
-// initialize a Course: $course = new_course($course_name);
+// initialize a Course: $course = get_course($course_name);
 
 class Course {
     // ----------------------
@@ -105,7 +105,7 @@ class Course {
     }
 }
 
-function new_course($course_name) {
+function get_course($course_name) {
     $course = new Course($course_name);
     if (!$course->get_course_id()) {
         $course = null;

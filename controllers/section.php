@@ -4,13 +4,14 @@ include_once '../configs/config.php';
 // ----------------------
 // Section description
 // ----------------------
-// initialize a Section: new Section($section_id)
+// initialize a Section (should not be used explicitly): new Section($section_id)
 // get methods: get_attributes() returns attributes
 // set methods: set_attributes_to($new_value) returns true/false
 
 // ----------------------
 // other functions
 // ----------------------
+// initialize a Section: $section = get_section($section_id);
 // insert a section into database: insert_section($section_seme, $section_slot)
 //                                 return true/false
 // list all sections on a semester: list_all_sections_on($section_seme)
@@ -56,6 +57,10 @@ class Section {
     // ----------------------
     // get functions
     // ----------------------
+    public function get_section_id() {
+        return $this->section_id;
+    }
+
     public function get_section_seme() {
         return $this->section_seme;
     }
@@ -67,6 +72,7 @@ class Section {
     // ----------------------
     // set functions
     // ----------------------
+    // SET FUNCTION NOT WORKING
     public function set_section_name_to($section_name) {
         // update database
         $sql = "UPDATE sections 
@@ -81,6 +87,18 @@ class Section {
         }
         return false;
     }
+}
+
+function get_section($section_id) {
+    $con = connection();
+    $sql = "SELECT * 
+            FROM sections 
+            WHERE section_id=$section_id;";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_fetch_row($result))
+        return new Section($section_id);
+    else
+        return null;
 }
 
 function insert_section($section_seme, $section_name) {

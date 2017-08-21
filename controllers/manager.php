@@ -4,15 +4,16 @@ include_once '../configs/config.php';
 // ----------------------
 // Manager description
 // ----------------------
-// initialize a Manager: new Manager($manager_id)
+// initialize a Manager (should not be used explicitly): new Manager($manager_id)
 // get methods: get_attributes() returns attributes
 // set methods: set_attributes_to($new_value) return true/false
 
 // ----------------------
 // other functions
 // ----------------------
+// initialize a Manager: $manager = get_manager($manager_id);
 // insert a manager into database: insert_manager($username, $password, $first_name,
-//                                 $last_name, $section_time) returns new Manager
+//                                 $last_name, $section_id) returns new Manager
 
 class Manager {
     // ----------------------
@@ -27,7 +28,7 @@ class Manager {
     private $username;
     private $first_name;
     private $last_name;
-    private $section_time;
+    private $section_id;
 
     // ----------------------
     // constructor
@@ -50,7 +51,7 @@ class Manager {
         $this->username = $row['username'];
         $this->first_name = $row['first_name'];
         $this->last_name = $row['last_name'];
-        $this->section_time = $row['section_time'];
+        $this->section_id = $row['section_id'];
     }
 
     // ----------------------
@@ -72,8 +73,8 @@ class Manager {
         return $this->last_name;
     }
 
-    public function get_section_time() {
-        return $this->section_time;
+    public function get_section_id() {
+        return $this->section_id;
     }
 
     // ----------------------
@@ -82,7 +83,7 @@ class Manager {
     public function set_username_to($username) {
         // update database
         $sql = "UPDATE managers 
-                SET username=$username 
+                SET username='$username' 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
@@ -97,7 +98,7 @@ class Manager {
     public function set_first_name_to($first_name) {
         // update database
         $sql = "UPDATE managers 
-                SET first_name=$first_name 
+                SET first_name='$first_name' 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
@@ -112,7 +113,7 @@ class Manager {
     public function set_last_name_to($last_name) {
         // update database
         $sql = "UPDATE managers 
-                SET last_name=$last_name 
+                SET last_name='$last_name' 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
@@ -124,27 +125,39 @@ class Manager {
         return false;
     }
 
-    public function set_section_time_to($section_time) {
+    public function set_section_id_to($section_id) {
         // update database
         $sql = "UPDATE managers 
-                SET section_time=$section_time 
+                SET section_id=$section_id 
                 WHERE manager_id=$this->manager_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new section_time
+        // set new section_id
         if ($result) {
-            $this->section_time = $section_time;
+            $this->section_id = $section_id;
             return true;
         }
         return false;
     }
 }
 
-function insert_manager($username, $password, $first_name, $last_name, $section_time) {
+function get_manager($manager_id) {
+    $con = connection();
+    $sql = "SELECT * 
+            FROM managers 
+            WHERE manager_id=$manager_id;";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_fetch_row($result))
+        return new Manager($manager_id);
+    else
+        return null;
+}
+
+function insert_manager($username, $password, $first_name, $last_name, $section_id) {
     // insert database
     $con = connection();
-    $sql = "INSERT INTO managers (username, password, first_name, last_name, section_time)
-            VALUES ('$username', '$password', '$first_name', '$last_name', '$section_time');";
+    $sql = "INSERT INTO managers (username, password, first_name, last_name, section_id)
+            VALUES ('$username', '$password', '$first_name', '$last_name', '$section_id');";
     $result = mysqli_query($con, $sql);
     if (!$result) {
         die('Insert failed: '.mysqli_error($con));

@@ -1,12 +1,17 @@
 <?php
-include '../configs/config.php';
+include_once '../configs/config.php';
 
 // ----------------------
 // Course Description
 // ----------------------
-// initialize a Manager: new Manager(manager_id)
-// get methods: get_attributes() returns attributes
-// set methods: set_attributes_to(new_value) return true/false;
+// initialize a Course (should not be used explicitly): new Course($course_name)
+// set methods: set_course_name_to($course_name)
+// increase course count: increase_total_times_been_taught_by($number) return true
+
+// ----------------------
+// other functions
+// ----------------------
+// initialize a Course: $course = new_course($course_name);
 
 class Course {
     // ----------------------
@@ -19,26 +24,32 @@ class Course {
     // ----------------------
     private $course_id;
     private $course_name;
-    private $total_times_been_taught; //
+    private $total_times_been_taught;
 
     // ----------------------
     // constructor
     // ----------------------
-    function __construct() {
+    function __construct($course_name) {
         // set connection
         $this->connect_to_db = connection();
-    }
 
-    // ----------------------
-    // list function
-    // ----------------------
-    public function list_all_section_on($course_name, $section_seme) {
-        // select database
-        $sql = "SELECT *
-                FROM course_sections
-                WHERE course_name=$course_name;";
+        // set course name
+        $this->course_name = $course_name;
+
+        // fetch course row
+        $sql = "SELECT * 
+                FROM courses 
+                WHERE course_name
+                LIKE '%$this->course_name';";
         $result = mysqli_query($this->connect_to_db, $sql);
+        $row = mysqli_fetch_assoc($result);
 
+        if (!$result)
+            die('Connected failed: '.mysqli_error($this->connect_to_db));
+
+        // set attributes
+        $this->course_id = $row['course_id'];
+        $this->total_times_been_taught = $row['total_times_been_taught'];
     }
 
     // ----------------------
@@ -48,22 +59,59 @@ class Course {
         return $this->course_id;
     }
 
+    public function get_course_name() {
+        return $this->course_name;
+    }
+
+    public function get_total_times_been_taught() {
+        return $this->total_times_been_taught;
+    }
+
     // ----------------------
     // set functions
     // ----------------------
-    public function set_user_name_to($name) {
+    public function set_course_name_to($course_name) {
         // update database
-        $sql = "UPDATE managers
-                SET user_name=$name
-                WHERE manager_id=$this->manager_id;";
+        $sql = "UPDATE courses
+                SET course_name='$course_name'
+                WHERE course_id=$this->course_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
 
-        // set new result to user_name
-        if ($result) {
-            $this->user_name = $name;
-            return true;
-        }
+        if (!$result)
+            die('Update failed: '.mysqli_error($this->connect_to_db));
+
+        // set new result to course_name
+        $this->course_name = $course_name;
+        return true;
+    }
+
+    // ----------------------
+    // incrementing total_times_been_taught
+    // ----------------------
+    public function increase_total_times_been_taught_by($number) {
+        // update database
+        $new_count = $this->total_times_been_taught + $number;
+        $sql = "UPDATE courses
+                SET total_times_been_taught=$new_count
+                WHERE course_id=$this->course_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        if (!$result)
+            die('Update failed: '.mysqli_error($this->connect_to_db));
+
+        // set new result to total_times_been_taught
+        $this->total_times_been_taught = $new_count;
+        return true;
+    }
+}
+
+function new_course($course_name) {
+    $course = new Course($course_name);
+    if (!$course->get_course_id()) {
+        $course = null;
+        unset($course);
         return false;
     }
+    return $course;
 }
 ?>

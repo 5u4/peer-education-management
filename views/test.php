@@ -1,7 +1,8 @@
 <h1>Hello!</h1>
 <?php
-//include_once '../controllers/manager.php';
+include_once '../controllers/manager.php';
 include_once '../controllers/section.php';
+include_once '../controllers/course.php';
 
 
 // ----------------------
@@ -44,7 +45,20 @@ $section_name = 'TUESDAY 12:00-2:30';
 insert_section($section_seme, $section_name);
 //*/
 
+// ----------------------
+// Course testing code
+// ----------------------
 
-
+/* get method & set method
+$course = new_course('ECON103');
+echo $course->get_course_id();
+echo $course->get_course_name();
+echo $course->get_total_times_been_taught();
+$course->set_course_name_to('ECON103');
+echo $course->get_course_name();
+// increase course count
+$course->increase_total_times_been_taught_by(1);
+echo $course->get_total_times_been_taught();
+//*/
 
 ?>

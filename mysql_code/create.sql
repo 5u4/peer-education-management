@@ -86,6 +86,8 @@ CREATE INDEX idx_notes ON peer_education.announcements ( manager_id );
 CREATE TABLE peer_education.peducator_sections (
 	peducator_id         int UNSIGNED NOT NULL  ,
 	section_id           int UNSIGNED NOT NULL  ,
+	week_number          int UNSIGNED NOT NULL  ,
+	contributed_mins     int UNSIGNED NOT NULL  ,
 	CONSTRAINT pk_peducator_sections PRIMARY KEY ( peducator_id, section_id ),
 	CONSTRAINT pk_peducator_sections_0 UNIQUE ( peducator_id )
 ) engine=InnoDB;

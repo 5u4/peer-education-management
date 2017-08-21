@@ -20,6 +20,7 @@ class peducators {
 	private $first_name;
 	private $last_name;
 	private $section_id;
+	private $connect_to_db;
 
 
 	// These attributes should be retrieved from tables other than peducators
@@ -32,11 +33,11 @@ class peducators {
     	// ----------------------
 	function __construct($pe_id) {
 		// connection to db
-		$con = connection();
+		$this->connect_to_db = connection();
 
 		// send query to database
 		$sql = "SELECT * FROM peducators WHERE peducator_id=$pe_id;";
-        	$result = mysqli_query($con, $sql);
+        	$result = mysqli_query($this->connect_to_db, $sql);
         	$row = mysqli_fetch_assoc($result);
 
 		// check if the peducator exists
@@ -101,23 +102,38 @@ class peducators {
 	// ----------------------
 
 	public function set_student_id($stu_id) {
-		$this->student_id = $stu_id;
+		// update database
+		$sql = "UPDATE peducators 
+		SET student_id='$stu_id' WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connection_to_db, $sql);
 	}
 
 	public function set_preferred_name($pname) {
-		$this->preferred_name = $pname;
+		// update database
+		$sql = "UPDATE peducators 
+		SET student_id='$pname' WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connection_to_db, $sql);
 	}
 
 	public function set_first_name($fname) {
-		$this->first_name = $fname;
+		// update database
+		$sql = "UPDATE peducators 
+		SET student_id='$fname' WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connection_to_db, $sql);
 	}
 
 	public function set_last_name($lname) {
-		$this->last_name = $lname;
+		// update database
+		$sql = "UPDATE peducators 
+		SET student_id='$lname' WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connection_to_db, $sql);
 	}
 
 	public function set_section_id($sec_id) {
-		$this->section_id = $sec_id;
+		// update database
+		$sql = "UPDATE peducators 
+		SET student_id='$sec_id' WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connection_to_db, $sql);
 	}
 
 	public function set_courses() {

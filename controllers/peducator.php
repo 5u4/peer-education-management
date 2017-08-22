@@ -1,6 +1,6 @@
 <?php
 include_once '../configs/config.php';
-include_once '../controllers/course.php'
+include_once '../controllers/course.php';
 
 // ----------------------
 // peducators description

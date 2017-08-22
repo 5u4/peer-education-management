@@ -21,8 +21,6 @@ CREATE TABLE peer_education.peducators (
   CONSTRAINT unique_peducators UNIQUE ( student_id )
 ) engine=InnoDB;
 
-CREATE INDEX idx_peducators ON peer_education.peducators ( section_id );
-
 # --------------
 # courses
 # --------------
@@ -86,8 +84,7 @@ CREATE TABLE peer_education.peducator_sections (
 	section_id           int UNSIGNED NOT NULL  ,
 	week_number          int UNSIGNED NOT NULL  ,
 	contributed_mins     int UNSIGNED NOT NULL  ,
-	CONSTRAINT pk_peducator_sections PRIMARY KEY ( peducator_id, section_id ),
-	CONSTRAINT pk_peducator_sections_0 UNIQUE ( peducator_id )
+	CONSTRAINT pk_peducator_sections PRIMARY KEY ( peducator_id, section_id, week_number )
 ) engine=InnoDB;
 
 CREATE INDEX idx_peducator_sections ON peer_education.peducator_sections ( section_id );
@@ -99,7 +96,8 @@ CREATE TABLE peer_education.course_sections (
 	course_id            int UNSIGNED NOT NULL  ,
 	section_id           int UNSIGNED NOT NULL  ,
 	times_been_taught    int UNSIGNED NOT NULL DEFAULT 0 ,
-	CONSTRAINT pk_course_sections PRIMARY KEY ( course_id, section_id )
+	week_number          int UNSIGNED NOT NULL  ,
+	CONSTRAINT pk_course_sections PRIMARY KEY ( course_id, section_id, week_number )
 ) engine=InnoDB;
 
 # --------------

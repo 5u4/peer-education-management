@@ -63,7 +63,7 @@ $section_name = 'SECTION 2';
 insert_section($section_seme, $section_name);
 //*/
 
-//* list all sections
+/* list all sections
 $section_seme = '201702';
 foreach (list_all_sections_on($section_seme) as $value) {
     echo $value->get_section_id();
@@ -98,6 +98,16 @@ echo $course->get_total_times_been_taught();
 /* insert a course
 $course_name = 'ENSC100';
 insert_course($course_name);
+//*/
+
+/* get times_been_taught on week #
+$course = get_course(1);
+echo $course->get_times_been_taught_on(1);
+//*/
+
+/* incrementing times_been_taught by number on week number
+$course = get_course(1);
+$course->set_times_been_taught_by(2,2,1);                //  TEST THIS!
 //*/
 
 // ----------------------

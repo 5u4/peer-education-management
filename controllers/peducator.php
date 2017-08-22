@@ -88,7 +88,22 @@ class Peducator {
 		return $this->section_id;
 	}
 
-	public function get_courses() {
+	public function get_all_courses() {
+		// Get data from database
+		$sql = "SELECT course_id FROM peducator_courses 
+		WHERE peducator_id=$this->peducator_id;";		
+		$result = mysqli_query($this->connect_to_db, $sql);
+		$row = mysqli_fetch_assoc($result);	
+		
+		// Check if there are available courses
+		if($row == 0) {
+			echo 'No courses available.';
+			return null;
+		}
+	
+		// Update object attributes
+		$this->courses = $row['course_id'];
+		
 		return $this->courses;
 	}
 

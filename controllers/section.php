@@ -116,15 +116,17 @@ function insert_section($section_seme, $section_name) {
 }
 
 function list_all_sections_on($section_seme) {
+    // select database
     $con = connection();
     $sql = "SELECT section_id
             FROM sections
             WHERE section_seme='$section_seme';";
     $result = mysqli_query($con, $sql);
-    if (!$result) {
-        die('Insert failed: '.mysqli_error($con));
-    }
-    $row = mysqli_fetch_array($result);
-    echo $row['section_id'];
+
+    // store into array
+    $arr = [];
+    while ($row = mysqli_fetch_array($result))
+        array_push($arr, $row['section_id']);
+    return $arr;
 }
 ?>

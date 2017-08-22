@@ -65,7 +65,9 @@ insert_section($section_seme, $section_name);
 
 /* list all sections
 $section_seme = '201702';
-list_all_sections_on($section_seme);
+foreach (list_all_sections_on($section_seme) as $value) {
+    echo $value;
+}
 //*/
 
 // ----------------------
@@ -181,14 +183,9 @@ if ($manager->can_edit($announcement))
     $manager->edit_announcement($announcement, $content);
 //*/
 
-
-$current_user = new Manager(1);
-
-
-echo $pe = new peducators(2);
-
-
-
+//$pe = get_peducator(1);
+//echo $pe->get_last_name();
+//echo $pe->get_all_courses();
 
 
 

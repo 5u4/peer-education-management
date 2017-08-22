@@ -93,7 +93,7 @@ class Peducator {
 		$sql = "SELECT course_id FROM peducator_courses 
 		WHERE peducator_id=$this->peducator_id;";		
 		$result = mysqli_query($this->connect_to_db, $sql);
-		$row = mysqli_fetch_assoc($result);	
+		$row = mysqli_fetch_fields($result);
 		
 		// Check if there are available courses
 		if($row == 0) {
@@ -102,7 +102,7 @@ class Peducator {
 		}
 	
 		// Update object attributes
-		$this->courses = $row['course_id'];
+		$this->courses = $row[1];
 		
 		return $this->courses;
 	}

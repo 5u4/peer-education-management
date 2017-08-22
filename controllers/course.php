@@ -37,14 +37,13 @@ class Course {
         // set connection
         $this->connect_to_db = connection();
 
-        // set course name
+        // set course id
         $this->course_id = $course_id;
 
         // fetch course row
         $sql = "SELECT * 
                 FROM courses 
-                WHERE course_id
-                LIKE '%$this->course_id';";
+                WHERE course_id=$this->course_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -136,28 +135,27 @@ class Course {
     public function set_times_been_taught_by($number, $week_number, $section_id) {
         // select database
         $sql = "SELECT *
-                FROM course_sections
-                WHERE course_id
-                LIKE '%$this->course_id'
-                AND week_number=$week_number
+                FROM course_sections 
+                WHERE course_id=$this->course_id 
+                AND week_number=$week_number 
                 AND section_id=$section_id;";
         $result = mysqli_query($this->connect_to_db, $sql);
         if (!$result) {
             die('Select failed: '.mysqli_error($this->connect_to_db));
         }
 
-        if ($row = mysqli_fetch_rows($result)) { // if exist, update
+        if (mysqli_fetch_row($result)) { // if exist, update
             // update database
             $sql = "UPDATE course_sections
-                    SET times_been_taught=$number
-                    WHERE course_id
-                    LIKE '%$this->course_id'
-                    AND week_number=$week_number
+                    SET times_been_taught=$number 
+                    WHERE course_id=$this->course_id 
+                    AND week_number=$week_number 
                     AND section_id=$section_id;";
-            $result = mysqli_query($sql);
+            $result = mysqli_query($this->connect_to_db, $sql);
             if (!$result) {
                 die('Update failed: '.mysqli_error($this->connect_to_db));
             }
+
         } else { // if does not exist, insert
             // insert database
             $sql = "INSERT INTO course_sections (course_id, section_id, times_been_taught, week_number)
@@ -174,7 +172,7 @@ function get_course($course_id) {
     $con = connection();
     $sql = "SELECT * 
             FROM courses 
-            WHERE course_id='$course_id';";
+            WHERE course_id=$course_id;";
     $result = mysqli_query($con, $sql);
     if (mysqli_fetch_row($result))
         return new Course($course_id);
@@ -182,18 +180,18 @@ function get_course($course_id) {
         return null;
 }
 
-function insert_course($course_name) {
-    // insert database
-    $con = connection();
-    $sql = "INSERT INTO courses (course_name)
-            VALUES ('$course_name');";
-    $result = mysqli_query($con, $sql);
-    if (!$result) {
-        die('Insert failed: '.mysqli_error($con));
-    }
-
-    // get section id and return
-    echo 'course with name '.$course_name.' is inserted.';
-    return new Course($course_name);
-}
+//function insert_course($course_name) {
+//    // insert database
+//    $con = connection();
+//    $sql = "INSERT INTO courses (course_name)
+//            VALUES ('$course_name');";
+//    $result = mysqli_query($con, $sql);
+//    if (!$result) {
+//        die('Insert failed: '.mysqli_error($con));
+//    }
+//
+//    // get section id and return
+//    echo 'course with name '.$course_name.' is inserted.';
+//    return new Course($course_name);
+//}
 ?>

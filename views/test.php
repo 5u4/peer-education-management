@@ -75,8 +75,8 @@ foreach (list_all_sections_on($section_seme) as $value) {
 // ----------------------
 
 /* initializing a course
-$course_name = 'ECON105';
-if ($course = get_course($course_name))
+$course_id = 1;
+if ($course = get_course($course_id))
     echo 'true';
 else
     echo 'false';
@@ -106,8 +106,9 @@ echo $course->get_times_been_taught_on(1);
 //*/
 
 /* incrementing times_been_taught by number on week number
-$course = get_course(1);
-$course->set_times_been_taught_by(2,2,1);                //  TEST THIS!
+$course_id = 1;
+$course = get_course($course_id);
+$course->set_times_been_taught_by(2,1,1);
 //*/
 
 // ----------------------

@@ -1,5 +1,6 @@
 <?php
 include_once '../configs/config.php';
+include_once '../controllers/course.php'
 
 // ----------------------
 // peducators description
@@ -93,18 +94,14 @@ class Peducator {
 		$sql = "SELECT course_id FROM peducator_courses 
 		WHERE peducator_id=$this->peducator_id;";		
 		$result = mysqli_query($this->connect_to_db, $sql);
-		$row = mysqli_fetch_fields($result);
-		
-		// Check if there are available courses
-		if($row == 0) {
-			echo 'No courses available.';
-			return null;
+
+		$arr = [];
+		while ($row = mysqli_fetch_array($result)) {
+			array_push($arr, get_course($row['course_id']));
 		}
-	
-		// Update object attributes
-		$this->courses = $row[1];
-		
-		return $this->courses;
+
+		return $arr;
+
 	}
 
 	public function get_weekly_contributed_hours() {
@@ -173,17 +170,7 @@ class Peducator {
 	}
 
 	public function set_section_id($sec_id) {
-		// update database
-		$sql = "UPDATE peducators 
-		SET section_id='$sec_id' WHERE peducator_id=$this->peducator_id;";
-		$result = mysqli_query($this->connection_to_db, $sql);
 
-		// Update object attributes
-		if ($result) {
-			$this->section_id = $sec_id;
-			return true;
-		}
-		return false;
 	}
 
 	public function set_courses() {

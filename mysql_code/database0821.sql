@@ -86,3 +86,86 @@ CREATE TABLE `peer_education`.`peducator_courses` (
   `course_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`peducator_id`, `course_id`));
 
+  ALTER TABLE `peer_education`.`managers`
+  ADD INDEX `fk_managers_1_idx` (`section_id` ASC);
+  ALTER TABLE `peer_education`.`managers`
+  ADD CONSTRAINT `fk_managers_1`
+    FOREIGN KEY (`section_id`)
+    REFERENCES `peer_education`.`sections` (`section_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+
+  ALTER TABLE `peer_education`.`announcements`
+  CHANGE COLUMN `manager_id` `manager_id` INT(11) UNSIGNED NOT NULL ;
+
+
+  ALTER TABLE `peer_education`.`announcements`
+  ADD INDEX `fk_announcements_1_idx` (`manager_id` ASC);
+  ALTER TABLE `peer_education`.`announcements`
+  ADD CONSTRAINT `fk_announcements_1`
+    FOREIGN KEY (`manager_id`)
+    REFERENCES `peer_education`.`managers` (`manager_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+
+  ALTER TABLE `peer_education`.`notes`
+  ADD INDEX `fk_notes_1_idx` (`manager_id` ASC),
+  ADD INDEX `fk_notes_2_idx` (`peducator_id` ASC);
+  ALTER TABLE `peer_education`.`notes`
+  ADD CONSTRAINT `fk_notes_1`
+    FOREIGN KEY (`manager_id`)
+    REFERENCES `peer_education`.`managers` (`manager_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_notes_2`
+    FOREIGN KEY (`peducator_id`)
+    REFERENCES `peer_education`.`peducators` (`peducator_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+
+  ALTER TABLE `peer_education`.`peducator_sections`
+  ADD INDEX `fk_peducator_sections_2_idx` (`section_id` ASC);
+  ALTER TABLE `peer_education`.`peducator_sections`
+  ADD CONSTRAINT `fk_peducator_sections_1`
+    FOREIGN KEY (`peducator_id`)
+    REFERENCES `peer_education`.`peducators` (`peducator_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_peducator_sections_2`
+    FOREIGN KEY (`section_id`)
+    REFERENCES `peer_education`.`sections` (`section_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+
+  ALTER TABLE `peer_education`.`course_sections`
+  ADD INDEX `fk_course_sections_2_idx` (`section_id` ASC);
+  ALTER TABLE `peer_education`.`course_sections`
+  ADD CONSTRAINT `fk_course_sections_1`
+    FOREIGN KEY (`course_id`)
+    REFERENCES `peer_education`.`courses` (`course_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_course_sections_2`
+    FOREIGN KEY (`section_id`)
+    REFERENCES `peer_education`.`sections` (`section_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;
+
+
+  ALTER TABLE `peer_education`.`peducator_courses`
+  ADD INDEX `fk_peducator_courses_2_idx` (`course_id` ASC);
+  ALTER TABLE `peer_education`.`peducator_courses`
+  ADD CONSTRAINT `fk_peducator_courses_1`
+    FOREIGN KEY (`peducator_id`)
+    REFERENCES `peer_education`.`peducators` (`peducator_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_peducator_courses_2`
+    FOREIGN KEY (`course_id`)
+    REFERENCES `peer_education`.`courses` (`course_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION;

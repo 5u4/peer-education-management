@@ -1,6 +1,7 @@
 <?php
 include_once '../configs/config.php';
 include_once '../controllers/course.php';
+include_once '../controllers/section.php';
 
 // ----------------------
 // peducators description
@@ -20,12 +21,10 @@ class Peducator {
 	private $preferred_name;
 	private $first_name;
 	private $last_name;
-	private $section_id;
 	private $connect_to_db;
 
 
 	// These attributes should be retrieved from tables other than peducators
-	private $courses;
 	private $weekly_contributed_hours;
 
 
@@ -53,7 +52,6 @@ class Peducator {
         	$this->preferred_name = $row['preferred_name'];
        		$this->first_name = $row['first_name'];
 		$this->last_name = $row['last_name'];
-		$this->section_id = $row['section_id'];
 	} // end of __construct()
 
 
@@ -85,8 +83,18 @@ class Peducator {
 		return $this->last_name;
 	}
 
-	public function get_section_id() {
-		return $this->section_id;
+	public function get_all_sections() {
+		// Get data from database
+		$sql = "SELECT section_id FROM peducator_sections 
+		WHERE peducator_id=$this->peducator_id;";
+		$result = mysqli_query($this->connect_to_db, $sql);
+
+		$arr = [];
+		while ($row = mysqli_fetch_array($result)) {
+			array_push($arr, get_section($row['section_id']));
+		}
+
+		return $arr;	
 	}
 
 	public function get_all_courses() {

@@ -182,7 +182,52 @@ if(isset($_POST['Update'])) {
 
 if(isset($_POST['Delete'])) {
 	
+	$con = connection();
 
+	$peducator_id = $_POST['peducator_id'];
+	$student_id = $_POST['student_id'];
+
+	if(empty($_POST['peducator_id']) && empty($_POST['student_id'])) {
+		echo 'You must provide either a peer educator ID or a student ID to do delete.';
+		return false;
+	}
+
+	$check_sql = "SELECT * FROM peducators 
+	WHERE peducator_id = '$peducator_id' OR student_id = '$student_id'";
+	$check_result = mysqli_query($con, $check_sql);
+	
+	if(mysqli_num_rows($check_result) == 0) {
+		echo 'This peer educator does not exist.';
+		return false;
+	}
+
+	// ------------------------------------
+	// Check if PE ID matches Student ID
+	// ------------------------------------
+	if(!empty($_POST['peducator_id']) && !empty($_POST['student_id'])) {	
+		$row = mysqli_fetch_array($check_result);
+		if($row['peducator_id'] != $peducator_id || $row['student_id'] != $student_id) {
+			echo 'The PE ID does not match Student ID.';
+			return false;
+		}
+	}
+
+	// ------------------------------------
+	// Start to delete PE 
+	// ------------------------------------
+
+	$sql = "DELETE FROM peducators WHERE peducator_id='$peducator_id' OR student_id='$student_id'";
+
+	$result = mysqli_query($con, $sql);
+
+	if($result) {
+		echo 'The PE has been deleted.';
+		return true;
+	} else {
+		echo 'Delete failed.';
+		return false;
+	}
+	
 }
 
 

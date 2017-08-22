@@ -30,18 +30,18 @@ class Course {
     // ----------------------
     // constructor
     // ----------------------
-    function __construct($course_name) {
+    function __construct($course_id) {
         // set connection
         $this->connect_to_db = connection();
 
         // set course name
-        $this->course_name = $course_name;
+        $this->course_id = $course_id;
 
         // fetch course row
         $sql = "SELECT * 
                 FROM courses 
-                WHERE course_name
-                LIKE '%$this->course_name';";
+                WHERE course_id
+                LIKE '%$this->course_id';";
         $result = mysqli_query($this->connect_to_db, $sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -49,7 +49,7 @@ class Course {
             die('Connected failed: '.mysqli_error($this->connect_to_db));
 
         // set attributes
-        $this->course_id = $row['course_id'];
+        $this->course_name = $row['course_name'];
         $this->total_times_been_taught = $row['total_times_been_taught'];
     }
 
@@ -106,14 +106,14 @@ class Course {
     }
 }
 
-function get_course($course_name) {
+function get_course($course_id) {
     $con = connection();
     $sql = "SELECT * 
             FROM courses 
-            WHERE course_name='$course_name';";
+            WHERE course_id='$course_id';";
     $result = mysqli_query($con, $sql);
     if (mysqli_fetch_row($result))
-        return new Course($course_name);
+        return new Course($course_id);
     else
         return null;
 }

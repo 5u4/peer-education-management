@@ -92,7 +92,7 @@ class Peducator {
 	public function get_all_courses() {
 		// Get data from database
 		$sql = "SELECT course_id FROM peducator_courses 
-		WHERE peducator_id=$this->peducator_id;";		
+		WHERE peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connect_to_db, $sql);
 
 		$arr = [];

@@ -17,7 +17,6 @@ CREATE TABLE peer_education.peducators (
   preferred_name       varchar(45)  NOT NULL  ,
   first_name           varchar(45)  NOT NULL  ,
   last_name            varchar(45)  NOT NULL  ,
-  section_id           int    ,
   CONSTRAINT pk_peducators PRIMARY KEY ( peducator_id ),
   CONSTRAINT unique_peducators UNIQUE ( student_id )
 ) engine=InnoDB;
@@ -123,5 +122,4 @@ ALTER TABLE peer_education.managers ADD CONSTRAINT fk_managers_sections FOREIGN 
 ALTER TABLE peer_education.notes ADD CONSTRAINT fk_notes_managers FOREIGN KEY ( manager_id ) REFERENCES peer_education.managers( manager_id ) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE peer_education.notes ADD CONSTRAINT fk_notes_peducators FOREIGN KEY ( peducator_id ) REFERENCES peer_education.peducators( peducator_id ) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE peer_education.peducator_sections ADD CONSTRAINT fk_peducator_sections FOREIGN KEY ( peducator_id ) REFERENCES peer_education.peducators( peducator_id ) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE peer_education.peducator_sections ADD CONSTRAINT fk_peducator_sections_sections FOREIGN KEY ( section_id ) REFERENCES peer_education.sections( section_id ) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE peer_education.course_sections ADD CONSTRAINT fk_course_sections_courses FOREIGN KEY ( course_id ) REFERENCES peer_education.courses( course_id ) ON DELETE CASCADE ON UPDATE CASCADE;

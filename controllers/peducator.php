@@ -36,7 +36,7 @@ class Peducator {
 		$this->connect_to_db = connection();
 
 		// send query to database
-		$sql = "SELECT * FROM peducators WHERE peducator_id=$pe_id;";
+		$sql = "SELECT * FROM peducators WHERE peducator_id='$pe_id'";
         	$result = mysqli_query($this->connect_to_db, $sql);
         	$row = mysqli_fetch_assoc($result);
 
@@ -86,7 +86,7 @@ class Peducator {
 	public function get_all_sections() {
 		// Get data from database
 		$sql = "SELECT section_id FROM peducator_sections 
-		WHERE peducator_id=$this->peducator_id;";
+		WHERE peducator_id='$this->peducator_id'";
 		$result = mysqli_query($this->connect_to_db, $sql);
 
 		$arr = [];
@@ -100,7 +100,7 @@ class Peducator {
 	public function get_all_courses() {
 		// Get data from database
 		$sql = "SELECT course_id FROM peducator_courses 
-		WHERE peducator_id=$this->peducator_id;";
+		WHERE peducator_id='$this->peducator_id'";
 		$result = mysqli_query($this->connect_to_db, $sql);
 
 		$arr = [];
@@ -124,8 +124,8 @@ class Peducator {
 	public function set_student_id($stu_id) {
 		// update database
 		$sql = "UPDATE peducators 
-		SET student_id='$stu_id' WHERE peducator_id=$this->peducator_id;";
-		$result = mysqli_query($this->connection_to_db, $sql);
+		SET student_id='$stu_id' WHERE peducator_id='$this->peducator_id'";
+		$result = mysqli_query($this->connect_to_db, $sql);
 
 		// Update object attributes
 		if ($result) {
@@ -138,22 +138,23 @@ class Peducator {
 	public function set_preferred_name($pname) {
 		// update database
 		$sql = "UPDATE peducators 
-		SET preferred_name='$pname' WHERE peducator_id=$this->peducator_id;";
-		$result = mysqli_query($this->connection_to_db, $sql);
+		SET preferred_name='$pname' WHERE peducator_id='$this->peducator_id'";
+		$result = mysqli_query($this->connect_to_db, $sql);
 
 		// Update object attributes
 		if ($result) {
 			$this->preferred_name = $pname;
 			return true;
 		}
+
 		return false;
 	}
 
 	public function set_first_name($fname) {
 		// update database
 		$sql = "UPDATE peducators 
-		SET first_name='$fname' WHERE peducator_id=$this->peducator_id;";
-		$result = mysqli_query($this->connection_to_db, $sql);
+		SET first_name='$fname' WHERE peducator_id='$this->peducator_id'";
+		$result = mysqli_query($this->connect_to_db, $sql);
 
 		// Update object attributes
 		if ($result) {
@@ -166,8 +167,8 @@ class Peducator {
 	public function set_last_name($lname) {
 		// update database
 		$sql = "UPDATE peducators 
-		SET last_name='$lname' WHERE peducator_id=$this->peducator_id;";
-		$result = mysqli_query($this->connection_to_db, $sql);
+		SET last_name='$lname' WHERE peducator_id='$this->peducator_id'";
+		$result = mysqli_query($this->connect_to_db, $sql);
 
 		// Update object attributes
 		if ($result) {
@@ -195,7 +196,7 @@ class Peducator {
 	}
 
 	public function delete_courses($cour_id) {
-		$sql = "DELETE FROM peducator_courses WHERE course_id=$cour_id";
+		$sql = "DELETE FROM peducator_courses WHERE course_id='$cour_id'";
 		$result = mysqli_query($this->connect_to_db, $sql);
 
 		if($result) {
@@ -211,8 +212,8 @@ class Peducator {
 		//
 		$check_sql = "SELECT * FROM peducator_sections 
 		WHERE peducator_id = '$this->peducator_id' 
-		AND section_id = $sec_id 
-		AND week_number = $weeknum";
+		AND section_id = '$sec_id' 
+		AND week_number = '$weeknum'";
 
 		$check_result = mysqli_query($this->connect_to_db, $check_sql);
 		
@@ -232,9 +233,9 @@ class Peducator {
 
 			$sql = "UPDATE peducator_sections 
 			SET contributed_mins='$mins' 
-			WHERE peducator_id=$this->peducator_id 
-			AND section_id = $sec_id 
-			AND week_number = $weeknum;";
+			WHERE peducator_id='$this->peducator_id' 
+			AND section_id = '$sec_id' 
+			AND week_number = '$weeknum'";
 
 			$result = mysqli_query($this->connect_to_db, $sql);
 
@@ -275,7 +276,7 @@ function get_peducator($peducator_id) {
     $con = connection();
     $sql = "SELECT * 
             FROM peducators 
-            WHERE peducator_id=$peducator_id;";
+            WHERE peducator_id='$peducator_id'";
     $result = mysqli_query($con, $sql);
     if (mysqli_fetch_row($result))
         return new Peducator($peducator_id);

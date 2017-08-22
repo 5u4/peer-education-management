@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/peducator.php" afterPath="$PROJECT_DIR$/controllers/peducator.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/section.php" afterPath="$PROJECT_DIR$/controllers/section.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/test.php" afterPath="$PROJECT_DIR$/views/test.php" />
     </list>
@@ -41,19 +39,19 @@
       <file leaf-file-name="section.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/section.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="126" column="14" lean-forward="true" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
+            <state relative-caret-position="770">
+              <caret line="128" column="34" lean-forward="false" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
               <folding>
-                <marker date="1503363561000" expanded="true" signature="1408:1482" ph="SELECT * FRO... sections" />
-                <marker date="1503363561000" expanded="true" signature="1408:1489" ph="SELECT * FRO... sections" />
-                <marker date="1503363561000" expanded="true" signature="2255:2355" ph="UPDATE manag... " />
-                <marker date="1503363561000" expanded="true" signature="2680:2746" ph="SELECT * FRO... sections" />
-                <marker date="1503363561000" expanded="true" signature="2680:2757" ph="SELECT * FRO... sections" />
-                <marker date="1503363561000" expanded="true" signature="3026:3129" ph="INSERT INTO sections... " />
-                <marker date="1503363561000" expanded="true" signature="3530:3573" ph="SELECT * FRO... sections" />
-                <marker date="1503363561000" expanded="true" signature="3530:3605" ph="SELECT secti... sections" />
-                <marker date="1503363561000" expanded="true" signature="3530:3620" ph="SELECT secti... sections" />
-                <marker date="1503363561000" expanded="true" signature="3530:3818" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="1408:1482" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="1408:1489" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="2255:2355" ph="UPDATE manag... " />
+                <marker date="1503363970000" expanded="true" signature="2680:2746" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="2680:2757" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="3026:3129" ph="INSERT INTO sections... " />
+                <marker date="1503363970000" expanded="true" signature="3530:3573" ph="SELECT * FRO... sections" />
+                <marker date="1503363970000" expanded="true" signature="3530:3605" ph="SELECT secti... sections" />
+                <marker date="1503363970000" expanded="true" signature="3530:3620" ph="SELECT secti... sections" />
+                <marker date="1503363970000" expanded="true" signature="3530:3831" ph="SELECT * FRO... sections" />
               </folding>
             </state>
           </provider>
@@ -62,8 +60,8 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="509">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -239,12 +237,12 @@
       <workItem from="1503209181097" duration="6637000" />
       <workItem from="1503254897552" duration="24847000" />
       <workItem from="1503310095024" duration="56000" />
-      <workItem from="1503348926343" duration="11062000" />
+      <workItem from="1503348926343" duration="11233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55137000" />
+    <option name="totallyTimeSpent" value="55308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="607" y="23" width="1073" height="1027" extended-state="0" />
@@ -653,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/peducator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -678,21 +668,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/section.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="126" column="14" lean-forward="true" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
+        <state relative-caret-position="770">
+          <caret line="128" column="34" lean-forward="false" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
           <folding>
-            <marker date="1503363561000" expanded="true" signature="1408:1482" ph="SELECT * FRO... sections" />
-            <marker date="1503363561000" expanded="true" signature="1408:1489" ph="SELECT * FRO... sections" />
-            <marker date="1503363561000" expanded="true" signature="2255:2355" ph="UPDATE manag... " />
-            <marker date="1503363561000" expanded="true" signature="2680:2746" ph="SELECT * FRO... sections" />
-            <marker date="1503363561000" expanded="true" signature="2680:2757" ph="SELECT * FRO... sections" />
-            <marker date="1503363561000" expanded="true" signature="3026:3129" ph="INSERT INTO sections... " />
-            <marker date="1503363561000" expanded="true" signature="3530:3573" ph="SELECT * FRO... sections" />
-            <marker date="1503363561000" expanded="true" signature="3530:3605" ph="SELECT secti... sections" />
-            <marker date="1503363561000" expanded="true" signature="3530:3620" ph="SELECT secti... sections" />
-            <marker date="1503363561000" expanded="true" signature="3530:3818" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="1408:1482" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="1408:1489" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="2255:2355" ph="UPDATE manag... " />
+            <marker date="1503363970000" expanded="true" signature="2680:2746" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="2680:2757" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="3026:3129" ph="INSERT INTO sections... " />
+            <marker date="1503363970000" expanded="true" signature="3530:3573" ph="SELECT * FRO... sections" />
+            <marker date="1503363970000" expanded="true" signature="3530:3605" ph="SELECT secti... sections" />
+            <marker date="1503363970000" expanded="true" signature="3530:3620" ph="SELECT secti... sections" />
+            <marker date="1503363970000" expanded="true" signature="3530:3831" ph="SELECT * FRO... sections" />
           </folding>
         </state>
       </provider>

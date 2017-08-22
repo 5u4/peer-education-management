@@ -126,7 +126,7 @@ function list_all_sections_on($section_seme) {
     // store into array
     $arr = [];
     while ($row = mysqli_fetch_array($result))
-        array_push($arr, $row['section_id']);
+        array_push($arr, get_section($row['section_id']));
     return $arr;
 }
 ?>

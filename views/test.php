@@ -66,7 +66,7 @@ insert_section($section_seme, $section_name);
 /* list all sections
 $section_seme = '201702';
 foreach (list_all_sections_on($section_seme) as $value) {
-    echo $value;
+    echo $value->get_section_id();
 }
 //*/
 

@@ -331,6 +331,85 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 }
 
 
+function Peducator_update_pe($peducator_id, $student_id, $preferred_name, 
+		$first_name, $last_name) {
+	
+	$con = connection();
+
+	if(empty($peducator_id) && empty($student_id)) {
+		echo 'You must provide either a peer educator ID or a student ID to do update.';
+		return false;
+	}
+
+	if(!empty($peducator_id)) {
+		$check_sql = "SELECT * FROM peducators 
+		WHERE peducator_id = '$peducator_id'";
+		$check_result = mysqli_query($con, $check_sql);
+	} else {
+		$check_sql = "SELECT * FROM peducators 
+		WHERE student_id = '$student_id'";
+		$check_result = mysqli_query($con, $check_sql);
+	}
+
+	if(mysqli_num_rows($check_result) == 0) {
+		echo 'This peer educator does not exist.';
+		return false;
+	}
+
+	// ------------------------------------
+	// Check if PE ID matches Student ID
+	// ------------------------------------
+	if(!empty($peducator_id) && !empty($student_id)) {	
+		$row = mysqli_fetch_array($check_result);
+		if($row['peducator_id'] != $peducator_id || $row['student_id'] != $student_id) {
+			echo 'The PE ID does not match Student ID.';
+			return false;
+		}
+		
+		// Get PE ID for instant object
+		$pe_object_id = $row['peducator_id'];
+	} else {
+		// Get PE ID for instant object
+		$row = mysqli_fetch_array($check_result);
+		$pe_object_id = $row['peducator_id'];
+	}
+
+
+	// ------------------------------------
+	// Start to update PE information
+	// ------------------------------------
+	$pe = new Peducator($pe_object_id);
+
+	if(!empty($preferred_name)) {
+		$result_code = $pe->set_preferred_name($preferred_name);
+		if($result_code == false) {
+			echo 'Update preferred name failed.';
+			return false;
+		}
+	}
+
+	if(!empty($first_name)) {
+		$result_code = $pe->set_first_name($first_name);
+		if($result_code == false) {
+			echo 'Update first name failed.';
+			return false;
+		}
+	}
+
+	if(!empty($last_name)) {
+		$result_code = $pe->set_last_name($last_name);
+		if($result_code == false) {
+			echo 'Update last name failed.';
+			return false;
+		}
+	}
+	
+	echo 'Update success.';
+	return true;
+
+}
+
+
 
 
 ?>

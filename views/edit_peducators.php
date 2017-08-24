@@ -51,70 +51,8 @@ include_once '../controllers/peducator.php';
 
 if(isset($_POST['Add'])) {
 
-	
 	Peducator_add_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
 	$_POST['first_name'], $_POST['last_name']);
-
-	/*
-	if(empty($_POST['peducator_id'])) {
-		echo 'You must provide a peer educator ID.';
-		return false;
-	}
-
-	if(empty($_POST['peducator_id']) || empty($_POST['student_id']) 
-	|| empty($_POST['preferred_name']) || empty($_POST['first_name']) 
-	|| empty($_POST['last_name'])) {
-		echo 'Please fill out the form properly.';
-		return false;
-	}
-*/
-	////////////////////
-
-/*
-	$con = connection();
-
-	$peducator_id = $_POST['peducator_id'];
-	$student_id = $_POST['student_id'];
-	$preferred_name = $_POST['preferred_name'];
-	$first_name = $_POST['first_name'];
-	$last_name = $_POST['last_name'];
-
-	if(empty($_POST['peducator_id'])) {
-		echo 'You must provide a peer educator ID.';
-		return false;
-	}
-
-	$check_sql = "SELECT * FROM peducators 
-	WHERE peducator_id = '$peducator_id' OR student_id = '$student_id'";
-	$check_result = mysqli_query($con, $check_sql);
-	
-	if(mysqli_num_rows($check_result) != 0) {
-		echo 'This peer educator already exists.';
-		return false;
-	} else {
-		if(!empty($_POST['peducator_id']) && !empty($_POST['student_id']) && !empty($_POST['preferred_name']) && !empty($_POST['first_name']) && !empty($_POST['last_name'])) {
-			
-			$sql = "INSERT INTO peducators 
-			(peducator_id,student_id,preferred_name,first_name,last_name) 
-			VALUES ('$peducator_id','$student_id',
-			'$preferred_name','$first_name', 
-			'$last_name')";
-
-			$result = mysqli_query($con, $sql);
-
-			if($result) {
-				echo 'New peer educator has been created.';
-				return true;
-			} else {
-				echo 'Failed.';
-				return false;
-			}
-		} else {
-			echo 'Please fill out all the boxes.';
-			return false;
-		}
-	}
-*/
 }
 
 
@@ -123,7 +61,11 @@ if(isset($_POST['Add'])) {
 // ---------------------
 
 if(isset($_POST['Update'])) {
-	
+
+	Peducator_update_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
+	$_POST['first_name'], $_POST['last_name']);
+
+/*
 	$con = connection();
 	
 	$peducator_id = $_POST['peducator_id'];
@@ -192,7 +134,7 @@ if(isset($_POST['Update'])) {
 	
 	echo 'Update success.';
 	return true;
-
+*/
 }
 
 

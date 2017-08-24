@@ -50,7 +50,27 @@ include_once '../controllers/peducator.php';
 // ---------------------
 
 if(isset($_POST['Add'])) {
+
 	
+	Peducator_add_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
+	$_POST['first_name'], $_POST['last_name']);
+
+	/*
+	if(empty($_POST['peducator_id'])) {
+		echo 'You must provide a peer educator ID.';
+		return false;
+	}
+
+	if(empty($_POST['peducator_id']) || empty($_POST['student_id']) 
+	|| empty($_POST['preferred_name']) || empty($_POST['first_name']) 
+	|| empty($_POST['last_name'])) {
+		echo 'Please fill out the form properly.';
+		return false;
+	}
+*/
+	////////////////////
+
+/*
 	$con = connection();
 
 	$peducator_id = $_POST['peducator_id'];
@@ -94,7 +114,7 @@ if(isset($_POST['Add'])) {
 			return false;
 		}
 	}
-
+*/
 }
 
 

@@ -284,4 +284,53 @@ function get_peducator($peducator_id) {
         return null;
 }
 
+
+function Peducator_add_pe($peducator_id, $student_id, $preferred_name, 
+		$first_name, $last_name) {
+	
+	if(empty($peducator_id)) {
+		echo 'You must provide a peer educator ID.';
+		return false;
+	}
+
+	if(empty($peducator_id) || empty($student_id) 
+	|| empty($preferred_name) || empty($first_name) 
+	|| empty($last_name)) {
+		echo 'Please fill out the form properly.';
+		return false;
+	}
+
+	$con = connection();
+
+	$check_sql = "SELECT * FROM peducators 
+	WHERE peducator_id = '$peducator_id' 
+	OR student_id = '$student_id'";
+	$check_result = mysqli_query($con, $check_sql);
+	
+	if(mysqli_num_rows($check_result) != 0) {
+		echo 'This peer educator already exists.';
+		return false;
+	}
+
+	$sql = "INSERT INTO peducators 
+		(peducator_id,student_id,preferred_name,first_name,last_name) 
+		VALUES ('$peducator_id','$student_id',
+		'$preferred_name','$first_name', 
+		'$last_name')";
+
+		$result = mysqli_query($con, $sql);
+
+		if($result) {
+			echo 'New peer educator has been created.';
+			return true;
+		} else {
+			echo 'Failed.';
+			return false;
+		}
+
+}
+
+
+
+
 ?>

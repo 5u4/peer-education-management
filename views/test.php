@@ -96,8 +96,9 @@ echo $course->get_total_times_been_taught();
 //*/
 
 /* insert a course
-$course_name = 'ENSC100';
-insert_course($course_name);
+$course_name = 'MATH151';
+$course = insert_course($course_name);
+echo $course->get_course_id();
 //*/
 
 /* get times_been_taught on week #
@@ -200,8 +201,37 @@ if ($manager->can_edit($announcement))
 
 
 
+?>
+
+
+<?php
+
+$course = get_course(1);
+
+echo $course->get_course_name().' '.$course->get_total_times_been_taught();
+
+echo '
+<form method="post" action="">
+    <input type="number" name="number">
+    <input type="submit" value="number" name="submit">
+</form>
+';
+
+?>
 
 
 
 
+
+
+
+
+<?php // supporting functions
+function yo() {
+    echo 'hello'.' '.$_POST['number'];
+}
+
+if (isset($_POST['number'])) {
+    yo();
+}
 ?>

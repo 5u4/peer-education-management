@@ -108,7 +108,7 @@ class Course {
     }
 
     // ----------------------
-    // get times_been_taught on week#
+    // get times_been_taught on week #
     // ----------------------
     public function get_times_been_taught_on($week_number) {
         // select database
@@ -130,7 +130,7 @@ class Course {
     }
 
     // ----------------------
-    // incrementing times_been_taught by number on week number
+    // set times_been_taught by number on week number
     // ----------------------
     public function set_times_been_taught_by($number, $week_number, $section_id) {
         // select database
@@ -180,18 +180,37 @@ function get_course($course_id) {
         return null;
 }
 
-//function insert_course($course_name) {
-//    // insert database
-//    $con = connection();
-//    $sql = "INSERT INTO courses (course_name)
-//            VALUES ('$course_name');";
-//    $result = mysqli_query($con, $sql);
-//    if (!$result) {
-//        die('Insert failed: '.mysqli_error($con));
-//    }
-//
-//    // get section id and return
-//    echo 'course with name '.$course_name.' is inserted.';
-//    return new Course($course_name);
-//}
+function insert_course($course_name) {
+    // insert database
+    $con = connection();
+    $sql = "INSERT INTO courses (course_name)
+            VALUES ('$course_name');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+
+    // get course id and return
+    echo 'course with name '.$course_name.' is inserted.';
+    $sql = "SELECT *
+            FROM courses 
+            WHERE course_name='$course_name';";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    return new Course($row['course_id']);
+}
+
+function list_all_courses() {
+    // select database
+    $con = connection();
+    $sql = "SELECT course_id 
+            FROM courses;";
+    $result = mysqli_query($con, $sql);
+
+    // store into array
+    $arr = [];
+    while ($row = mysqli_fetch_array($result))
+        array_push($arr, get_course($row['course_id']));
+    return $arr;
+}
 ?>

@@ -22,6 +22,7 @@ class Peducator {
 	private $first_name;
 	private $last_name;
 	private $connect_to_db;
+	private $is_current;
 
 
 	// These attributes should be retrieved from tables other than peducators
@@ -52,6 +53,7 @@ class Peducator {
         	$this->preferred_name = $row['preferred_name'];
        		$this->first_name = $row['first_name'];
 		$this->last_name = $row['last_name'];
+		$this->is_current = $row['is_current'];
 	} // end of __construct()
 
 
@@ -83,6 +85,10 @@ class Peducator {
 		return $this->last_name;
 	}
 
+	public function get_is_current() {
+		return $this->is_current;
+	}
+	// continue from this point tomorrow
 	public function get_all_sections() {
 		// Get data from database
 		$sql = "SELECT section_id FROM peducator_sections 

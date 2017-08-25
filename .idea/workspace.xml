@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/test.php" afterPath="$PROJECT_DIR$/views/test.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,16 +16,19 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="284" column="20" lean-forward="false" selection-start-line="284" selection-start-column="20" selection-end-line="284" selection-end-column="20" />
+            <state relative-caret-position="773">
+              <caret line="299" column="1" lean-forward="true" selection-start-line="299" selection-start-column="1" selection-end-line="299" selection-end-column="1" />
               <folding>
                 <element signature="e#4501#5004#0#PHP" expanded="true" />
-                <marker date="1503649015000" expanded="true" signature="4678:4782" ph="..." />
-                <marker date="1503649015000" expanded="true" signature="5436:5541" ph="..." />
-                <marker date="1503649015000" expanded="true" signature="5445:5536" ph="..." />
-                <marker date="1503649015000" expanded="true" signature="5823:6018" ph="..." />
-                <marker date="1503649015000" expanded="true" signature="5824:6018" ph="..." />
-                <marker date="1503649015000" expanded="true" signature="5886:5963" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="4678:4782" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="5436:5541" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="5445:5536" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="5836:6031" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="5837:6031" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="5899:5976" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="6687:6712" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="6687:6713" ph="..." />
+                <marker date="1503649508000" expanded="true" signature="6687:6820" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,8 +37,8 @@
       <file leaf-file-name="course.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/course.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="144" column="57" lean-forward="false" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="57" />
+            <state relative-caret-position="351">
+              <caret line="238" column="28" lean-forward="false" selection-start-line="238" selection-start-column="28" selection-end-line="238" selection-end-column="28" />
               <folding>
                 <marker date="1503639945000" expanded="true" signature="1398:1470" ph="SELECT * FRO... courses" />
                 <marker date="1503639945000" expanded="true" signature="1398:1486" ph="SELECT * FRO... courses" />
@@ -239,12 +241,12 @@
       <workItem from="1503439276361" duration="703000" />
       <workItem from="1503515569393" duration="4917000" />
       <workItem from="1503635205301" duration="6012000" />
-      <workItem from="1503648472856" duration="519000" />
+      <workItem from="1503648472856" duration="1012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81555000" />
+    <option name="totallyTimeSpent" value="82048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="784" y="23" width="896" height="1027" extended-state="0" />
@@ -527,6 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1745" column="22" lean-forward="false" selection-start-line="1745" selection-start-column="22" selection-end-line="1745" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -673,8 +676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/course.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="144" column="57" lean-forward="false" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="57" />
+        <state relative-caret-position="351">
+          <caret line="238" column="28" lean-forward="false" selection-start-line="238" selection-start-column="28" selection-end-line="238" selection-end-column="28" />
           <folding>
             <marker date="1503639945000" expanded="true" signature="1398:1470" ph="SELECT * FRO... courses" />
             <marker date="1503639945000" expanded="true" signature="1398:1486" ph="SELECT * FRO... courses" />
@@ -713,16 +716,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="284" column="20" lean-forward="false" selection-start-line="284" selection-start-column="20" selection-end-line="284" selection-end-column="20" />
+        <state relative-caret-position="773">
+          <caret line="299" column="1" lean-forward="true" selection-start-line="299" selection-start-column="1" selection-end-line="299" selection-end-column="1" />
           <folding>
             <element signature="e#4501#5004#0#PHP" expanded="true" />
-            <marker date="1503649015000" expanded="true" signature="4678:4782" ph="..." />
-            <marker date="1503649015000" expanded="true" signature="5436:5541" ph="..." />
-            <marker date="1503649015000" expanded="true" signature="5445:5536" ph="..." />
-            <marker date="1503649015000" expanded="true" signature="5823:6018" ph="..." />
-            <marker date="1503649015000" expanded="true" signature="5824:6018" ph="..." />
-            <marker date="1503649015000" expanded="true" signature="5886:5963" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="4678:4782" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="5436:5541" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="5445:5536" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="5836:6031" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="5837:6031" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="5899:5976" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="6687:6712" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="6687:6713" ph="..." />
+            <marker date="1503649508000" expanded="true" signature="6687:6820" ph="..." />
           </folding>
         </state>
       </provider>

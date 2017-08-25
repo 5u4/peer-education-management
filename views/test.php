@@ -252,7 +252,7 @@ echo '
 
 // read each courses
 foreach ($courses as $key=>$course) {
-    echo '<tr>';
+    echo '<tr>'; // table row
     echo '<td>'.$course->get_course_name().'</td>';
     echo '<td>'.$course->get_times_been_taught_on_with_section($current_week, $current_seme_id).'</td>';
     echo '
@@ -262,27 +262,43 @@ foreach ($courses as $key=>$course) {
         <td><input type="submit" value="Change" name="submit"></td>
     </form>
     ';
-
-
-    echo '</tr>';
-    echo $key;
+    echo '</tr>'; // end table row
 }
-
-echo '</table>';
+echo '</table>'; // end table structure
 
 // if Change button is clicked call function
 if (isset($_POST['number']) && isset($_POST['key_num'])) {
-    $num = $_POST['number'];
-    $key_num = $_POST['key_num'];
+    $num = $_POST['number']; // the number user entered
+    $key_num = $_POST['key_num']; // the row number
 
+    // update the number
     $courses[$key_num]->set_times_been_taught_by($num, 1,1);
+
+    // update the total number
     $courses[$key_num]->refresh_total_times_been_taught();
+
+    // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-// PROBLEM: cannot identify the object when click Change which will lead to
-//          the change of the last object
-// PROBLEM SOLVED :)
+// insert a course
+echo '
+    Add a new course into the list: 
+    <form method="post" action="">
+        <td><input type="text" name="course_name"></td>
+        <td><input type="submit" value="Add" name="submit"></td>
+    </form>';
+
+if (isset($_POST['course_name'])) {
+    $course_name = $_POST['course_name'];
+
+    // insert the course
+    insert_course($course_name);
+
+    // refresh the website
+    echo "<meta http-equiv='refresh' content='0'>";
+}
+
 
 ?>
 

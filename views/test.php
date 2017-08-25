@@ -106,10 +106,10 @@ $course = get_course(1);
 echo $course->get_times_been_taught_on(1);
 //*/
 
-/* incrementing times_been_taught by number on week number
+/* set times_been_taught by number on week number
 $course_id = 1;
 $course = get_course($course_id);
-$course->set_times_been_taught_by(2,1,1);
+$course->set_times_been_taught_by(3,1,1);
 //*/
 
 // ----------------------
@@ -203,35 +203,55 @@ if ($manager->can_edit($announcement))
 
 ?>
 
-
 <?php
+
+/* A simple way of transferring data
 
 $course = get_course(1);
 
 echo $course->get_course_name().' '.$course->get_total_times_been_taught();
 
+$course_obj = $_POST[$course];
 echo '
 <form method="post" action="">
+
     <input type="number" name="number">
     <input type="submit" value="number" name="submit">
 </form>
 ';
 
-?>
-
-
-
-
-
-
-
-
-<?php // supporting functions
-function yo() {
-    echo 'hello'.' '.$_POST['number'];
-}
-
 if (isset($_POST['number'])) {
-    yo();
+    $num = $_POST['number'];
+    $course->set_times_been_taught_by($num, 1,1);
+    $course->refresh_total_times_been_taught();
+    echo "<meta http-equiv='refresh' content='0'>";
 }
+//*/
 ?>
+
+
+
+<?php
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

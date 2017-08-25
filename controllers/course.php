@@ -108,6 +108,38 @@ class Course {
     }
 
     // ----------------------
+    // refresh total_times_been_taught
+    // ----------------------
+    public function refresh_total_times_been_taught() {
+        // select database
+        $sql = "SELECT * 
+                FROM course_sections  
+                WHERE course_id=$this->course_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        if (!$result)
+            die('Select failed: '.mysqli_error($this->connect_to_db));
+
+        // sum over the time
+        $sum = 0;
+        while($row = mysqli_fetch_array($result))
+            $sum += $row['times_been_taught'];
+
+        // update total times
+        $sql = "UPDATE courses
+                SET total_times_been_taught=$sum 
+                WHERE course_id=$this->course_id;";
+
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        if (!$result)
+            die('Update failed: '.mysqli_error($this->connect_to_db));
+
+        $this->total_times_been_taught = $sum;
+        return $sum;
+    }
+
+    // ----------------------
     // get times_been_taught on week #
     // ----------------------
     public function get_times_been_taught_on($week_number) {

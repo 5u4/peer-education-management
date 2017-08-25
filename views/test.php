@@ -258,27 +258,31 @@ foreach ($courses as $key=>$course) {
     echo '
     <form method="post" action="">
         <td><input type="number" name="number"></td>
+        <input type="hidden" name="key_num" value="'.$key.'">
         <td><input type="submit" value="Change" name="submit"></td>
     </form>
     ';
 
 
     echo '</tr>';
+    echo $key;
 }
 
 echo '</table>';
 
 // if Change button is clicked call function
-if (isset($_POST['number'])) {
+if (isset($_POST['number']) && isset($_POST['key_num'])) {
     $num = $_POST['number'];
+    $key_num = $_POST['key_num'];
 
-    $courses[$key]->set_times_been_taught_by($num, 1,1);
-    $courses[$key]->refresh_total_times_been_taught();
+    $courses[$key_num]->set_times_been_taught_by($num, 1,1);
+    $courses[$key_num]->refresh_total_times_been_taught();
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
 // PROBLEM: cannot identify the object when click Change which will lead to
 //          the change of the last object
+// PROBLEM SOLVED :)
 
 ?>
 

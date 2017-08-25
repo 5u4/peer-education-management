@@ -142,12 +142,33 @@ class Course {
     // ----------------------
     // get times_been_taught on week #
     // ----------------------
+    public function get_times_been_taught_on_with_section($week_number, $section_id) {
+        // select database
+        $sql = "SELECT * 
+                FROM course_sections  
+                WHERE course_id=$this->course_id 
+                AND week_number=$week_number
+                AND section_id=$section_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        if (!$result)
+            die('Select failed: '.mysqli_error($this->connect_to_db));
+
+        // sum over the time
+        $sum = 0;
+        while($row = mysqli_fetch_array($result))
+            $sum += $row['times_been_taught'];
+        return $sum;
+    }
+
+    // ----------------------
+    // get times_been_taught on week #
+    // ----------------------
     public function get_times_been_taught_on($week_number) {
         // select database
         $sql = "SELECT * 
                 FROM course_sections  
-                WHERE course_id
-                LIKE '%$this->course_id'
+                WHERE course_id=$this->course_id 
                 AND week_number=$week_number;";
         $result = mysqli_query($this->connect_to_db, $sql);
 

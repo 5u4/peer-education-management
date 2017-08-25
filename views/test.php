@@ -211,7 +211,6 @@ $course = get_course(1);
 
 echo $course->get_course_name().' '.$course->get_total_times_been_taught();
 
-$course_obj = $_POST[$course];
 echo '
 <form method="post" action="">
 
@@ -232,8 +231,54 @@ if (isset($_POST['number'])) {
 
 
 <?php
+//* Constructing a course table in course page
+
+$current_week = 1; // will be change to a table # (or something else) in the future
+$current_seme_id = 1; // semester id (will also be change into the table)
+
+echo '<h1>This is week '.$current_week.' in semester id '.$current_seme_id.'</h1>';
+
+$courses = list_all_courses(); // fetch all courses and return as object array
+
+// table structure
+echo '
+    <table border="1">
+    <tr>
+        <th>Course Name</th>
+        <th># of times</th>
+        <th>set to</th>
+    </tr>
+    ';
+
+// read each courses
+foreach ($courses as $key=>$course) {
+    echo '<tr>';
+    echo '<td>'.$course->get_course_name().'</td>';
+    echo '<td>'.$course->get_times_been_taught_on_with_section($current_week, $current_seme_id).'</td>';
+    echo '
+    <form method="post" action="">
+        <td><input type="number" name="number"></td>
+        <td><input type="submit" value="Change" name="submit"></td>
+    </form>
+    ';
 
 
+    echo '</tr>';
+}
+
+echo '</table>';
+
+// if Change button is clicked call function
+if (isset($_POST['number'])) {
+    $num = $_POST['number'];
+
+    $courses[$key]->set_times_been_taught_by($num, 1,1);
+    $courses[$key]->refresh_total_times_been_taught();
+    echo "<meta http-equiv='refresh' content='0'>";
+}
+
+// PROBLEM: cannot identify the object when click Change which will lead to
+//          the change of the last object
 
 ?>
 

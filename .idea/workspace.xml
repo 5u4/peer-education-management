@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/test.php" afterPath="$PROJECT_DIR$/views/test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mysql_code/database0821.sql" afterPath="$PROJECT_DIR$/mysql_code/database0821.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/test.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="773">
@@ -30,6 +30,16 @@
                 <marker date="1503649508000" expanded="true" signature="6687:6713" ph="..." />
                 <marker date="1503649508000" expanded="true" signature="6687:6820" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database0821.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mysql_code/database0821.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="843">
+              <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,6 +125,7 @@
         <option value="$PROJECT_DIR$/views/course.php" />
         <option value="$PROJECT_DIR$/controllers/course.php" />
         <option value="$PROJECT_DIR$/views/test.php" />
+        <option value="$PROJECT_DIR$/mysql_code/database0821.sql" />
       </list>
     </option>
   </component>
@@ -173,6 +184,11 @@
               <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
               <item name="htdocs" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htdocs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mysql_code" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
@@ -241,12 +257,12 @@
       <workItem from="1503439276361" duration="703000" />
       <workItem from="1503515569393" duration="4917000" />
       <workItem from="1503635205301" duration="6012000" />
-      <workItem from="1503648472856" duration="1012000" />
+      <workItem from="1503648472856" duration="1642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82048000" />
+    <option name="totallyTimeSpent" value="82678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="784" y="23" width="896" height="1027" extended-state="0" />
@@ -284,14 +300,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/configs/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="73" lean-forward="true" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/manager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -518,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql_code/create.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="72" column="59" lean-forward="true" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -714,6 +715,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_code/create.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" column="59" lean-forward="true" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
@@ -730,6 +739,14 @@
             <marker date="1503649508000" expanded="true" signature="6687:6713" ph="..." />
             <marker date="1503649508000" expanded="true" signature="6687:6820" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_code/database0821.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

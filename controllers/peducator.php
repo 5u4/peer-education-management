@@ -190,9 +190,17 @@ class Peducator {
 			return false;
 		}
 
-		$this->is_current = $bool;
+		// update database
+		$sql = "UPDATE peducators 
+		SET is_current='$bool' WHERE peducator_id='$this->peducator_id'";
+		$result = mysqli_query($this->connect_to_db, $sql);
 
-		return true;
+		// Update object attributes
+		if ($result) {
+			$this->is_current = $bool;
+			return true;
+		}
+		return false;
 	}
 
 	public function set_courses($cour_id) {
@@ -303,7 +311,7 @@ function get_peducator($peducator_id) {
 
 
 function Peducator_add_pe($peducator_id, $student_id, $preferred_name, 
-		$first_name, $last_name) {
+		$first_name, $last_name, $is_current) {
 	
 	if(!empty($peducator_id)) {
 		echo 'New PE ID will be created by system. Do not enter for this.';
@@ -312,7 +320,7 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 
 	if(empty($student_id) 
 	|| empty($preferred_name) || empty($first_name) 
-	|| empty($last_name)) {
+	|| empty($last_name) || empty($is_current)) {
 		echo 'Please fill out the form properly.';
 		return false;
 	}
@@ -329,10 +337,10 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 	}
 
 	$sql = "INSERT INTO peducators 
-		(student_id,preferred_name,first_name,last_name) 
+		(student_id,preferred_name,first_name,last_name, is_current) 
 		VALUES ('$student_id',
 		'$preferred_name','$first_name', 
-		'$last_name')";
+		'$last_name', '$is_current')";
 
 		$result = mysqli_query($con, $sql);
 
@@ -348,7 +356,7 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 
 
 function Peducator_update_pe($peducator_id, $student_id, $preferred_name, 
-		$first_name, $last_name) {
+		$first_name, $last_name, $is_current) {
 	
 	$con = connection();
 
@@ -419,6 +427,19 @@ function Peducator_update_pe($peducator_id, $student_id, $preferred_name,
 			return false;
 		}
 	}
+
+	// -------------------------------------------------------
+	// We do not use !empty() here for $is_current because
+	// if $is_current is set to 0, !empty() will treat it 
+	// as empty and the update will not happen.
+	// -------------------------------------------------------
+	if($is_current == 1 || $is_current == 0) {
+		$result_code = $pe->set_is_current($is_current);
+		if($result_code == false) {
+			echo 'Update Is current? failed.';
+			return false;
+		}
+	}
 	
 	echo 'Update success.';
 	return true;
@@ -426,8 +447,7 @@ function Peducator_update_pe($peducator_id, $student_id, $preferred_name,
 }
 
 
-function Peducator_delete_pe($peducator_id, $student_id, $preferred_name, 
-		$first_name, $last_name) {
+function Peducator_delete_pe($peducator_id, $student_id) {
 	
 	$con = connection();
 

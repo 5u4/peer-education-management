@@ -51,12 +51,16 @@ if(isset($_POST['Add'])) {
 
 	if($_POST['is_current'] == 'y' || $_POST['is_current'] == 'Y') {
 		$is_cur = 1;
-	}
 
-	if($_POST['is_current'] == 'n' || $_POST['is_current'] == 'N') {
+	} elseif($_POST['is_current'] == 'n' || $_POST['is_current'] == 'N') {
 		$is_cur = 0;
+
+	} elseif($_POST['is_current'] == 0 || $_POST['is_current'] == 1) {
+		
+		$is_cur = $_POST['is_current'];
 	}
 
+	echo $is_cur;
 	Peducator_add_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
 	$_POST['first_name'], $_POST['last_name'], $is_cur);
 }
@@ -72,7 +76,11 @@ if(isset($_POST['Update'])) {
 		$is_cur = 1;
 	} elseif($_POST['is_current'] == 'n' || $_POST['is_current'] == 'N') {
 		$is_cur = 0;
-	} else {
+	} elseif($_POST['is_current'] == 0 || $_POST['is_current'] == 1) {
+		
+		$is_cur = $_POST['is_current'];
+
+	} elseif(empty($_POST['is_current'])) {
 		// ------------------------------------------
 		// If user does not specify is_current, then we set it to 2,
 		// so that the function will take this argument do nothing.
@@ -98,7 +106,8 @@ if(isset($_POST['Delete'])) {
 
 //* Constructing a PE table
 
-$all_pe = list_all_pe(); // fetch all courses and return as object array
+$all_current_pe = list_all_current_pe(); 
+$all_not_current_pe = list_all_not_current_pe();
 
 // table structure
 echo '
@@ -113,8 +122,8 @@ echo '
 	</tr>
     ';
 
-// read each PE
-foreach ($all_pe as $key=>$pe) {
+// Write all current PE
+foreach ($all_current_pe as $key=>$pe) {
 	echo '<tr>'; // table row
 	echo '<td>'.$pe->get_peducator_id().'</td>';
 	echo '<td>'.$pe->get_student_id().'</td>';
@@ -132,6 +141,28 @@ foreach ($all_pe as $key=>$pe) {
 	echo '</td>';
 	echo '</tr>'; // end table row
 }
+
+
+// Write all not current PE
+foreach ($all_not_current_pe as $key=>$pe) {
+	echo '<tr>'; // table row
+	echo '<td>'.$pe->get_peducator_id().'</td>';
+	echo '<td>'.$pe->get_student_id().'</td>';
+	echo '<td>'.$pe->get_preferred_name().'</td>';
+	echo '<td>'.$pe->get_first_name().'</td>';
+	echo '<td>'.$pe->get_last_name().'</td>';
+	echo '<td>';
+
+	if($pe->get_is_current() == 1) {
+		echo 'YES';
+	} else {
+		echo 'NO';
+	}
+
+	echo '</td>';
+	echo '</tr>'; // end table row
+}
+
 echo '</table>'; // end table structure
 
 

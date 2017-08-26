@@ -319,8 +319,18 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 
 	if(empty($student_id) 
 	|| empty($preferred_name) || empty($first_name) 
-	|| empty($last_name) || empty($is_current)) {
+	|| empty($last_name)) {
 		echo 'Please fill out the form properly.';
+		return false;
+	}
+
+	// -------------------------------------------------------
+	// We do not use !empty() here for $is_current because
+	// if $is_current is set to 0, !empty() will treat it 
+	// as empty and the update will not happen.
+	// -------------------------------------------------------
+	if($is_current!=0 && $is_current!=1) {
+		echo 'Is current only accepts 1 or 0.';
 		return false;
 	}
 
@@ -514,6 +524,21 @@ function list_all_current_pe() {
 	// select database
 	$con = connection();
 	$sql = "SELECT peducator_id FROM peducators WHERE is_current = '1'";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_peducator($row['peducator_id']));
+	}
+
+	return $arr;
+}
+
+function list_all_not_current_pe() {
+	// select database
+	$con = connection();
+	$sql = "SELECT peducator_id FROM peducators WHERE is_current = '0'";
 	$result = mysqli_query($con, $sql);
 
 	// store into array

@@ -24,7 +24,7 @@
 <td>Last Name</td><td> <input type="text" name="last_name"></td>
 </tr>
 <tr>
-<td>Is current? (1/0)</td><td> <input type="text" size="1" name="is_current"></td>
+<td>Is current? (y/n)</td><td> <input type="text" size="1" name="is_current"></td>
 </tr>
 <tr>
 <td><input id="button" type="submit" name="Add" value="Add"></td>
@@ -49,8 +49,16 @@ include_once '../controllers/peducator.php';
 
 if(isset($_POST['Add'])) {
 
+	if($_POST['is_current'] == 'y' || $_POST['is_current'] == 'Y') {
+		$is_cur = 1;
+	}
+
+	if($_POST['is_current'] == 'n' || $_POST['is_current'] == 'N') {
+		$is_cur = 0;
+	}
+
 	Peducator_add_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
-	$_POST['first_name'], $_POST['last_name'], $_POST['is_current']);
+	$_POST['first_name'], $_POST['last_name'], $is_cur);
 }
 
 
@@ -60,8 +68,20 @@ if(isset($_POST['Add'])) {
 
 if(isset($_POST['Update'])) {
 
+	if($_POST['is_current'] == 'y' || $_POST['is_current'] == 'Y') {
+		$is_cur = 1;
+	} elseif($_POST['is_current'] == 'n' || $_POST['is_current'] == 'N') {
+		$is_cur = 0;
+	} else {
+		// ------------------------------------------
+		// If user does not specify is_current, then we set it to 2,
+		// so that the function will take this argument do nothing.
+		// ------------------------------------------
+		$is_cur = 2;
+	}
+
 	Peducator_update_pe($_POST['peducator_id'], $_POST['student_id'], $_POST['preferred_name'], 
-	$_POST['first_name'], $_POST['last_name'], $_POST['is_current']);
+	$_POST['first_name'], $_POST['last_name'], $is_cur);
 }
 
 
@@ -95,14 +115,22 @@ echo '
 
 // read each PE
 foreach ($all_pe as $key=>$pe) {
-    echo '<tr>'; // table row
-    echo '<td>'.$pe->get_peducator_id().'</td>';
-    echo '<td>'.$pe->get_student_id().'</td>';
-    echo '<td>'.$pe->get_preferred_name().'</td>';
-    echo '<td>'.$pe->get_first_name().'</td>';
-    echo '<td>'.$pe->get_last_name().'</td>';
-    echo '<td>'.$pe->get_is_current().'</td>';
-    echo '</tr>'; // end table row
+	echo '<tr>'; // table row
+	echo '<td>'.$pe->get_peducator_id().'</td>';
+	echo '<td>'.$pe->get_student_id().'</td>';
+	echo '<td>'.$pe->get_preferred_name().'</td>';
+	echo '<td>'.$pe->get_first_name().'</td>';
+	echo '<td>'.$pe->get_last_name().'</td>';
+	echo '<td>';
+
+	if($pe->get_is_current() == 1) {
+		echo 'YES';
+	} else {
+		echo 'NO';
+	}
+
+	echo '</td>';
+	echo '</tr>'; // end table row
 }
 echo '</table>'; // end table structure
 

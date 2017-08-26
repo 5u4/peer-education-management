@@ -186,8 +186,7 @@ class Peducator {
 
 	public function set_is_current($bool) {
 		if($bool != 0 && $bool != 1) {
-			echo 'Only accept value 1 or 0. 1=>current, 0=>not current.';
-			return false;
+			return;
 		}
 
 		// update database

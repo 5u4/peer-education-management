@@ -88,7 +88,7 @@ class Peducator {
 	public function get_is_current() {
 		return $this->is_current;
 	}
-	// continue from this point tomorrow
+	
 	public function get_all_sections() {
 		// Get data from database
 		$sql = "SELECT section_id FROM peducator_sections 
@@ -182,6 +182,17 @@ class Peducator {
 			return true;
 		}
 		return false;
+	}
+
+	public function set_is_current($bool) {
+		if($bool != 0 && $bool != 1) {
+			echo 'Only accept value 1 or 0. 1=>current, 0=>not current.';
+			return false;
+		}
+
+		$this->is_current = $bool;
+
+		return true;
 	}
 
 	public function set_courses($cour_id) {
@@ -294,12 +305,12 @@ function get_peducator($peducator_id) {
 function Peducator_add_pe($peducator_id, $student_id, $preferred_name, 
 		$first_name, $last_name) {
 	
-	if(empty($peducator_id)) {
-		echo 'You must provide a peer educator ID.';
+	if(!empty($peducator_id)) {
+		echo 'New PE ID will be created by system. Do not enter for this.';
 		return false;
 	}
 
-	if(empty($peducator_id) || empty($student_id) 
+	if(empty($student_id) 
 	|| empty($preferred_name) || empty($first_name) 
 	|| empty($last_name)) {
 		echo 'Please fill out the form properly.';
@@ -309,8 +320,7 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 	$con = connection();
 
 	$check_sql = "SELECT * FROM peducators 
-	WHERE peducator_id = '$peducator_id' 
-	OR student_id = '$student_id'";
+	WHERE student_id = '$student_id'";
 	$check_result = mysqli_query($con, $check_sql);
 	
 	if(mysqli_num_rows($check_result) != 0) {
@@ -319,8 +329,8 @@ function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 	}
 
 	$sql = "INSERT INTO peducators 
-		(peducator_id,student_id,preferred_name,first_name,last_name) 
-		VALUES ('$peducator_id','$student_id',
+		(student_id,preferred_name,first_name,last_name) 
+		VALUES ('$student_id',
 		'$preferred_name','$first_name', 
 		'$last_name')";
 
@@ -465,6 +475,36 @@ function Peducator_delete_pe($peducator_id, $student_id, $preferred_name,
 }
 
 
+function list_all_pe() {
+	// select database
+	$con = connection();
+	$sql = "SELECT peducator_id FROM peducators";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_peducator($row['peducator_id']));
+	}
+
+	return $arr;
+}
+
+
+function list_all_current_pe() {
+	// select database
+	$con = connection();
+	$sql = "SELECT peducator_id FROM peducators WHERE is_current = '1'";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_peducator($row['peducator_id']));
+	}
+
+	return $arr;
+}
 
 
 ?>

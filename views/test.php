@@ -236,18 +236,26 @@ if (isset($_POST['number'])) {
 $current_week = 1; // will be change to a table # (or something else) in the future
 $current_seme_id = 1; // semester id (will also be change into the table)
 
+// DataTables CDN stylesheet & javascript
+echo '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">';
+echo '<script src="//code.jquery.com/jquery-1.12.4.js"></script>';
+echo '<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>';
+
 echo '<h1>This is week '.$current_week.' in semester id '.$current_seme_id.'</h1>';
 
 $courses = list_all_courses(); // fetch all courses and return as object array
 
 // table structure
 echo '
-    <table border="1">
-    <tr>
-        <th>Course Name</th>
-        <th># of times</th>
-        <th>set to</th>
-    </tr>
+    <table id="datatable" border="1">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th># of times</th>
+            <th>set to</th>
+        </tr>
+    </thead>
+    <tbody>
     ';
 
 // read each courses
@@ -264,7 +272,7 @@ foreach ($courses as $key=>$course) {
     ';
     echo '</tr>'; // end table row
 }
-echo '</table>'; // end table structure
+echo '</tbody></table>'; // end table structure
 
 // if Change button is clicked call function
 if (isset($_POST['number']) && isset($_POST['key_num'])) {

@@ -44,7 +44,7 @@ if(isset($_POST['submit'])) {
 	$result_code = $authentication->login($myusername, $mypassword, $con);
 
 	if($result_code == 0) {
-		header('Location: ../index.php');
+		header('Location: /index.php');
 	} else {
 		echo 'Login failed.';
 	}

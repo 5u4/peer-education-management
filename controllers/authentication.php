@@ -44,7 +44,8 @@ class Authentication {
 
 			// If result matched $myusername and $mypassword, table row must be 1 row		
 			if($count == 1) {
-				$_SESSION['current_username'] = get_manager($row['manager_id']);
+				$m = get_manager($row['manager_id']);
+				$_SESSION['manager_id'] = $m->get_manager_id();
 				return 0;
 
 			} else {

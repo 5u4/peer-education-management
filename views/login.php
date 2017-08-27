@@ -1,6 +1,7 @@
 <?php 
 include_once '../configs/config.php'; 
 include_once '../controllers/authentication.php';
+include_once '../controllers/manager.php';
 $con = connection();
 ?>
 

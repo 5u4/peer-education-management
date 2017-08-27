@@ -1,5 +1,6 @@
 <?php
 include_once '../configs/config.php';
+include_once '../controllers/manager.php';
 
 // ----------------------
 // authentication description
@@ -43,9 +44,7 @@ class Authentication {
 
 			// If result matched $myusername and $mypassword, table row must be 1 row		
 			if($count == 1) {
-				$_SESSION['current_username'] = $myusername;
-				$current_user = $row['manager_id'];
-				$_SESSION['manager_id'] = $current_user;
+				$_SESSION['current_username'] = get_manager($row['manager_id']);
 				return 0;
 
 			} else {
@@ -53,36 +52,15 @@ class Authentication {
 				return 1;
 			}
 		}
-	} // end of login()
+	}
 
 
 
-	public function signup($first_name, $last_name, $username, $password, $con) {
-
-		$query = mysqli_query($con, "SELECT * FROM managers WHERE username = '$username'");
-
-		if(mysqli_fetch_array($query) == 0)
-		{
-			// Creating new user..
-			$query = "INSERT INTO managers (first_name,last_name,username,password) VALUES ('$first_name','$last_name','$username','$password')";
-
-			$data = mysqli_query($con, $query);
-
-			if($data)
-			{
-				return 0;
-			} else {
-				echo 'Failed to create new user.';
-				return 1;
-			}
-		}
-		else
-	  	{
-			echo 'User already exists.';
-			return 444;
-		}
-
-	} // end of signup()
+	public function signup($first_name, $last_name, $username, $password) {
+	
+		insert_manager($username,$password,$first_name,$last_name,1);
+	
+	} 
 
 
 
@@ -93,11 +71,11 @@ class Authentication {
 
 		header('Location: ../index.php');
 
-	} // end of logout()
+	} 
 
 
 
-} // end of Authentication class
+}
 
 
 

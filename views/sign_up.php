@@ -72,7 +72,7 @@ if(isset($_POST['submit'])) {
 
 
 	$authentication = new Authentication();
-	$result_code = $authentication -> signup($first_name, $last_name, $username, $password, $con);
+	$result_code = $authentication -> signup($first_name, $last_name, $username, $password);
 	if($result_code == 0) {
 		session_start();
 		$_SESSION['registration_status'] = 'success';

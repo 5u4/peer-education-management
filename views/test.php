@@ -13,7 +13,7 @@ include_once '../controllers/peducator.php';
 // ----------------------
 
 /* initializing a section
-if ($manager = get_manager(2))
+if ($manager = get_manager(1))
     echo 'true';
 else
     echo 'false';
@@ -231,7 +231,7 @@ if (isset($_POST['number'])) {
 
 
 <?php
-//* Constructing a course table in course page
+/* Constructing a course table in course page
 
 $current_week = 1; // will be change to a table # (or something else) in the future
 $current_seme_id = 1; // semester id (will also be change into the table)
@@ -307,6 +307,12 @@ if (isset($_POST['course_name'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
+//*/
+?>
+
+<?php
+
+header('Location: /course.php/');
 
 ?>
 

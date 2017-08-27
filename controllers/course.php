@@ -257,7 +257,8 @@ function list_all_courses() {
     // select database
     $con = connection();
     $sql = "SELECT course_id 
-            FROM courses;";
+            FROM courses
+            ORDER BY course_name;";
     $result = mysqli_query($con, $sql);
 
     // store into array

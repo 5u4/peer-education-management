@@ -1,0 +1,19 @@
+INSERT INTO `peer_education`.`sections` (`section_id`, `section_seme`, `section_name`) VALUES ('1', '1', '123');
+INSERT INTO `peer_education`.`sections` (`section_id`, `section_seme`, `section_name`) VALUES ('2', '2', '123');
+
+
+INSERT INTO `peer_education`.`managers` (`manager_id`, `username`, `password`, `first_name`, `last_name`, `section_id`) VALUES ('1', 'David', '123', 'Yi', 'Chou', '1');
+
+
+INSERT INTO `peer_education`.`peducators` (`peducator_id`, `student_id`, `preferred_name`, `first_name`, `last_name`, `is_current`) VALUES ('1', '123', '1', '1', '1', '1');
+INSERT INTO `peer_education`.`peducators` (`peducator_id`, `student_id`, `preferred_name`, `first_name`, `last_name`, `is_current`) VALUES ('2', '321', '1', '1', '1', '1');
+INSERT INTO `peer_education`.`peducators` (`peducator_id`, `student_id`, `preferred_name`, `first_name`, `last_name`, `is_current`) VALUES ('3', '2', '1', '1', '1', '1');
+INSERT INTO `peer_education`.`peducators` (`peducator_id`, `student_id`, `preferred_name`, `first_name`, `last_name`, `is_current`) VALUES ('4', '333', '1', '1', '1', '1');
+
+
+INSERT INTO `peer_education`.`peducator_sections` (`peducator_id`, `section_id`, `week_number`) VALUES ('1', '1', '1');
+INSERT INTO `peer_education`.`peducator_sections` (`peducator_id`, `section_id`, `week_number`) VALUES ('2', '1', '1');
+INSERT INTO `peer_education`.`peducator_sections` (`peducator_id`, `section_id`, `week_number`) VALUES ('3', '1', '1');
+INSERT INTO `peer_education`.`peducator_sections` (`peducator_id`, `section_id`, `week_number`) VALUES ('3', '2', '1');
+INSERT INTO `peer_education`.`peducator_sections` (`peducator_id`, `section_id`, `week_number`) VALUES ('4', '2', '1');
+

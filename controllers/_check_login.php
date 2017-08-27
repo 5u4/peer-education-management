@@ -3,7 +3,7 @@ include_once '../controllers/manager.php';
 include_once '../controllers/authentication.php';
 session_start();
 
-if(!isset($_SESSION['current_username'])) {
+if(!isset($_SESSION['manager_id'])) {
 	header('Location: ../views/login.php');
 } else {
 	$mid = (int)$_SESSION['manager_id'];

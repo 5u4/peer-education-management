@@ -79,7 +79,7 @@ foreach ($all_sec_id_array as $key_section => $value_sec) {
 		echo '<table>';
 
 		foreach ($pe_array as $key_pe => $value_pe) {
-			echo '<tr><td><a href="'..$value_pe->get_preferred_name().' '.$value_pe->get_last_name().'</td></tr>';
+			echo '<tr><td><a href="'.'/views/pe_detail.php?id='.$value_pe->get_peducator_id().'">'.$value_pe->get_preferred_name().' '.$value_pe->get_last_name().'</a></td></tr>';
 		}
 	//views/pe_detail.php?id=
 		echo '</table>';

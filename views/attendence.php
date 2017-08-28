@@ -10,8 +10,8 @@ $_SESSION['manager_id'] = '1';
 ?>
 
 <?php
-include_once '../controllers/_check_login.php';
-include_once '../configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 
 
 

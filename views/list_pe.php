@@ -40,8 +40,8 @@
 </html>
 
 <?php
-include_once '../configs/config.php';
-include_once '../controllers/peducator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 
 // ---------------------
 // [Add]

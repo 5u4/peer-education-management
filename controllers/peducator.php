@@ -1,7 +1,7 @@
 <?php
-include_once '../configs/config.php';
-include_once '../controllers/course.php';
-include_once '../controllers/section.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 
 // ----------------------
 // peducators description

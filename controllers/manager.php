@@ -1,6 +1,6 @@
 <?php
-include_once '../configs/config.php';
-include_once 'announcement.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
 
 // ----------------------
 // Manager description

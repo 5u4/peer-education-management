@@ -3,8 +3,8 @@
 <?php 
 
 // include database information and connection
-include_once '../configs/config.php'; 
-include_once '../controllers/authentication.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 $con = connection();
 
 ?>

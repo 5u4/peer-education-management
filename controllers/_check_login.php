@@ -1,6 +1,6 @@
 <?php
-include_once '../controllers/manager.php';
-include_once '../controllers/authentication.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 session_start();
 
 if(!isset($_SESSION['manager_id'])) {

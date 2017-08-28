@@ -1,11 +1,11 @@
 <h1>Hello!</h1>
 <?php
-include_once '../controllers/manager.php';
-include_once '../controllers/section.php';
-include_once '../controllers/course.php';
-include_once '../controllers/announcement.php';
-include_once '../controllers/note.php';
-include_once '../controllers/peducator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/note.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 
 
 // ----------------------

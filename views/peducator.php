@@ -1,8 +1,13 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <?php include_once '../controllers/course.php' ?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
@@ -15,17 +20,18 @@
     </script>
 </head>
 <body>
-
 <?php
 
 // Get week number and semester id
 $current_week = 1; // will be change to a table # (or something else) in the future
-$current_seme_id = 1; // semester name (will also be change into the table)
+$current_seme_id = 2; // semester name (will also be change into the table)
 $current_section = get_section($current_seme_id);
 echo '<h1>This is week '.$current_week.' in semester '.$current_seme_id.'</h1>';
 
 // Get all PEs
 $peducators = list_all_pe();
+$section_seme = $current_section->get_section_seme();
+
 
 // Constructing Table
 echo '
@@ -35,33 +41,64 @@ echo '
             <th>Name</th>
             <th>Student ID</th>
             <th>Assign Section</th>
-            <th>More Info</th>
+            <th>More</th>
         </tr>
     </thead>
     <tbody>
     ';
 
-// read each PE
-foreach ($peducators as $key=>$peducator) {
+
+// Read Each PE
+foreach ($peducators as $key_pe=>$peducator) {
     echo '<tr>'; // table row
-    echo '<td>'.$peducator->get_preferred_name().' '.$peducator->get_last_name().'</td>';
+
+    // Name
+    echo '<td>'.$peducator->get_first_name().' '.
+                $peducator->get_last_name().' ('.
+                $peducator->get_preferred_name().')'.'</td>';
+
+    // Student ID
     echo '<td>'.$peducator->get_student_id().'</td>';
 
-    echo '
-    <form method="post" action="">
-    
-        <select name="section"><option value=""></option></select>
-        
-    
-        <td></td>
-        <input type="hidden" name="key_num" value="'.$key.'">
-        <td><input type="submit" value="Change" name="submit"></td>
-    </form>
-    ';
+    // Assign Section - Drop Down
+    echo '<td>';
+    $sections = list_all_sections_on($section_seme);
+    echo '<form method="post" action="">';
+    echo 'Assign to <select name="section">';
+    foreach ($sections as $key=>$section)
+        echo '<option value="'.$section->get_section_id().'">'.
+             $section->get_section_name().
+             '</option>';
+
+    // Assign Section - Apply
+    echo '</select> 
+         <input type="submit" name="" value="Apply">
+         </td>';
+
+    // More
+    echo '<td>'.'more'.'</td>';
+
+    // Row ID
+    echo '<input type="hidden" name="key_num" value="'.$key_pe.'">';
+    echo '</form>';
     echo '</tr>'; // end table row
 }
 
+// Table End
+echo '</tbody></table>';
 
+// if Assign Section
+if (isset($_POST['section']) && isset($_POST['key_num'])) {
+    // row #
+    $key_num = $_POST['key_num'];
+
+    // section id
+    $section_id = $_POST['section'];
+
+    // set pe to the section on week 0 with min 0
+    if ($peducators[$key_num]->set_contributed_mins(0, $section_id, 0))
+        echo 'Success!';
+}
 
 ?>
 

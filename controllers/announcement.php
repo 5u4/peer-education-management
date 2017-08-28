@@ -98,19 +98,19 @@ function get_announcement($announcement_id) {
         return null;
 }
 
-//function insert_announcement($manager_id, $content) {
-//    // insert database
-//    $con = connection();
-//    $sql = "INSERT INTO announcements (manager_id, content)
-//            VALUES ('$manager_id', '$content');";
-//    $result = mysqli_query($con, $sql);
-//    if (!$result) {
-//        die('Insert failed: '.mysqli_error($con));
-//    }
-//
-//    // get announcement id and return
-//    $announcement_id = mysqli_insert_id($con);
-//    echo 'Announcement with id '.$announcement_id.' is inserted.';
-//    return new Announcement($announcement_id);
-//}
+function insert_announcement($manager_id, $content) {
+    // insert database
+    $con = connection();
+    $sql = "INSERT INTO announcements (manager_id, content)
+            VALUES ('$manager_id', '$content');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+
+    // get announcement id and return
+    $announcement_id = mysqli_insert_id($con);
+    echo 'Announcement with id '.$announcement_id.' is inserted.';
+    return new Announcement($announcement_id);
+}
 ?>

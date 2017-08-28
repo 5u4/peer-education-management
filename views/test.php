@@ -181,18 +181,18 @@ insert_note($manager_id, $peducator_id, $content);
 
 $manager = get_manager(2);
 
-//$content = 'First Announcement';
-//$manager->insert_announcement($content);
+$content = 'First Announcement';
+$manager->insert_announcement($content);
 
-$announcement = get_announcement(1);
-if ($manager->can_edit($announcement))
-    echo 'true';
-else
-    echo 'false';
+//$announcement = get_announcement(1);
+//if ($manager->can_edit($announcement))
+//    echo 'true';
+//else
+//    echo 'false';
 
-$content = 'Change Content';
-if ($manager->can_edit($announcement))
-    $manager->edit_announcement($announcement, $content);
+//$content = 'Change Content';
+//if ($manager->can_edit($announcement))
+//    $manager->edit_announcement($announcement, $content);
 //*/
 
 //$pe = get_peducator(1);
@@ -312,7 +312,7 @@ if (isset($_POST['course_name'])) {
 
 <?php
 
-header('Location: /course.php/');
+// header('Location: /course.php/');
 
 ?>
 

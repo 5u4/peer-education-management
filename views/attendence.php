@@ -50,7 +50,7 @@ echo '
             <th>PE Name</th>
             <th>Attendence</th>
             <th>set to</th>
-            <th>on week</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -79,28 +79,7 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     $key_num = $_POST['key_num']; // the row number
 
     // update the number
-    $courses[$key_num]->set_times_been_taught_by($num, 1,1);
-
-    // update the total number
-    $courses[$key_num]->refresh_total_times_been_taught();
-
-    // refresh the website
-    echo "<meta http-equiv='refresh' content='0'>";
-}
-
-// insert a course
-echo '
-    Add a new course into the list: 
-    <form method="post" action="">
-        <td><input type="text" name="course_name"></td>
-        <td><input type="submit" value="Add" name="submit"></td>
-    </form>';
-
-if (isset($_POST['course_name'])) {
-    $course_name = $_POST['course_name'];
-
-    // insert the course
-    insert_course($course_name);
+    $pe[$key_num]->set_contributed_mins($num, $current_section,$current_week);
 
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";

@@ -100,6 +100,20 @@ if (isset($_POST['section']) && isset($_POST['key_num'])) {
         echo 'Success!';
 }
 
+
+
+
+
+
+
+
+
+// Add New PE
+echo '<a target="_blank" href="new_pe.php">Add A New PE</a>';
+
+
+
+
 ?>
 
 

@@ -318,7 +318,7 @@ function get_peducator($peducator_id) {
 }
 
 
-function Peducator_add_pe($peducator_id, $student_id, $preferred_name, 
+function Peducator_add_pe($peducator_id, $student_id, $preferred_name,
 		$first_name, $last_name, $is_current) {
 	
 	if(!empty($peducator_id)) {

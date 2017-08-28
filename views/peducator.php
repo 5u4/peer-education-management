@@ -50,7 +50,7 @@ echo '
 
 // Read Each PE
 foreach ($peducators as $key_pe=>$peducator) {
-    echo '<tr>'; // table row
+    echo '<tr>'; // Table Row
 
     // Name
     echo '<td>'.$peducator->get_first_name().' '.
@@ -78,7 +78,7 @@ foreach ($peducators as $key_pe=>$peducator) {
     // More
     echo '<td>'.'more'.'</td>';
 
-    // Row ID
+    // Row ID & End Table
     echo '<input type="hidden" name="key_num" value="'.$key_pe.'">';
     echo '</form>';
     echo '</tr>'; // end table row

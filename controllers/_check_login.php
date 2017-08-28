@@ -8,7 +8,7 @@ if(!isset($_SESSION['manager_id'])) {
 } else {
 	$mid = (int)$_SESSION['manager_id'];
 	$_SESSION['current_user'] = get_manager($mid);
-	echo 'Welcome ' . $_SESSION['current_user']->get_manager_id();
+	echo 'Welcome ' . $_SESSION['current_user']->get_first_name() . ' ' . $_SESSION['current_user']->get_last_name();
 	echo '<br>';
 }
 

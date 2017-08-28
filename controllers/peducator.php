@@ -54,6 +54,7 @@ class Peducator {
        		$this->first_name = $row['first_name'];
 		$this->last_name = $row['last_name'];
 		$this->is_current = $row['is_current'];
+
 	} // end of __construct()
 
 
@@ -118,8 +119,16 @@ class Peducator {
 
 	}
 
-	public function get_weekly_contributed_hours() {
-		return $this->weekly_contributed_hours;
+	public function get_contributed_mins($section_id, $week_number) {
+		// Get data from database
+		$sql = "SELECT contributed_mins FROM peducator_sections 
+		WHERE peducator_id='$this->peducator_id' AND section_id = '$section_id'
+		AND week_number = '$week_number'";
+		$result = mysqli_query($this->connect_to_db, $sql);
+
+		$row = mysqli_fetch_array($result);
+
+		return $row['contributed_mins'];
 	}
 
 
@@ -539,6 +548,21 @@ function list_all_not_current_pe() {
 	// select database
 	$con = connection();
 	$sql = "SELECT peducator_id FROM peducators WHERE is_current = '0'";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_peducator($row['peducator_id']));
+	}
+
+	return $arr;
+}
+
+function list_all_pe_on($section_id) {
+	// select database
+	$con = connection();
+	$sql = "SELECT peducator_id FROM peducator_sections WHERE section_id = '$section_id'";
 	$result = mysqli_query($con, $sql);
 
 	// store into array

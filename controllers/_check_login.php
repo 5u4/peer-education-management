@@ -13,3 +13,9 @@ if(!isset($_SESSION['manager_id'])) {
 }
 
 ?>
+
+<div class='logout'>
+
+<a href='/controllers/logout.php'>Logout</a>
+
+</div>

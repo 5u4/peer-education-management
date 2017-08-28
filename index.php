@@ -8,14 +8,6 @@ if($_SESSION['registration_status'] == 'success') {
 }
 
 ?>
-</div>
-
-<div class='logout'>
-
-<a href='/controllers/logout.php'>Logout</a>
-
-</div>
-
 
 
 </div>

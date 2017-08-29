@@ -19,14 +19,14 @@ class Page {
     // Navigation attributes
     // ----------------------
     private $current_user;
-    private $type_of_user; // 0 = un login | 1 = manager_admin | 2 = manager | 3 = pe
+    private $permission; // unlogin = 0 | pe = 1 | manager = 2 | manager_admin = 3
 
     // ----------------------
     // Constructor
     // ----------------------
     public function __construct($current_user) {
         $this->current_user = $current_user;
-        $this->type_of_user = $current_user->get_type();
+        $this->permission = $current_user->get_permission();
     }
 
     // ----------------------
@@ -34,9 +34,71 @@ class Page {
     // ----------------------
     public function get_name() {
         // manager_admin
-        if ($this->type_of_user == 1 || $this->type_of_user == 2) {
+        if ($this->permission >= 2) {
             return $this->current_user->get_first_name();
         }
+    }
+
+    // ----------------------
+    // Navigation links
+    // ----------------------
+    public function nav_brand() {
+        echo '
+            <li class="sidebar-brand">
+                <a href="#">
+                    Peer Education
+                </a>
+            </li>';
+    }
+
+    public function nav_dashboard() {
+        echo '<li><a href="#">Dashboard</a></li>';
+    }
+
+    public function nav_general() {
+        if ($this->permission >= 3)
+        echo '<li><a href="#">General Settings</a></li>';
+    }
+
+    public function nav_weekly_section() {
+        // dropdown list start
+        echo '            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Weekly Section<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Weekly Section Record</li>';
+
+        // dropdown list
+        $this->nav_attendence();
+        $this->nav_course();
+        $this->nav_schedule();
+
+        // dropdown list end
+        echo '</ul></li>';
+    }
+
+    public function nav_attendence() {
+        echo '<li><a href="attendence.php">Attendence</a></li>';
+    }
+
+    public function nav_course() {
+        echo '<li><a href="course.php">Course</a></li>';
+    }
+
+    public function nav_peducator() {
+        echo '<li><a href="peducator.php">Peer Educators</a></li>';
+    }
+
+    public function nav_schedule() {
+        echo '<li><a href="section_schedule.php">Section Schedule</a></li>';
+    }
+
+    public function nav_announcement() {
+        echo '<li><a href="announcement.php">Announcements</a></li>';
+    }
+
+    public function nav_logout() {
+        echo '<li><a href="#">Logout</a></li>';
     }
 
     // ----------------------
@@ -68,56 +130,27 @@ class Page {
     }
 
     public function nav_body_start() {
-        echo '
-        <div id="wrapper">
-            <div class="overlay"></div>
-        
-            <!-- Sidebar -->
-            <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-                <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Peer Education
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Events</a>
-                    </li>
-                    <li>
-                        <a href="#">Team</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="dropdown-header">Dropdown heading</li>
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/maridlcrmn">Follow me</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /#sidebar-wrapper -->
-        
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
+        // wrapper
+        echo '<div id="wrapper"><div class="overlay"></div>';
+
+        // sidebar wrapper
+        echo '<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+                <ul class="nav sidebar-nav">\'';
+
+        // lists
+        $this->nav_brand();
+        $this->nav_dashboard();
+        $this->nav_general();
+        $this->nav_weekly_section();
+        $this->nav_announcement();
+        $this->nav_peducator();
+        $this->nav_logout();
+
+        // sidebar wrapper
+        echo '</ul></nav>';
+
+        // page content wrapper
+        echo '<div id="page-content-wrapper">
                 <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
                     <span class="hamb-top"></span>
                     <span class="hamb-middle"></span>
@@ -130,16 +163,14 @@ class Page {
     }
 
     public function nav_body_close() {
+        // page content wrapper
+        echo '</div></div></div></div>';
+
+        // wrapper
+        echo '</div>';
+
+        // jQuery
         echo '
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /#page-content-wrapper -->
-        
-        </div>
-        <!-- /#wrapper -->
-        
         <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

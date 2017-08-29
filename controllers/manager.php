@@ -84,8 +84,8 @@ class Manager {
         return $this->section_id;
     }
 
-    public function get_type() { // testing function | for further application expansion
-        return 1;
+    public function get_permission() { // testing function | for further application expansion
+        return 3;
     }
 
     // ----------------------

@@ -38,16 +38,6 @@ if ($manager->can_edit($announcement))
 //*/
 
 
-//---------------------------------------
-
-// Get announcements from database
-$announ_array = list_all_announcements_desc();
-
-// If there is no announcement, then
-if(empty($announ_array)) {
-	echo '<h1> There is no announcement now. </h1>';
-	return;
-}
 ?>
 
 <div>
@@ -85,6 +75,18 @@ if(isset($_POST['submit'])) {
 // -----------------------------------
 // This is to display announcements.
 // -----------------------------------
+
+// Get announcements from database
+$announ_array = list_all_announcements_desc();
+
+// If there is no announcement, then
+if(empty($announ_array)) {
+	echo '<h1> There is no announcement now. </h1>';
+	return;
+}
+
+
+
 echo '<table>';
 
 foreach ($announ_array as $key => $value) {

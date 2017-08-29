@@ -104,19 +104,5 @@ function get_note($note_id) {
         return null;
 }
 
-function insert_note($manager_id, $peducator_id, $content) {
-    // insert database
-    $con = connection();
-    $sql = "INSERT INTO notes (manager_id, peducator_id, content) 
-            VALUES ('$manager_id', '$peducator_id', '$content');";
-    $result = mysqli_query($con, $sql);
-    if (!$result) {
-        die('Insert failed: '.mysqli_error($con));
-    }
 
-    // get note id and return
-    $note_id = mysqli_insert_id($con);
-    echo 'Note with id '.$note_id.' is inserted.';
-    return new Note($note_id);
-}
 ?>

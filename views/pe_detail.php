@@ -193,7 +193,7 @@ echo 'Add a note to '.$peducator->get_preferred_name().'<br/>
      ';
 
 if (isset($_POST['add_note'])) {
-    insert_note($current_user->get_manager_id(), $pe_id, $_POST['note_content']);
+    $current_user->insert_note($pe_id, $_POST['note_content']);
 
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";

@@ -119,6 +119,21 @@ class Peducator {
 
 	}
 
+    public function get_all_notes() {
+        // Get data from database
+        $sql = "SELECT note_id FROM notes 
+		WHERE peducator_id='$this->peducator_id'";
+        $result = mysqli_query($this->connect_to_db, $sql);
+
+        $arr = [];
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($arr, get_note($row['note_id']));
+        }
+
+        return $arr;
+
+    }
+
 	public function get_contributed_mins($section_id, $week_number) {
 		// Get data from database
 		$sql = "SELECT contributed_mins FROM peducator_sections 

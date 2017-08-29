@@ -2,25 +2,29 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <?php
+    $current_user = get_manager(1);
+    $page = new Page($current_user);
+    $page->nav_head();
+    ?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#pe_list').DataTable( {
-                "order": [[ 3, "desc" ]]
-            } );
+            $('#pe_list').DataTable();
         } );
     </script>
 </head>
 <body>
 <?php
+$page->nav_body_start();
 
 // Get week number and semester id
 $current_week = 1; // will be change to a table # (or something else) in the future
@@ -113,7 +117,7 @@ echo '<a target="_blank" href="new_pe.php">Add A New PE</a>';
 
 
 
-
+$page->nav_body_close();
 ?>
 
 

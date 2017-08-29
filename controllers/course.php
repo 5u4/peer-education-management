@@ -267,4 +267,21 @@ function list_all_courses() {
         array_push($arr, get_course($row['course_id']));
     return $arr;
 }
+
+function get_course_id_by_name($course_name) {
+    $con = connection();
+    $sql = "SELECT course_id 
+            FROM courses 
+            WHERE course_name='$course_name';";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($row))
+        return $row['course_id'];
+    else
+        return false;
+}
+
+
+
+
 ?>

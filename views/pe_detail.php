@@ -2,8 +2,11 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/note.php';
 
 $peducator = get_peducator($_GET['id']); // get PE object
+$current_user = get_manager(1); // for test
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +16,10 @@ $peducator = get_peducator($_GET['id']); // get PE object
 <body>
 
 <?php
+// ----------------------
+// Updating Table
+// ----------------------
+
 // settings
 $true = 'Yes';
 $false = 'No';
@@ -66,6 +73,7 @@ echo '
     </form>
     </thead>
 </table>
+<br/>
 ';
 
 // Update Method
@@ -79,8 +87,112 @@ if(isset($_POST['update'])) {
 
 ?>
 
+<?php
+// ----------------------
+// All Courses
+// ----------------------
+
+// get all courses
+$courses = $peducator->get_all_courses();
+
+echo '<table><th><tr><td>Course Name</td></tr></th><tbody>';
+foreach ($courses as $course) {
+    echo '<tr><td>'.$course->get_course_name().'</td></tr>';
+}
+echo '</tbody></table><br/>';
+
+// ----------------------
+// Add Course
+// ----------------------
+
+// by entering course name
+echo 'Add a course to '.$peducator->get_preferred_name().'<br/>
+    <form method="POST" action="?id='.$pe_id.'">
+        <input type="text" name="course_name">
+        <input type="submit" name="add_course" value="Add">
+    </form><br/>
+     ';
+
+if (isset($_POST['add_course'])) {
+    if ($course_id = get_course_id_by_name($_POST['course_name'])) {
+        $peducator->set_courses($course_id);
+
+        // refresh the website
+        echo "<meta http-equiv='refresh' content='0'>";
+    }
+    else
+        echo $_POST['course_name'].' is not currently in our database. '.
+             'Add the course to database'; // adding
+}
+
+// by selecting courses
 
 
+?>
+
+<?php
+// ----------------------
+// All Sections
+// ----------------------
+
+// get all sections
+$sections = $peducator->get_all_sections();
+
+echo '<table><th><tr><td>Semester</td><td>Section Time</td></tr></th><tbody>';
+foreach ($sections as $section) {
+    echo '
+        <tr>
+            <td>'.$section->get_section_seme().'</td>
+            <td>'.$section->get_section_name().'</td>
+        </tr>
+        ';
+}
+echo '</tbody></table><br/>';
+
+// ----------------------
+// Add Section
+// ----------------------
+// by selecting all sections in current semester
+
+?>
+
+<?php
+// ----------------------
+// All Notes
+// ----------------------
+
+// get all notes
+$notes = $peducator->get_all_notes();
+
+echo '<table><th><tr><td>Content</td><td>By</td><td>On</td></tr></th><tbody>';
+foreach ($notes as $note) {
+    echo '
+        <tr>
+            <td>'.$note->get_content().'</td>
+            <td>'.get_manager($note->get_manager_id())->get_first_name().'</td>
+            <td>'.$note->get_note_time().'</td>
+        </tr>
+        ';
+}
+echo '</tbody></table><br/>';
+
+// ----------------------
+// Add Note
+// ----------------------
+echo 'Add a note to '.$peducator->get_preferred_name().'<br/>
+    <form method="POST" action="?id='.$pe_id.'">
+        <input type="text" name="note_content">
+        <input type="submit" name="add_note" value="Add">
+    </form><br/>
+     ';
+
+if (isset($_POST['add_note'])) {
+    insert_note($current_user->get_manager_id(), $pe_id, $_POST['note_content']);
+
+    // refresh the website
+    echo "<meta http-equiv='refresh' content='0'>";
+} // refactor insert note => under manager class & can_edit_note() & edit_note($note_id, $content)
+?>
 
 
 

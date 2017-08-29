@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+    $current_user = get_manager(1);
+    $page = new Page($current_user);
+    $page->nav_head();
+    ?>
     <meta charset="utf-8">
     <?php include_once '../controllers/course.php' ?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
@@ -17,8 +23,9 @@
 <body>
 
 <?php
-//* Constructing a course table in course page
+$page->nav_body_start();
 
+//* Constructing a course table in course page
 $current_week = 1; // will be change to a table # (or something else) in the future
 $current_seme_id = 1; // semester id (will also be change into the table)
 
@@ -89,7 +96,7 @@ if (isset($_POST['course_name'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-
+$page->nav_body_close();
 ?>
 
 

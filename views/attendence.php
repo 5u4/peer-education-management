@@ -12,12 +12,18 @@ $_SESSION['manager_id'] = '1';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    $current_user = get_manager(1);
+    $page = new Page($current_user);
+    $page->nav_head();
+    ?>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -33,6 +39,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 <body>
 
 <?php
+$page->nav_body_start();
+
 //* Constructing a section table in course page
 
 $current_section = $_SESSION['current_user'] -> get_section_id(); // will be change to a table # (or something else) in the future
@@ -85,7 +93,7 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-
+$page->nav_body_close();
 ?>
 
 

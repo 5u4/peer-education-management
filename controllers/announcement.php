@@ -113,4 +113,19 @@ function insert_announcement($manager_id, $content) {
     echo 'Announcement with id '.$announcement_id.' is inserted.';
     return new Announcement($announcement_id);
 }
+
+function list_all_announcements_desc() {
+	// select database
+	$con = connection();
+	$sql = "SELECT * FROM announcements ORDER BY announcement_id DESC";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_announcement($row['announcement_id']));
+	}
+
+	return $arr;
+}
 ?>

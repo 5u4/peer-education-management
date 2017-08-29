@@ -111,7 +111,10 @@ foreach ($announ_array as $key => $value) {
 	echo '*************';
 	if($mid == $_SESSION['current_user']->get_manager_id()) {
 		echo '<br/>';
-		echo '<input id="button" type="submit" name="edit" value="Edit">';
+		echo '<form method="post" action="">';
+		echo '<input type="hidden" name="announ_id" value="'.$value->get_announcement_id().'">';
+		echo '<input id="button" type="submit" name="delete" value="Delete">';
+		echo '</form>';
 	}
 	echo '<br/>';
 	echo '------------------------------------------------';
@@ -123,8 +126,11 @@ foreach ($announ_array as $key => $value) {
 
 echo '</table>';
 
-if(isset($_POST['edit'])) {
-	// then go to edit page.
+if(isset($_POST['delete']) && isset($_POST['announ_id'])) {
+	$delete_id = $_POST['announ_id'];
+	delete_announcement($delete_id);
+	echo "<meta http-equiv='refresh' content='0'>";
+	return;
 }
 
 

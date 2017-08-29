@@ -67,6 +67,10 @@ class Announcement {
         return $this->announcement_time;
     }
 
+    public function get_announcement_id() {
+        return $this->announcement_id;
+    }
+
     // ----------------------
     // set functions
     // ----------------------
@@ -114,6 +118,18 @@ function insert_announcement($manager_id, $content) {
     return new Announcement($announcement_id);
 }
 
+function delete_announcement($announ_id) {
+	$con = connection();
+	$sql_delete = "DELETE FROM announcements WHERE announcement_id='$announ_id'";
+	$result_delete = mysqli_query($con,$sql_delete);
+	if($result_delete) {
+		return true;
+	} else {
+		echo 'Announcement delete failed.';
+		return false;
+	}
+}
+
 function list_all_announcements_desc() {
 	// select database
 	$con = connection();
@@ -128,4 +144,5 @@ function list_all_announcements_desc() {
 
 	return $arr;
 }
+
 ?>

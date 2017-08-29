@@ -4,6 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/note.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
 $peducator = get_peducator($_GET['id']); // get PE object
 $current_user = get_manager(1); // for test
@@ -12,10 +13,15 @@ $current_user = get_manager(1); // for test
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+        $page = new Page();
+        $page->nav_head();
+    ?>
 </head>
 <body>
 
 <?php
+$page->nav_body_start();
 // ----------------------
 // Updating Table
 // ----------------------
@@ -192,6 +198,7 @@ if (isset($_POST['add_note'])) {
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 } // refactor insert note => under manager class & can_edit_note() & edit_note($note_id, $content)
+$page->nav_body_close();
 ?>
 
 

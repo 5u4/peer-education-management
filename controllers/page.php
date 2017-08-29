@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php'; // for further expension
 
 // ----------------------
 // Navigation description
@@ -18,13 +19,25 @@ class Page {
     // Navigation attributes
     // ----------------------
     private $current_user;
+    private $type_of_user; // 0 = un login | 1 = manager_admin | 2 = manager | 3 = pe
 
     // ----------------------
     // Constructor
     // ----------------------
-//    public function __construct($current_user) {
-//
-//    }
+    public function __construct($current_user) {
+        $this->current_user = $current_user;
+        $this->type_of_user = $current_user->get_type();
+    }
+
+    // ----------------------
+    // User functions
+    // ----------------------
+    public function get_name() {
+        // manager_admin
+        if ($this->type_of_user == 1 || $this->type_of_user == 2) {
+            return $this->current_user->get_first_name();
+        }
+    }
 
     // ----------------------
     // Navigation functions
@@ -35,7 +48,7 @@ class Page {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-            <title>Bootstrap 101 Template</title>
+            <title>'.$this->get_name().' - PE Management Tool</title>
         
             <!-- Bootstrap -->
             <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -64,11 +77,11 @@ class Page {
                 <ul class="nav sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="#">
-                            Brand
+                            Peer Education
                         </a>
                     </li>
                     <li>
-                        <a href="#">Home</a>
+                        <a href="#">Dashboard</a>
                     </li>
                     <li>
                         <a href="#">About</a>

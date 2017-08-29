@@ -14,7 +14,7 @@ $current_user = get_manager(1); // for test
 <html lang="en">
 <head>
     <?php
-        $page = new Page();
+        $page = new Page($current_user);
         $page->nav_head();
     ?>
 </head>

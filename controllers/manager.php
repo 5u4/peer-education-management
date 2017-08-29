@@ -84,6 +84,10 @@ class Manager {
         return $this->section_id;
     }
 
+    public function get_type() { // testing function | for further application expansion
+        return 1;
+    }
+
     // ----------------------
     // set functions
     // ----------------------

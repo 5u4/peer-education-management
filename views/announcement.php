@@ -1,7 +1,18 @@
 <?php
+session_start();
+
+//----------------------------------------
+// for testing, make up a current user
+$_SESSION['manager_id'] = '1';
+//----------------------------------------
+
+?>
+
+<?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 
 /*
 // get manager
@@ -37,6 +48,38 @@ if(empty($announ_array)) {
 	echo '<h1> There is no announcement now. </h1>';
 	return;
 }
+?>
+
+<div>
+<fieldset style="width:30%"><legend>Submit Announcement</legend>
+<table border="0">
+<tr>
+<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
+<td> <textarea rows="10" cols="60" name="content"></textarea></td>
+</tr>
+<tr>
+<td><input id="button" type="submit" name="submit" value="Submit"></td>
+</tr>
+</form>
+</table>
+</fieldset>
+</div>
+
+<?php
+// -----------------------------------
+// This is to submit announcement.
+// -----------------------------------
+if(isset($_POST['submit'])) {
+	// Stop empty content being submitted
+	if(empty($_POST['content'])) {
+		$alert = "You cannot submit an empty announcement.";
+		echo "<script type='text/javascript'>alert('$alert');</script>";
+	}
+	$_SESSION['current_user']->insert_announcement($_POST['content']);
+	echo "<meta http-equiv='refresh' content='0'>";
+	return;
+}
+
 
 
 // -----------------------------------
@@ -47,26 +90,42 @@ echo '<table>';
 foreach ($announ_array as $key => $value) {
 	echo '<tr>';
 	echo '<td>';
+	echo '------------------------------------------------';
+	echo '------------------------------------------------';
+	echo '<br/>';
 	echo $value->get_content();
 	echo '<br/>';
 	$mid = $value->get_manager_id();
 	$manager = new Manager($mid);
 	$first_name = $manager->get_first_name();
 	$last_name = $manager->get_last_name();
+	echo '<br/>';
+	echo '*************';
+	echo '*************';
+	echo '<br/>';
 	echo 'Posted by '.$first_name.' '.$last_name;
+	echo '<br/>';
 	echo ' on '.$value->get_announcement_time();
+	echo '<br/>';
+	echo '*************';
+	echo '*************';
+	if($mid == $_SESSION['current_user']->get_manager_id()) {
+		echo '<br/>';
+		echo '<input id="button" type="submit" name="edit" value="Edit">';
+	}
+	echo '<br/>';
+	echo '------------------------------------------------';
+	echo '------------------------------------------------';
 	echo '</td>';
 	echo '</tr>';
 }
 
 
-
-
-
-
-
-
 echo '</table>';
+
+if(isset($_POST['edit'])) {
+	// then go to edit page.
+}
 
 
 

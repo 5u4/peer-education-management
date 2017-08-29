@@ -82,7 +82,8 @@ foreach ($peducators as $key_pe=>$peducator) {
          </td>';
 
     // More
-    echo '<td>'.'more'.'</td>';
+    echo '<td><a href="pe_detail.php?id='.$peducator->get_peducator_id().'">'.
+        'more'.'</td>';
 
     // Row ID & End Table
     echo '<input type="hidden" name="key_num" value="'.$key_pe.'">';

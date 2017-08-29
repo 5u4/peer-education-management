@@ -198,11 +198,12 @@ if (isset($_POST['add_note'])) {
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 } // refactor insert note => under manager class & can_edit_note() & edit_note($note_id, $content)
-$page->nav_body_close();
 ?>
 
 
-
+<?php
+$page->nav_body_close();
+?>
 
 </body>
 </html>

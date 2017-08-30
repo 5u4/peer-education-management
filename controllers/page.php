@@ -16,7 +16,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php'; // for furt
 // nav_head(): should be placed inside head tags for navigation
 // nav_body_start(): should be placed at the beginning of the body; navigation links
 //                   are inside this function
-// nav_body_end(): should be placed at the end of the body where content are wrapped
+// nav_body_close(): should be placed at the end of the body where content are wrapped
 //                 by nav_body_start() and nav_body_end()
 
 // ----------------------
@@ -182,6 +182,21 @@ class Page {
         echo '
         <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+
+        // compiled plugins
+        echo '
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/nav.js"></script>
+        ';
+    }
+
+    public function nav_body_close_with_table() {
+        // page content wrapper
+        echo '</div></div></div></div>';
+
+        // wrapper
+        echo '</div>';
 
         // compiled plugins
         echo '

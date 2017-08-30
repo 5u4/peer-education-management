@@ -107,7 +107,7 @@ class Page {
     }
 
     public function nav_logout() {
-        echo '<li><a href="#">Logout</a></li>';
+        echo '<li><a href="/controllers/logout.php">Logout</a></li>';
     }
 
     // ----------------------

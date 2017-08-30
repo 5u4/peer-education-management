@@ -170,21 +170,6 @@ CREATE TABLE `peer_education`.`peducator_courses` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
-
-CREATE TABLE `peer_education`.`current_peducator` (
-  `peducator_id` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`peducator_id`),
-  UNIQUE INDEX `idcurrent_peducator_UNIQUE` (`peducator_id` ASC));
-
-
-ALTER TABLE `peer_education`.`current_peducator`
-ADD CONSTRAINT `fk_current_peducator_1`
-  FOREIGN KEY (`peducator_id`)
-  REFERENCES `peer_education`.`peducators` (`peducator_id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
-
-
 ALTER TABLE `peer_education`.`peducators` 
 ADD COLUMN `is_current` INT UNSIGNED NOT NULL AFTER `last_name`;
 

@@ -8,6 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
 $peducator = get_peducator($_GET['id']); // get PE object
 $current_user = get_manager(1); // for test
+$section_seme = '201702'; // for test
 ?>
 
 <!DOCTYPE html>
@@ -101,9 +102,14 @@ if(isset($_POST['update'])) {
 // get all courses
 $courses = $peducator->get_all_courses();
 
-echo '<table><th><tr><td>Course Name</td></tr></th><tbody>';
-foreach ($courses as $course) {
+echo '<table><thead><tr><th>Course Name</th><th></th></tr></thead><tbody>';
+foreach ($courses as $key_course=>$course) {
     echo '<tr><td>'.$course->get_course_name().'</td></tr>';
+    /*echo '
+        <form><td>
+            <input type="hidden" name="key_num" value="'.$key_course.'">
+            <input type="submit" value="Delete" name="delete_course">
+        </td></form></tr>';*/
 }
 echo '</tbody></table><br/>';
 
@@ -133,6 +139,18 @@ if (isset($_POST['add_course'])) {
 
 // by selecting courses
 
+
+//// ----------------------
+//// Delete Course
+//// ----------------------
+//if (isset($_POST['delete_course'])) {
+//    $key = $_POST['key_num'];
+//    $course_id = $courses[$key]->get_course_id();
+//    $peducator->delete_courses($course_id);
+//
+//    // refresh the website
+////    echo "<meta http-equiv='refresh' content='0'>";
+//}
 
 ?>
 
@@ -202,7 +220,7 @@ if (isset($_POST['add_note'])) {
 
 
 <?php
-$page->nav_body_close_with_table();
+$page->nav_body_close();
 ?>
 
 </body>

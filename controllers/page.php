@@ -61,12 +61,28 @@ class Page {
     }
 
     public function nav_dashboard() {
-        echo '<li><a href="#">Dashboard</a></li>';
+        echo '<li><a href="dashboard.php">Dashboard</a></li>';
     }
 
-    public function nav_general() {
-        if ($this->permission >= 3)
-        echo '<li><a href="setting.php">General Settings</a></li>';
+    public function nav_general_settings() {
+        if ($this->permission >= 3) {
+            // dropdown list start
+            echo '            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">General Settings<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Settings</li>';
+
+            // dropdown list
+            echo '
+                    <li><a href="setting.php#section">Section</a></li>
+                    <li><a href="setting.php#course">Course</a></li>
+                    <li><a href="setting.php#peducator">Peer Educator</a></li>
+                 ';
+
+            // dropdown list end
+            echo '</ul></li>';
+        }
     }
 
     public function nav_weekly_section() {
@@ -149,7 +165,7 @@ class Page {
         // lists
         $this->nav_brand();
         $this->nav_dashboard();
-        $this->nav_general();
+        $this->nav_general_settings();
         $this->nav_weekly_section();
         $this->nav_announcement();
         $this->nav_peducator();

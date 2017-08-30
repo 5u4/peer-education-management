@@ -243,8 +243,10 @@ class Peducator {
 		}
 	}
 
-	public function delete_courses($cour_id) {
-		$sql = "DELETE FROM peducator_courses WHERE course_id='$cour_id'";
+	public function delete_courses($course_id) {
+		$sql = "DELETE FROM peducator_courses 
+				WHERE course_id=$course_id
+				AND peducator_id=$this->peducator_id;";
 		$result = mysqli_query($this->connect_to_db, $sql);
 
 		if($result) {
@@ -316,6 +318,12 @@ class Peducator {
 				return false;
 			}
 		}
+	}
+
+	public function delete_peducator() {
+        $sql = "DELETE FROM peducators
+                WHERE peducator_id=$this->peducator_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
 	}
 
 } // end of peducators class

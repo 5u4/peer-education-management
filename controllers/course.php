@@ -256,7 +256,11 @@ public function set_times_been_taught_by_inc($week_number, $section_id) {
         }
     }
 
-
+    public function delete_course() {
+        $sql = "DELETE FROM courses
+                WHERE course_id=$this->course_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+    }
 }
 
 function get_course($course_id) {

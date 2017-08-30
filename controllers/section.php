@@ -85,6 +85,12 @@ class Section {
         }
         return false;
     }
+
+    public function delete_section() {
+        $sql = "DELETE FROM sections
+                WHERE section_id=$this->section_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+    }
 }
 
 function get_section($section_id) {

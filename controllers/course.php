@@ -219,6 +219,44 @@ class Course {
             }
         }
     }
+
+
+public function set_times_been_taught_by_inc($week_number, $section_id) {
+        // select database
+        $sql = "SELECT *
+                FROM course_sections 
+                WHERE course_id=$this->course_id 
+                AND week_number=$week_number 
+                AND section_id=$section_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+        if (!$result) {
+            die('Select failed: '.mysqli_error($this->connect_to_db));
+        }
+
+        if (mysqli_fetch_row($result)) { // if exist, update
+            // increment database
+            $sql = "UPDATE course_sections
+                    SET times_been_taught=times_been_taught+1 
+                    WHERE course_id=$this->course_id 
+                    AND week_number=$week_number 
+                    AND section_id=$section_id;";
+            $result = mysqli_query($this->connect_to_db, $sql);
+            if (!$result) {
+                die('Update failed: '.mysqli_error($this->connect_to_db));
+            }
+
+        } else { // if does not exist, insert
+            // insert database
+            $sql = "INSERT INTO course_sections (course_id, section_id, times_been_taught, week_number)
+                    VALUES ('$this->course_id','$section_id','1','$week_number');";
+            $result = mysqli_query($this->connect_to_db, $sql);
+            if (!$result) {
+                die('Insert failed: '.mysqli_error($this->connect_to_db));
+            }
+        }
+    }
+
+
 }
 
 function get_course($course_id) {

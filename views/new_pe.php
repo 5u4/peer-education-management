@@ -1,9 +1,32 @@
+<?php
+session_start();
+
+//----------------------------------------
+// for testing, make up a current user
+$_SESSION['manager_id'] = '1';
+//----------------------------------------
+
+?>
+
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+
+$nav = new Page($_SESSION['current_user']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php $nav->nav_head();?>
 </head>
 <body>
-
+<?php
+$nav->nav_body_start();
+?>
 <table>
     <thead>
         <form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
@@ -35,9 +58,6 @@
 </table>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
-
 // ---------------------
 // [Add]
 // ---------------------
@@ -47,9 +67,9 @@ if(isset($_POST['add'])) {
         $_POST['first_name'], $_POST['last_name'], $_POST['is_current'] ? 1 : 0);
 }
 
+$nav->nav_body_close();
+
 ?>
-
-
 
 </body>
 </html>

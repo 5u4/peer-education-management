@@ -179,9 +179,9 @@ class Page {
         echo '</div>';
 
         // jQuery -- does not work with DataTable CDN
-//        echo '
-//        <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
-//        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
+        echo '
+        <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>';
 
         // compiled plugins
         echo '

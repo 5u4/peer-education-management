@@ -13,6 +13,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+
+$nav = new Page($_SESSION['current_user']);
 
 /*
 // get manager
@@ -39,7 +42,16 @@ if ($manager->can_edit($announcement))
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php $nav->nav_head();?>
+</head>
 
+<body>
+<?php
+$nav->nav_body_start();
+?>
 <div>
 <fieldset style="width:30%"><legend>Submit Announcement</legend>
 <table border="0">
@@ -136,6 +148,8 @@ if(isset($_POST['delete']) && isset($_POST['announ_id'])) {
 }
 
 
-
-
+$nav->nav_body_close();
 ?>
+
+</body>
+</html>

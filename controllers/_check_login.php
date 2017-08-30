@@ -15,14 +15,8 @@ if(!isset($_SESSION['manager_id'])) {
 	// ----------------------------------
 	// ----------------------------------
 
-	echo 'Welcome ' . $_SESSION['current_user']->get_first_name() . ' ' . $_SESSION['current_user']->get_last_name();
-	echo '<br>';
+
 }
 
 ?>
 
-<div class='logout'>
-
-<a href='/controllers/logout.php'>Logout</a>
-
-</div>

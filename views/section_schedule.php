@@ -14,6 +14,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+
+$nav = new Page($_SESSION['current_user']);
 
 ?>
 
@@ -21,6 +24,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php $nav->nav_head();?>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -34,7 +38,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
     </script>
 </head>
 <body>
-
+<?php
+$nav->nav_body_start();
+?>
 <?php
 //* Constructing a section table in course page
 
@@ -127,6 +133,7 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
+$nav->nav_body_close();
 
 ?>
 

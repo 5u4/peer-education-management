@@ -66,7 +66,7 @@ class Page {
 
     public function nav_general() {
         if ($this->permission >= 3)
-        echo '<li><a href="#">General Settings</a></li>';
+        echo '<li><a href="setting.php">General Settings</a></li>';
     }
 
     public function nav_weekly_section() {

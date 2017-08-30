@@ -129,4 +129,18 @@ function list_all_sections_on($section_seme) {
         array_push($arr, get_section($row['section_id']));
     return $arr;
 }
+
+function list_all_sections() {
+    // select database
+    $con = connection();
+    $sql = "SELECT section_id
+            FROM sections;";
+    $result = mysqli_query($con, $sql);
+
+    // store into array
+    $arr = [];
+    while ($row = mysqli_fetch_array($result))
+        array_push($arr, get_section($row['section_id']));
+    return $arr;
+}
 ?>

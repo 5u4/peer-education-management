@@ -120,7 +120,7 @@ echo '<a target="_blank" href="new_pe.php">Add A New PE</a>';
 
 
 
-$page->nav_body_close();
+$page->nav_body_close_with_table();
 ?>
 
 

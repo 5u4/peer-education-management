@@ -93,7 +93,7 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-$page->nav_body_close();
+$page->nav_body_close_with_table();
 ?>
 
 

@@ -96,7 +96,7 @@ if (isset($_POST['course_name'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-$page->nav_body_close();
+$page->nav_body_close_with_table();
 ?>
 
 

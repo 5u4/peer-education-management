@@ -35,9 +35,12 @@ $nav->nav_body_start();
 // -----------------------
 
 $announ_array = list_all_announcements_desc();
+
+if (!empty($announ_array)) {
+
 $content = $announ_array[0]->get_content();
 
-echo '<a href="/views/announcement.php">';
+echo '<a href="announcement.php">';
 echo '<div>';
 echo '<h1>Latest Announcemet</h1>';
 echo $content;
@@ -57,6 +60,7 @@ echo $content;
 	echo '*************';
 echo '</div>';
 echo '</a>';
+}
 
 ?>
 

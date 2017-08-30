@@ -94,7 +94,7 @@ $announ_array = list_all_announcements_desc();
 // If there is no announcement, then
 if(empty($announ_array)) {
 	echo '<h1> There is no announcement now. </h1>';
-	return;
+//	return;
 }
 
 

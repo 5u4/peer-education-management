@@ -1,6 +1,12 @@
 <!DOCTYPE HTML>
 
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+
 
 // include database information and connection
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
@@ -74,9 +80,13 @@ if(isset($_POST['submit'])) {
 	$authentication = new Authentication();
 	$result_code = $authentication -> signup($first_name, $last_name, $username, $password);
 	if($result_code == 0) {
+<<<<<<< HEAD
 		session_start();
 		$_SESSION['registration_status'] = 'success';
 		header('Location: ../index.php');
+=======
+		echo "<meta http-equiv='refresh' content='0'>";
+>>>>>>> a6f1361f6d34f2e26e536f36231bc08f40fe8a9e
 	} else {
 		echo 'Sign up failed.';
 	}

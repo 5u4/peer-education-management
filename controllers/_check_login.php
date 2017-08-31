@@ -5,7 +5,7 @@ if (!isset($_SESSION))
 	session_start();
 
 if(!isset($_SESSION['manager_id'])) {
-	header('Location: /views/login.php');
+	header('Location: ../index.php');
 } else {
 	$mid = (int)$_SESSION['manager_id'];
 

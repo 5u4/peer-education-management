@@ -1,5 +1,11 @@
 
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
+
 
 // include database information and connection
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
@@ -74,9 +80,7 @@ if(isset($_POST['submit'])) {
 	$authentication = new Authentication();
 	$result_code = $authentication -> signup($first_name, $last_name, $username, $password);
 	if($result_code == 0) {
-		session_start();
-		$_SESSION['registration_status'] = 'success';
-		header('Location: ../dashboard.php');
+		echo "<meta http-equiv='refresh' content='0'>";
 	} else {
 		echo 'Sign up failed.';
 	}

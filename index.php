@@ -3,13 +3,16 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if(isset($_SESSION['current_user'])) {
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+
+if(isset($_SESSION[''])) {
 	header('Location: /views/dashboard.php');
 
 }
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
+
 
 ?>
 

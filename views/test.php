@@ -1,5 +1,9 @@
-<h1>Hello!</h1>
 <?php
+
+session_start();
+header('Location: ../views/test2.php/');
+exit();
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
@@ -312,10 +316,11 @@ if (isset($_POST['course_name'])) {
 
 <?php
 
-// header('Location: /course.php/');
+
 
 ?>
 
+<h1>Hello!</h1>
 
 
 

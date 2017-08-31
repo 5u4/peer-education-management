@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<?php 
+<?php
 
 // include database information and connection
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 

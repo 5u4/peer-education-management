@@ -170,8 +170,8 @@ CREATE TABLE `peer_education`.`peducator_courses` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
-ALTER TABLE `peer_education`.`peducators` 
+ALTER TABLE `peer_education`.`peducators`
 ADD COLUMN `is_current` INT UNSIGNED NOT NULL AFTER `last_name`;
 
-ALTER TABLE `peer_education`.`peducators` 
+ALTER TABLE `peer_education`.`peducators`
 CHANGE COLUMN `is_current` `is_current` INT(10) UNSIGNED NOT NULL DEFAULT 1 ;

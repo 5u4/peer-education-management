@@ -18,14 +18,20 @@ if($_SESSION['registration_status'] == 'success') {
 
 <!--made by vipul mirajkar thevipulm.appspot.com-->
 <h1>
-    <a href="" class="typewrite" data-period="2000" data-type='[
-    "Hi! This is Alex...",
-    "This is Peer Education Management Tool...",
-    "An Application for Managers"
+    <a href="" class="typewrite" data-period="1000" data-type='[
+    "Hi! This is Peer Education Management Tool...",
+    "An Application for Managers...",
+    "Made by David Chou & Alex Wong."
     ]'>
         <span class="wrap"></span>
     </a>
 </h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h4><a href="views/login.php">LOGIN</a> | <a href="views/sign_up.php">SIGN UP</a></h4>
 
 <script src="../assets/js/landing.js"></script>
 

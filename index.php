@@ -7,7 +7,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 
-if(isset($_SESSION[''])) {
+if(isset($_SESSION['current_user'])) {
 	header('Location: /views/dashboard.php');
 
 }

@@ -221,19 +221,4 @@ class Page {
         ';
     }
 }
-
-function datatable_head() {
-    echo '
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(\'#courses\').DataTable( {
-                    "order": [[ 3, "desc" ]]
-                } );
-            } );
-        </script>
-        ';
-}
 ?>

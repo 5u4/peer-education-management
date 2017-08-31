@@ -16,7 +16,6 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 $page = new Page(get_manager(1));
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

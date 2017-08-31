@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 
 <?php
 
@@ -9,6 +8,7 @@ $con = connection();
 
 ?>
 
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>Sign-Up</title>
@@ -76,7 +76,7 @@ if(isset($_POST['submit'])) {
 	if($result_code == 0) {
 		session_start();
 		$_SESSION['registration_status'] = 'success';
-		header('Location: ../index.php');
+		header('Location: ../dashboard.php');
 	} else {
 		echo 'Sign up failed.';
 	}

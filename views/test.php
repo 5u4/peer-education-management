@@ -1,7 +1,6 @@
 <?php
 
-session_start();
-header('Location: ../views/test2.php/');
+header('Location: '.$filePath.'../views/course.php');
 exit();
 
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';

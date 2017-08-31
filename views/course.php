@@ -1,24 +1,18 @@
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
+$current_user = get_manager(1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
     <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
-    $current_user = get_manager(1);
     $page = new Page($current_user);
     $page->nav_head();
+    datatable_head();
     ?>
-    <meta charset="utf-8">
-    <?php include_once '../controllers/course.php' ?>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#courses').DataTable( {
-                "order": [[ 3, "desc" ]]
-            } );
-        } );
-    </script>
 </head>
 <body>
 

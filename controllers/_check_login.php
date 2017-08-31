@@ -1,7 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
-session_start();
+if (!isset($_SESSION))
+	session_start();
 
 if(!isset($_SESSION['manager_id'])) {
 	header('Location: /views/login.php');

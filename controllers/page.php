@@ -131,15 +131,14 @@ class Page {
     // ----------------------
     public function nav_head() {
         echo '
-            <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
             <title>'.$this->get_name().' - PE Management Tool</title>
         
             <!-- Bootstrap -->
-            <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-            <link href="../assets/css/nav.css" rel="stylesheet">
+            <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+            <link href="/assets/css/nav.css" rel="stylesheet">
         
             <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->
@@ -202,8 +201,8 @@ class Page {
         // compiled plugins
         echo '
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/nav.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/nav.js"></script>
         ';
     }
 
@@ -217,9 +216,24 @@ class Page {
         // compiled plugins
         echo '
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/nav.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/nav.js"></script>
         ';
     }
+}
+
+function datatable_head() {
+    echo '
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(\'#courses\').DataTable( {
+                    "order": [[ 3, "desc" ]]
+                } );
+            } );
+        </script>
+        ';
 }
 ?>

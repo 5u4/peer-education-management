@@ -1,4 +1,13 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if(isset($_SESSION['current_user'])) {
+	header('Location: /views/dashboard.php');
+
+}
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 

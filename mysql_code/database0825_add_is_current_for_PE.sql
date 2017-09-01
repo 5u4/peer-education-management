@@ -175,3 +175,11 @@ ADD COLUMN `is_current` INT UNSIGNED NOT NULL AFTER `last_name`;
 
 ALTER TABLE `peer_education`.`peducators`
 CHANGE COLUMN `is_current` `is_current` INT(10) UNSIGNED NOT NULL DEFAULT 1 ;
+
+
+CREATE TABLE `peer_education`.`dates` (
+  `dates_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  PRIMARY KEY (`dates_id`),
+  UNIQUE INDEX `dates_id_UNIQUE` (`dates_id` ASC),
+  UNIQUE INDEX `date_UNIQUE` (`date` ASC));

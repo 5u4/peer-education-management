@@ -3,15 +3,12 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-//----------------------------------------
-// for testing, make up a current user
-$_SESSION['manager_id'] = '1';
-//----------------------------------------
-
 // include
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 
-
+$current_user = get_manager($_SESSION['manager_id']);
 ?>
 
 

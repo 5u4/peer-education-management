@@ -1,13 +1,20 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/note.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 
 $peducator = get_peducator($_GET['id']); // get PE object
-$current_user = get_manager(1); // for test
+$current_user = get_manager($_SESSION['manager_id']);
 $section_seme = '201702'; // for test
 ?>
 

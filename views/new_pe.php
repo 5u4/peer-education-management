@@ -1,11 +1,7 @@
 <?php
-session_start();
-
-//----------------------------------------
-// for testing, make up a current user
-$_SESSION['manager_id'] = '1';
-//----------------------------------------
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 
 <?php

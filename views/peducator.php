@@ -1,16 +1,23 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-    $current_user = get_manager(1);
+    $current_user = get_manager($_SESSION['manager_id']);
     $page = new Page($current_user);
     $page->nav_head();
     ?>

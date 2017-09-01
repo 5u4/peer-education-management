@@ -1,20 +1,16 @@
 <?php
-session_start();
-
-//----------------------------------------
-// for testing, make up a current user
-$_SESSION['manager_id'] = '1';
-//----------------------------------------
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>
 
 <?php
-
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
-$page = new Page(get_manager(1));
+$page = new Page(get_manager($_SESSION['manager_id']));
 
 ?>
 <!DOCTYPE html>

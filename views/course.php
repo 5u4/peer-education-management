@@ -58,6 +58,7 @@ echo '
             <th># of times</th>
             <th>set to</th>
             <th></th>
+	    <th></th>
         </tr>
     </thead>
     <tbody>
@@ -73,6 +74,11 @@ foreach ($courses as $key=>$course) {
         <td><input type="number" name="number"></td>
         <input type="hidden" name="key_num" value="'.$key.'">
         <td><input type="submit" value="Change" name="submit"></td>
+    </form>
+    
+    <form method="post" action="">
+       <input type="hidden" name="key_num_inc" value="'.$key.'">
+       <td><input type="submit" value="+" name="inc"></td>
     </form>
     ';
     echo '</tr>'; // end table row
@@ -93,6 +99,16 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 }
+
+// if increment button is clicked
+if (isset($_POST['inc']) && isset($_POST['key_num_inc'])) {
+	$key_num = $_POST['key_num_inc']; // the row number
+	$courses[$key_num]->set_times_been_taught_by_inc(1,1);
+
+	// refresh the website
+	//echo "<meta http-equiv='refresh' content='0'>";
+}
+
 
 // insert a course
 echo '

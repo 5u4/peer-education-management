@@ -31,7 +31,9 @@ class Authentication {
 
  	public function login($myusername, $mypassword, $con) {
 
-		session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
 
 		if($_SERVER["REQUEST_METHOD"] == "POST") {
       
@@ -69,7 +71,9 @@ class Authentication {
     
 		$m = get_manager($row['manager_id']);
 
-		session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
 
 		$_SESSION['manager_id'] = $m->get_manager_id();
 	
@@ -78,8 +82,10 @@ class Authentication {
 
 
 	public function logout() {
-	
-		session_start();
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
 		session_destroy();
 
 		header('Location: ../index.php');

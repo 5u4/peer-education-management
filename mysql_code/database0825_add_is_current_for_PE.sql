@@ -183,3 +183,8 @@ CREATE TABLE `peer_education`.`dates` (
   PRIMARY KEY (`dates_id`),
   UNIQUE INDEX `dates_id_UNIQUE` (`dates_id` ASC),
   UNIQUE INDEX `date_UNIQUE` (`date` ASC));
+
+
+ALTER TABLE `peer_education`.`dates`
+  ADD COLUMN `semester` CHAR(6) NOT NULL AFTER `date`,
+  ADD UNIQUE INDEX `semester_UNIQUE` (`semester` ASC);

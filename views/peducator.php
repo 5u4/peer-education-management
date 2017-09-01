@@ -10,14 +10,21 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/date.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+
+$current_user = get_manager($_SESSION['manager_id']);
+$current_seme_id = $current_user->get_section_id();
+$date_id = get_last_date_id();
+$date = get_date($date_id);
+$current_week = $date->get_week();
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-    $current_user = get_manager($_SESSION['manager_id']);
     $page = new Page($current_user);
     $page->nav_head();
     ?>
@@ -37,9 +44,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 $page->nav_body_start();
 
 // Get week number and semester id
-$current_week = 1; // will be change to a table # (or something else) in the future
-$current_seme_id = 2; // semester name (will also be change into the table)
-$current_section = get_section(get_manager(1)->get_section_id());
+//$current_week = 1; // will be change to a table # (or something else) in the future
+//$current_seme_id = 2; // semester name (will also be change into the table)
+$current_section = get_section($current_seme_id);
 echo '<h1>This is week '.$current_week.' in semester '.$current_seme_id.'</h1>';
 
 // Get all PEs

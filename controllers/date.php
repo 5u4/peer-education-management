@@ -60,4 +60,13 @@ function get_last_date_id() {
     return $row['date_id'];
 }
 
+function insert_date($date, $semester) {
+    $con = connection();
+    $sql = "INSERT INTO dates (date, semester)
+            VALUES ('$date', '$semester');";
+    $result = mysqli_query($con, $sql);
+    if (!$result) {
+        die('Insert failed: '.mysqli_error($con));
+    }
+}
 ?>

@@ -75,9 +75,10 @@ class Page {
 
             // dropdown list
             echo '
-                    <li><a href="setting.php#section">Section</a></li>
-                    <li><a href="setting.php#course">Course</a></li>
-                    <li><a href="setting.php#peducator">Peer Educator</a></li>
+                    <li><a href="setting_semester.php">Semester</a></li>
+                    <li><a href="setting_section.php">Section</a></li>
+                    <li><a href="setting_course.php">Course</a></li>
+                    <li><a href="setting_pe.php">Peer Educator</a></li>
                  ';
 
             // dropdown list end

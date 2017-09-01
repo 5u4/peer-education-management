@@ -11,13 +11,13 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
+$current_user = get_manager($_SESSION['manager_id']);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-    $current_user = get_manager(1);
     $page = new Page($current_user);
     $page->nav_head();
     ?>

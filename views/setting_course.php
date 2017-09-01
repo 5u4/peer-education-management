@@ -31,9 +31,7 @@ $current_user = get_manager($_SESSION['manager_id']);
         <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#courses').DataTable( {
-                    "order": [[ 3, "desc" ]]
-                } );
+                $('#courses').DataTable( {} );
             } );
         </script>
         <!--  DataTable  -->
@@ -42,11 +40,12 @@ $current_user = get_manager($_SESSION['manager_id']);
     <body>
 
 <?php
+$page->nav_body_start();
 // Course setting
 $courses = list_all_courses();
 
 echo '
-    <h1 id="course">Courses</h1>
+    <h1>Courses</h1>
         <table id="courses"><thead>
         <tr>
             <th>Course Name</th>
@@ -111,5 +110,7 @@ if (isset($_POST['course_name'])) {
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 }
+
+$page->nav_body_close_with_table();
 
 ?>

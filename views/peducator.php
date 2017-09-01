@@ -33,9 +33,7 @@ $current_week = $date->get_week();
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#pe_list').DataTable( {
-                "order": [[ 3, "desc" ]]
-            } );
+            $('#pe_list').DataTable( {} );
         } );
     </script>
 </head>

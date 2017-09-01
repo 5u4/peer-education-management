@@ -6,6 +6,7 @@ class Date {
     private $date_id;
     private $semester;
     private $week_number;
+    private $date;
 
     function __construct($date_id) {
         $this->connect_to_db = connection();
@@ -25,8 +26,9 @@ class Date {
 
         // set attributes
         $this->semester = $row['semester'];
-        $date = $row['date'];
-        $this->week_number = date("W", $date) - date("W", CURRENT_DATE);
+        $this->date = $row['date'];
+        date_default_timezone_set("America/Vancouver");
+        $this->week_number = date("W") - date("W", strtotime($this->date)) + 1;
     }
 
     public function get_semester() {
@@ -34,6 +36,10 @@ class Date {
     }
     public function get_week() {
         return $this->week_number;
+    }
+
+    public function get_date() {
+        return $this->date;
     }
 }
 

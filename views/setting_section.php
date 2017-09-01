@@ -31,9 +31,7 @@ $current_user = get_manager($_SESSION['manager_id']);
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#sections').DataTable( {
-                "order": [[ 3, "desc" ]]
-            } );
+            $('#section').DataTable( {} );
         } );
     </script>
     <!--  DataTable  -->
@@ -57,8 +55,8 @@ $sections = list_all_sections();
 
 // construct section table header
 echo '
-    <h1 id="section">Sections</h1>
-    <table id="sections"><thead>
+    <h1>Sections</h1>
+    <table id="section"><thead>
         <tr>
             <th>Semester</th>
             <th>Time</th>
@@ -104,7 +102,7 @@ if (isset($_POST['section_delete'])) {
 
 // insert a section
 echo '
-    Add a new section into the list: 
+    <p>Add a new section into the list: </p>
     <form method="post" action="">
         <td>Section Semester: <input type="text" name="section_seme"></td>
         <td>Section Name: <input type="text" name="section_name"></td>

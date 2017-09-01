@@ -27,9 +27,7 @@ $current_user = get_manager($_SESSION['manager_id']);
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#sections').DataTable( {
-                "order": [[ 3, "desc" ]]
-            } );
+            $('#sections').DataTable( {} );
         } );
     </script>
 </head>

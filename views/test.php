@@ -1,7 +1,7 @@
 <?php
 
-header('Location: '.$filePath.'../views/course.php');
-exit();
+//header('Location: '.$filePath.'../views/course.php');
+//exit();
 
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
@@ -9,6 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/note.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/date.php';
 
 
 // ----------------------
@@ -313,13 +314,17 @@ if (isset($_POST['course_name'])) {
 //*/
 ?>
 
+
 <?php
+
+$date = get_date(1);
+echo $date->get_semester();
+echo $date->get_week();
 
 
 
 ?>
 
-<h1>Hello!</h1>
 
 
 

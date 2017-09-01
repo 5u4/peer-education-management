@@ -178,10 +178,10 @@ CHANGE COLUMN `is_current` `is_current` INT(10) UNSIGNED NOT NULL DEFAULT 1 ;
 
 
 CREATE TABLE `peer_education`.`dates` (
-  `dates_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `date_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
-  PRIMARY KEY (`dates_id`),
-  UNIQUE INDEX `dates_id_UNIQUE` (`dates_id` ASC),
+  PRIMARY KEY (`date_id`),
+  UNIQUE INDEX `dates_id_UNIQUE` (`date_id` ASC),
   UNIQUE INDEX `date_UNIQUE` (`date` ASC));
 
 

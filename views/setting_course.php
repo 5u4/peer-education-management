@@ -31,7 +31,7 @@ $current_user = get_manager($_SESSION['manager_id']);
         <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#course').DataTable( {
+                $('#courses').DataTable( {
                     "order": [[ 3, "desc" ]]
                 } );
             } );
@@ -65,6 +65,10 @@ foreach ($courses as $key_course=>$course) {
                 <input type="text" name="course_name" value="'.$course->get_course_name().'" required>
                 <input type="submit" name="course_change" value="Change">
             </td>
+	    </form>
+
+	    <form method="post" action="">
+	    <input type="hidden" name="course_key" value="'.$key_course.'">
             <td>'.$course->get_total_times_been_taught().'</td>
             <td><input type="submit" value="Delete" name="course_delete"></td>
             </form>
@@ -86,7 +90,6 @@ if (isset($_POST['course_change']) && isset($_POST['course_name'])) {
 if (isset($_POST['course_delete'])) {
     $course_key = $_POST['course_key'];
     $courses[$course_key]->delete_course();
-
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
 }

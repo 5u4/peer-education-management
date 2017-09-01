@@ -1,7 +1,19 @@
 <?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
+
+if(isset($_SESSION['current_user'])) {
+	header('Location: /views/dashboard.php');
+
+}
+
 $con = connection();
 ?>
 
@@ -44,7 +56,7 @@ if(isset($_POST['submit'])) {
 	$result_code = $authentication->login($myusername, $mypassword, $con);
 
 	if($result_code == 0) {
-		header('Location: /index.php');
+		echo "<meta http-equiv='refresh' content='0'>";
 	} else {
 		echo 'Login failed.';
 	}

@@ -1,5 +1,3 @@
-<!DOCTYPE HTML>
-
 <?php
 if (!isset($_SESSION)) {
     session_start();
@@ -19,6 +17,8 @@ $con = connection();
 
 ?>
 
+
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>Sign-Up</title>

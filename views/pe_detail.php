@@ -171,16 +171,31 @@ if (isset($_POST['add_course'])) {
 // get all sections
 $sections = $peducator->get_all_sections_on(0);
 
-echo '<table><th><tr><td>Semester</td><td>Section Time</td></tr></th><tbody>';
-foreach ($sections as $section) {
+echo '    
+    <table><thead><tr>
+        <th>Semester</th>
+        <th>Section Time</th>
+        <th></th>
+    </tr></thead><tbody>';
+foreach ($sections as $key_section=>$section) {
     echo '
         <tr>
             <td>'.$section->get_section_seme().'</td>
             <td>'.$section->get_section_name().'</td>
+            <form>
+                <input type="hidden" name="section_id" value="'.$section->get_section_id().'">
+                <td><input type="submit" name="delete_section" value="Delete Section"></td>
+            </form>
         </tr>
         ';
 }
 echo '</tbody></table><br/>';
+
+if (isset($_POST['delete_section']) && isset($_POST['section_id'])) {
+    $section_id = $_POST['section_id'];
+    if ($peducator->delete_section($section_id))
+        echo "<meta http-equiv='refresh' content='0'>";
+}
 
 // ----------------------
 // Add Section
@@ -192,10 +207,11 @@ $sections = list_all_sections_on($section_seme);
 if (!empty($sections)) {
     echo '<form method="post" action="">';
     echo 'Assign to <select name="section">';
-    foreach ($sections as $key => $section)
+    foreach ($sections as $key => $section) {
         echo '<option value="' . $section->get_section_id() . '">' .
             $section->get_section_name() .
             '</option>';
+    }
 
     // Assign Section - Apply
     echo '</select>

@@ -271,6 +271,20 @@ class Peducator {
 		}
 	}
 
+	public function delete_section($section_id) {
+		$sql = "DELETE FROM peducator_sections 
+				WHERE section_id=$section_id
+				AND peducator_id=$this->peducator_id
+				AND week_number='0';";
+		$result = mysqli_query($this->connect_to_db, $sql);
+
+		if($result) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function set_contributed_mins($mins, $sec_id, $weeknum) {
 		//		
 		// Check if the data already exist in database.

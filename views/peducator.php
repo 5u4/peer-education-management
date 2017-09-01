@@ -96,7 +96,7 @@ $section_seme = $current_section->get_section_seme();
         }//*/
 
         // More
-        echo '<td><a href="pe_detail.php?id=' . $peducator->get_peducator_id() . '">' .
+        echo '<td><a target="_blank" href="pe_detail.php?id=' . $peducator->get_peducator_id() . '">' .
             'more' . '</td>';
 
         // Row ID & End Table

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634deba0-6e47-4c15-97bf-b4125b69b8b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/peducator.php" afterPath="$PROJECT_DIR$/controllers/peducator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/attendence.php" afterPath="$PROJECT_DIR$/views/attendence.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pe_detail.php" afterPath="$PROJECT_DIR$/views/pe_detail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/peducator.php" afterPath="$PROJECT_DIR$/views/peducator.php" />
     </list>
@@ -15,68 +13,96 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="attendence.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/attendence.php">
+      <file leaf-file-name="pe_detail.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pe_detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="75" column="61" lean-forward="true" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="61" />
+            <state relative-caret-position="318">
+              <caret line="184" column="18" lean-forward="true" selection-start-line="184" selection-start-column="18" selection-end-line="184" selection-end-column="18" />
               <folding>
-                <marker date="1504292634000" expanded="true" signature="1621:1801" ph="..." />
-                <marker date="1504292634000" expanded="true" signature="1633:1784" ph="..." />
-                <marker date="1504292634000" expanded="true" signature="1646:1771" ph="..." />
-                <marker date="1504292634000" expanded="true" signature="1796:1801" ph="..." />
-                <marker date="1504292634000" expanded="true" signature="2144:2339" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1316:2474" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1328:2465" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1377:2452" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1390:1548" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1561:1707" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1720:1863" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="1876:2022" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="2035:2338" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="2088:2324" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="2134:2306" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="2351:2440" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4588:4698" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4595:4691" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4599:4683" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4772:5120" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4899:5106" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4900:4963" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="4900:5106" ph="..." />
+                <marker date="1504294102000" expanded="true" signature="6574:6762" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="peducator.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="peducator.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/peducator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="614" column="40" lean-forward="false" selection-start-line="614" selection-start-column="9" selection-end-line="614" selection-end-column="40" />
+            <state relative-caret-position="424">
+              <caret line="276" column="25" lean-forward="false" selection-start-line="276" selection-start-column="25" selection-end-line="276" selection-end-column="25" />
               <folding>
-                <marker date="1504292615000" expanded="true" signature="1017:1069" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="2282:2367" ph="SELECT secti... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="2655:2742" ph="SELECT secti... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="2655:2750" ph="SELECT secti... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="2655:2751" ph="SELECT secti... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="2655:2763" ph="SELECT secti... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="3046:3129" ph="SELECT cours... peducator_courses" />
-                <marker date="1504292615000" expanded="true" signature="3412:3481" ph="SELECT note_... notes" />
-                <marker date="1504292615000" expanded="true" signature="3819:3976" ph="SELECT contr... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="4262:4348" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="4602:4691" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="4945:5030" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="5278:5362" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="5658:5742" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="5969:6069" ph="INSERT INTO peducator_courses... " />
-                <marker date="1504292615000" expanded="true" signature="6456:6507" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="6456:6539" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="6456:6540" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="6829:6969" ph="SELECT * FRO... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="7327:7494" ph="UPDATE peduc... " />
-                <marker date="1504292615000" expanded="true" signature="7762:7920" ph="INSERT INTO peducator_sections... " />
-                <marker date="1504292615000" expanded="true" signature="8182:8240" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="8182:8247" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="8434:8519" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="9491:9550" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="9721:9900" ph="INSERT INTO peducators... " />
-                <marker date="1504292615000" expanded="true" signature="10418:10482" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="10561:10621" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="12804:12897" ph="SELECT * FRO... peducators" />
-                <marker date="1504292615000" expanded="true" signature="13548:13633" ph="DELETE FROM " />
-                <marker date="1504292615000" expanded="true" signature="13875:13910" ph="SELECT peduc... peducators" />
-                <marker date="1504292615000" expanded="true" signature="14193:14251" ph="SELECT peduc... peducators" />
-                <marker date="1504292615000" expanded="true" signature="14537:14595" ph="SELECT peduc... peducators" />
-                <marker date="1504292615000" expanded="true" signature="14883:14959" ph="SELECT peduc... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="14958:14959" ph="SELECT peduc... peducators" />
-                <marker date="1504292615000" expanded="true" signature="15278:15362" ph="SELECT peduc... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="15278:15382" ph="SELECT peduc... peducator_sections" />
-                <marker date="1504292615000" expanded="true" signature="15278:15383" ph="SELECT peduc... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="1017:1069" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="2282:2367" ph="SELECT secti... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="2655:2742" ph="SELECT secti... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="2655:2750" ph="SELECT secti... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="2655:2751" ph="SELECT secti... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="2655:2763" ph="SELECT secti... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="3046:3129" ph="SELECT cours... peducator_courses" />
+                <marker date="1504294285000" expanded="true" signature="3412:3481" ph="SELECT note_... notes" />
+                <marker date="1504294285000" expanded="true" signature="3819:3976" ph="SELECT contr... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="4262:4348" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="4602:4691" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="4945:5030" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="5278:5362" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="5658:5742" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="5969:6069" ph="INSERT INTO peducator_courses... " />
+                <marker date="1504294285000" expanded="true" signature="6456:6507" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="6456:6539" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="6456:6540" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="6742:6828" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="6742:6868" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="6742:6871" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="7142:7282" ph="SELECT * FRO... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="7640:7807" ph="UPDATE peduc... " />
+                <marker date="1504294285000" expanded="true" signature="8075:8233" ph="INSERT INTO peducator_sections... " />
+                <marker date="1504294285000" expanded="true" signature="8495:8553" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="8495:8560" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="8747:8832" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="9804:9863" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="10034:10213" ph="INSERT INTO peducators... " />
+                <marker date="1504294285000" expanded="true" signature="10731:10795" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="10874:10934" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="13117:13210" ph="SELECT * FRO... peducators" />
+                <marker date="1504294285000" expanded="true" signature="13861:13946" ph="DELETE FROM " />
+                <marker date="1504294285000" expanded="true" signature="14188:14223" ph="SELECT peduc... peducators" />
+                <marker date="1504294285000" expanded="true" signature="14506:14564" ph="SELECT peduc... peducators" />
+                <marker date="1504294285000" expanded="true" signature="14850:14908" ph="SELECT peduc... peducators" />
+                <marker date="1504294285000" expanded="true" signature="15196:15272" ph="SELECT peduc... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="15271:15272" ph="SELECT peduc... peducators" />
+                <marker date="1504294285000" expanded="true" signature="15591:15675" ph="SELECT peduc... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="15591:15695" ph="SELECT peduc... peducator_sections" />
+                <marker date="1504294285000" expanded="true" signature="15591:15696" ph="SELECT peduc... peducator_sections" />
               </folding>
             </state>
           </provider>
@@ -94,7 +120,6 @@
       <find>mysqli_fetch_rows</find>
       <find>get_pref</find>
       <find>get_times_been_taught_on_with_section</find>
-      <find>delete</find>
       <find>delete_course</find>
       <find>set_course</find>
       <find>peer_education</find>
@@ -105,6 +130,8 @@
       <find>get_cont</find>
       <find>get_all</find>
       <find>list_all_pe_on</find>
+      <find>get_is</find>
+      <find>delete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,10 +180,10 @@
         <option value="$PROJECT_DIR$/views/test.php" />
         <option value="$PROJECT_DIR$/controllers/date.php" />
         <option value="$PROJECT_DIR$/controllers/section.php" />
+        <option value="$PROJECT_DIR$/views/attendence.php" />
         <option value="$PROJECT_DIR$/views/peducator.php" />
         <option value="$PROJECT_DIR$/views/pe_detail.php" />
         <option value="$PROJECT_DIR$/controllers/peducator.php" />
-        <option value="$PROJECT_DIR$/views/attendence.php" />
       </list>
     </option>
   </component>
@@ -312,12 +339,12 @@
       <workItem from="1504230294561" duration="2965000" />
       <workItem from="1504233515829" duration="2612000" />
       <workItem from="1504247790833" duration="6808000" />
-      <workItem from="1504290970382" duration="1706000" />
+      <workItem from="1504290970382" duration="3326000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165881000" />
+    <option name="totallyTimeSpent" value="167501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="572" y="22" width="1108" height="1028" extended-state="0" />
@@ -626,14 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/setting_pe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-147">
@@ -779,10 +798,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/attendence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+          <folding>
+            <marker date="1504292634000" expanded="true" signature="1621:1801" ph="..." />
+            <marker date="1504292634000" expanded="true" signature="1633:1784" ph="..." />
+            <marker date="1504292634000" expanded="true" signature="1646:1771" ph="..." />
+            <marker date="1504292634000" expanded="true" signature="1796:1801" ph="..." />
+            <marker date="1504292634000" expanded="true" signature="2144:2339" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/peducator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <marker date="1504292895000" expanded="true" signature="1805:1958" ph="..." />
+            <marker date="1504292895000" expanded="true" signature="1817:1941" ph="..." />
+            <marker date="1504292895000" expanded="true" signature="1830:1928" ph="..." />
+            <marker date="1504292895000" expanded="true" signature="1953:1958" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/section.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="127" column="25" lean-forward="true" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+        <state relative-caret-position="430">
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding>
             <marker date="1504291297000" expanded="true" signature="1432:1506" ph="SELECT * FRO... sections" />
             <marker date="1504291297000" expanded="true" signature="2279:2379" ph="UPDATE secti... " />
@@ -797,96 +851,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/pe_detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+        <state relative-caret-position="318">
+          <caret line="184" column="18" lean-forward="true" selection-start-line="184" selection-start-column="18" selection-end-line="184" selection-end-column="18" />
           <folding>
-            <marker date="1504292500000" expanded="true" signature="1316:2474" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1328:2465" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1377:2452" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1390:1548" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1561:1707" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1720:1863" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="1876:2022" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="2035:2338" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="2088:2324" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="2134:2306" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="2351:2440" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="4702:4824" ph="..." />
-            <marker date="1504292500000" expanded="true" signature="6052:6240" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/peducator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-          <folding>
-            <marker date="1504292322000" expanded="true" signature="1805:1958" ph="..." />
-            <marker date="1504292322000" expanded="true" signature="1817:1941" ph="..." />
-            <marker date="1504292322000" expanded="true" signature="1830:1928" ph="..." />
-            <marker date="1504292322000" expanded="true" signature="1953:1958" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1316:2474" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1328:2465" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1377:2452" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1390:1548" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1561:1707" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1720:1863" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="1876:2022" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="2035:2338" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="2088:2324" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="2134:2306" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="2351:2440" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4588:4698" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4595:4691" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4599:4683" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4772:5120" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4899:5106" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4900:4963" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="4900:5106" ph="..." />
+            <marker date="1504294102000" expanded="true" signature="6574:6762" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/peducator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="614" column="40" lean-forward="false" selection-start-line="614" selection-start-column="9" selection-end-line="614" selection-end-column="40" />
+        <state relative-caret-position="424">
+          <caret line="276" column="25" lean-forward="false" selection-start-line="276" selection-start-column="25" selection-end-line="276" selection-end-column="25" />
           <folding>
-            <marker date="1504292615000" expanded="true" signature="1017:1069" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="2282:2367" ph="SELECT secti... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="2655:2742" ph="SELECT secti... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="2655:2750" ph="SELECT secti... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="2655:2751" ph="SELECT secti... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="2655:2763" ph="SELECT secti... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="3046:3129" ph="SELECT cours... peducator_courses" />
-            <marker date="1504292615000" expanded="true" signature="3412:3481" ph="SELECT note_... notes" />
-            <marker date="1504292615000" expanded="true" signature="3819:3976" ph="SELECT contr... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="4262:4348" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="4602:4691" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="4945:5030" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="5278:5362" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="5658:5742" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="5969:6069" ph="INSERT INTO peducator_courses... " />
-            <marker date="1504292615000" expanded="true" signature="6456:6507" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="6456:6539" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="6456:6540" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="6829:6969" ph="SELECT * FRO... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="7327:7494" ph="UPDATE peduc... " />
-            <marker date="1504292615000" expanded="true" signature="7762:7920" ph="INSERT INTO peducator_sections... " />
-            <marker date="1504292615000" expanded="true" signature="8182:8240" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="8182:8247" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="8434:8519" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="9491:9550" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="9721:9900" ph="INSERT INTO peducators... " />
-            <marker date="1504292615000" expanded="true" signature="10418:10482" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="10561:10621" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="12804:12897" ph="SELECT * FRO... peducators" />
-            <marker date="1504292615000" expanded="true" signature="13548:13633" ph="DELETE FROM " />
-            <marker date="1504292615000" expanded="true" signature="13875:13910" ph="SELECT peduc... peducators" />
-            <marker date="1504292615000" expanded="true" signature="14193:14251" ph="SELECT peduc... peducators" />
-            <marker date="1504292615000" expanded="true" signature="14537:14595" ph="SELECT peduc... peducators" />
-            <marker date="1504292615000" expanded="true" signature="14883:14959" ph="SELECT peduc... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="14958:14959" ph="SELECT peduc... peducators" />
-            <marker date="1504292615000" expanded="true" signature="15278:15362" ph="SELECT peduc... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="15278:15382" ph="SELECT peduc... peducator_sections" />
-            <marker date="1504292615000" expanded="true" signature="15278:15383" ph="SELECT peduc... peducator_sections" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/attendence.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="75" column="61" lean-forward="true" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="61" />
-          <folding>
-            <marker date="1504292634000" expanded="true" signature="1621:1801" ph="..." />
-            <marker date="1504292634000" expanded="true" signature="1633:1784" ph="..." />
-            <marker date="1504292634000" expanded="true" signature="1646:1771" ph="..." />
-            <marker date="1504292634000" expanded="true" signature="1796:1801" ph="..." />
-            <marker date="1504292634000" expanded="true" signature="2144:2339" ph="..." />
+            <marker date="1504294285000" expanded="true" signature="1017:1069" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="2282:2367" ph="SELECT secti... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="2655:2742" ph="SELECT secti... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="2655:2750" ph="SELECT secti... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="2655:2751" ph="SELECT secti... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="2655:2763" ph="SELECT secti... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="3046:3129" ph="SELECT cours... peducator_courses" />
+            <marker date="1504294285000" expanded="true" signature="3412:3481" ph="SELECT note_... notes" />
+            <marker date="1504294285000" expanded="true" signature="3819:3976" ph="SELECT contr... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="4262:4348" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="4602:4691" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="4945:5030" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="5278:5362" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="5658:5742" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="5969:6069" ph="INSERT INTO peducator_courses... " />
+            <marker date="1504294285000" expanded="true" signature="6456:6507" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="6456:6539" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="6456:6540" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="6742:6828" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="6742:6868" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="6742:6871" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="7142:7282" ph="SELECT * FRO... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="7640:7807" ph="UPDATE peduc... " />
+            <marker date="1504294285000" expanded="true" signature="8075:8233" ph="INSERT INTO peducator_sections... " />
+            <marker date="1504294285000" expanded="true" signature="8495:8553" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="8495:8560" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="8747:8832" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="9804:9863" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="10034:10213" ph="INSERT INTO peducators... " />
+            <marker date="1504294285000" expanded="true" signature="10731:10795" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="10874:10934" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="13117:13210" ph="SELECT * FRO... peducators" />
+            <marker date="1504294285000" expanded="true" signature="13861:13946" ph="DELETE FROM " />
+            <marker date="1504294285000" expanded="true" signature="14188:14223" ph="SELECT peduc... peducators" />
+            <marker date="1504294285000" expanded="true" signature="14506:14564" ph="SELECT peduc... peducators" />
+            <marker date="1504294285000" expanded="true" signature="14850:14908" ph="SELECT peduc... peducators" />
+            <marker date="1504294285000" expanded="true" signature="15196:15272" ph="SELECT peduc... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="15271:15272" ph="SELECT peduc... peducators" />
+            <marker date="1504294285000" expanded="true" signature="15591:15675" ph="SELECT peduc... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="15591:15695" ph="SELECT peduc... peducator_sections" />
+            <marker date="1504294285000" expanded="true" signature="15591:15696" ph="SELECT peduc... peducator_sections" />
           </folding>
         </state>
       </provider>

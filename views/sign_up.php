@@ -6,9 +6,8 @@ if (!isset($_SESSION)) {
 // include database information and connection
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 
-if(isset($_SESSION['current_user'])) {
+if(isset($_SESSION['manager_id'])) {
 	header('Location: /views/dashboard.php');
 
 }

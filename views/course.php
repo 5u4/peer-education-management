@@ -1,7 +1,13 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
-$current_user = get_manager(1);
+$current_user = get_manager($_SESSION['manager_id']);
 ?>
 
 <!DOCTYPE html>

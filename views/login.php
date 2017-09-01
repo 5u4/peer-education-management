@@ -3,7 +3,6 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php'; 
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/authentication.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';

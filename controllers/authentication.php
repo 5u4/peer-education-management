@@ -60,6 +60,7 @@ class Authentication {
 	public function signup($first_name, $last_name, $username, $password) {
 	
 		insert_manager($username,$password,$first_name,$last_name,1);
+		$_SESSION['manager_id'] = $m->get_manager_id();
 	
 	} 
 

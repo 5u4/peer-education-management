@@ -60,7 +60,17 @@ class Authentication {
 	public function signup($first_name, $last_name, $username, $password) {
 	
 		insert_manager($username,$password,$first_name,$last_name,1);
+
+		$con = connection();
+
+		$sql = "SELECT manager_id FROM managers WHERE username = '$username' AND password = '$password'";
+		$result = mysqli_query($con,$sql);
+		$row = mysqli_fetch_array($result);
+    
+		$m = get_manager($row['manager_id']);
+
 		session_start();
+
 		$_SESSION['manager_id'] = $m->get_manager_id();
 	
 	} 

@@ -182,7 +182,7 @@ foreach ($sections as $key_section=>$section) {
         <tr>
             <td>'.$section->get_section_seme().'</td>
             <td>'.$section->get_section_name().'</td>
-            <form>
+            <form method="post" action="?id='.$pe_id.'">
                 <input type="hidden" name="section_id" value="'.$section->get_section_id().'">
                 <td><input type="submit" name="delete_section" value="Delete Section"></td>
             </form>
@@ -205,7 +205,7 @@ if (isset($_POST['delete_section']) && isset($_POST['section_id'])) {
 // Assign Section - Drop Down
 $sections = list_all_sections_on($section_seme);
 if (!empty($sections)) {
-    echo '<form method="post" action="">';
+    echo '<form method="post" action="?id='.$pe_id.'">';
     echo 'Assign to <select name="section">';
     foreach ($sections as $key => $section) {
         echo '<option value="' . $section->get_section_id() . '">' .

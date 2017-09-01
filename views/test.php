@@ -317,15 +317,16 @@ if (isset($_POST['course_name'])) {
 
 <?php
 
-$date = get_date(3);
-//echo $date->get_semester();
+//$date = get_date(3);
+////echo $date->get_semester();
+//
+//
+//echo date("W").' | ';
+//echo date("W", strtotime('2017-08-04')).' ';
+//echo $date->get_week();
 
-
-echo date("W").' | ';
-echo date("W", strtotime('2017-08-04')).' ';
-echo $date->get_week();
-
-
+//$peducator = get_peducator(1);
+//$peducator->delete_section(4);
 
 ?>
 

@@ -104,6 +104,21 @@ class Peducator {
 		return $arr;	
 	}
 
+	public function get_all_sections_on($week_number) {
+		// Get data from database
+		$sql = "SELECT section_id FROM peducator_sections 
+				WHERE peducator_id='$this->peducator_id'
+				AND week_number=$week_number";
+		$result = mysqli_query($this->connect_to_db, $sql);
+
+		$arr = [];
+		while ($row = mysqli_fetch_array($result)) {
+			array_push($arr, get_section($row['section_id']));
+		}
+
+		return $arr;
+	}
+
 	public function get_all_courses() {
 		// Get data from database
 		$sql = "SELECT course_id FROM peducator_courses 
@@ -586,6 +601,24 @@ function list_all_pe_on($section_id) {
 	// select database
 	$con = connection();
 	$sql = "SELECT peducator_id FROM peducator_sections WHERE section_id = '$section_id'";
+	$result = mysqli_query($con, $sql);
+
+	// store into array
+	$arr = [];
+	while ($row = mysqli_fetch_array($result)) {
+		array_push($arr, get_peducator($row['peducator_id']));
+	}
+
+	return $arr;
+}
+
+function list_all_pe_on_with_week_number($section_id, $week_number) {
+	// select database
+	$con = connection();
+	$sql = "SELECT peducator_id 
+			FROM peducator_sections 
+			WHERE section_id = '$section_id'
+			AND week_number=$week_number";
 	$result = mysqli_query($con, $sql);
 
 	// store into array

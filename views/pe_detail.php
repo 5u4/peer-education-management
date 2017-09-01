@@ -15,7 +15,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 
 $peducator = get_peducator($_GET['id']); // get PE object
 $current_user = get_manager($_SESSION['manager_id']);
-$section_seme = '201702'; // for test
+$section_id = $current_user->get_section_id();
+$section = get_section($section_id);
+$section_seme = $section->get_section_seme();
 ?>
 
 <!DOCTYPE html>
@@ -167,7 +169,7 @@ if (isset($_POST['add_course'])) {
 // ----------------------
 
 // get all sections
-$sections = $peducator->get_all_sections();
+$sections = $peducator->get_all_sections_on(0);
 
 echo '<table><th><tr><td>Semester</td><td>Section Time</td></tr></th><tbody>';
 foreach ($sections as $section) {
@@ -185,6 +187,31 @@ echo '</tbody></table><br/>';
 // ----------------------
 // by selecting all sections in current semester
 
+// Assign Section - Drop Down
+$sections = list_all_sections_on($section_seme);
+if (!empty($sections)) {
+    echo '<form method="post" action="">';
+    echo 'Assign to <select name="section">';
+    foreach ($sections as $key => $section)
+        echo '<option value="' . $section->get_section_id() . '">' .
+            $section->get_section_name() .
+            '</option>';
+
+    // Assign Section - Apply
+    echo '</select>
+         <input type="submit" name="assign_section" value="Apply">
+         </td></form>';
+}
+
+// if Assign Section
+if (isset($_POST['assign_section'])) {
+    // section id
+    $section_id = $_POST['section'];
+
+    // set pe to the section on week 0 with min 0
+    if ($peducator->set_contributed_mins(0, $section_id, 0))
+        echo "<meta http-equiv='refresh' content='0'>";
+}
 ?>
 
 <?php

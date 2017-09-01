@@ -59,7 +59,6 @@ $section_seme = $current_section->get_section_seme();
         <tr>
             <th>Name</th>
             <th>Student ID</th>
-            <th>Assign Section</th>
             <th>More</th>
         </tr>
     </thead>
@@ -79,7 +78,7 @@ $section_seme = $current_section->get_section_seme();
         // Student ID
         echo '<td>' . $peducator->get_student_id() . '</td>';
 
-        // Assign Section - Drop Down
+        /*// Assign Section - Drop Down
         echo '<td>';
         $sections = list_all_sections_on($section_seme);
         if (!empty($sections)) {
@@ -94,7 +93,7 @@ $section_seme = $current_section->get_section_seme();
             echo '</select>
          <input type="submit" name="" value="Apply">
          </td>';
-        }
+        }//*/
 
         // More
         echo '<td><a href="pe_detail.php?id=' . $peducator->get_peducator_id() . '">' .
@@ -109,7 +108,7 @@ $section_seme = $current_section->get_section_seme();
 // Table End
     echo '</tbody></table>';
 
-// if Assign Section
+/*// if Assign Section
     if (isset($_POST['section']) && isset($_POST['key_num'])) {
         // row #
         $key_num = $_POST['key_num'];
@@ -120,7 +119,7 @@ $section_seme = $current_section->get_section_seme();
         // set pe to the section on week 0 with min 0
         if ($peducators[$key_num]->set_contributed_mins(0, $section_id, 0))
             echo 'Success!';
-    }
+    }//*/
 
 
 // Add New PE

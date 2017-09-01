@@ -10,6 +10,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/peducator.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/date.php';
 
 $current_user = get_manager($_SESSION['manager_id']);
 ?>
@@ -39,11 +40,15 @@ $page->nav_body_start();
 //* Constructing a section table in course page
 
 $current_section = $_SESSION['current_user'] -> get_section_id(); // will be change to a table # (or something else) in the future
-$current_week = 1;
+
+$current_seme_id = $current_user->get_section_id();
+$date_id = get_last_date_id();
+$date = get_date($date_id);
+$current_week = $date->get_week();
 
 echo '<h1>Your section ID is '.$current_section.'.</h1>';
 
-$pe = list_all_pe_on($current_section); // fetch all courses and return as object array
+$pe = list_all_pe_on_with_week_number($current_section, $current_week); // fetch all courses and return as object array
 
 // table structure
 echo '

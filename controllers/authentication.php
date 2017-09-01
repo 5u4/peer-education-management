@@ -36,8 +36,8 @@ class Authentication {
         }
 
 		if($_SERVER["REQUEST_METHOD"] == "POST") {
-      
-			$sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$mypassword'";
+      			$encripted_pwd = sha1($mypassword);
+			$sql = "SELECT manager_id FROM managers WHERE username = '$myusername' AND password = '$encripted_pwd'";
 			$result = mysqli_query($con,$sql);
 			$row = mysqli_fetch_array($result);
       
@@ -61,11 +61,13 @@ class Authentication {
 
 	public function signup($first_name, $last_name, $username, $password) {
 	
-		insert_manager($username,$password,$first_name,$last_name,1);
+		$encripted_pwd = sha1($password);
+
+		insert_manager($username,$encripted_pwd,$first_name,$last_name,1);
 
 		$con = connection();
 
-		$sql = "SELECT manager_id FROM managers WHERE username = '$username' AND password = '$password'";
+		$sql = "SELECT manager_id FROM managers WHERE username = '$username' AND password = '$encripted_pwd'";
 		$result = mysqli_query($con,$sql);
 		$row = mysqli_fetch_array($result);
     
@@ -88,7 +90,7 @@ class Authentication {
         }
 		session_destroy();
 
-		header('Location: ../index.php');
+		//header('Location: ../index.php');
 
 	} 
 

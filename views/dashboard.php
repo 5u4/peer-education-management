@@ -26,7 +26,7 @@ $page = new Page($_SESSION['current_user']);
 <?php
 $page->nav_body_start();
 ?>
-
+<div class="container-fluid">
 <?php
 // -----------------------
 // To display announcement
@@ -38,26 +38,21 @@ if (!empty($announ_array)) {
 
 $content = $announ_array[0]->get_content();
 
-echo '<a href="announcement.php">';
 echo '<div>';
-echo '<h1>Latest Announcemet</h1>';
+echo '    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title text-center"><a class="" href="announcement.php">Announcement</a></h3>
+        </div>
+        <div class="panel-body"><p><div class="text-left">';
 echo $content;
 	$mid = $announ_array[0]->get_manager_id();
 	$manager = new Manager($mid);
 	$first_name = $manager->get_first_name();
 	$last_name = $manager->get_last_name();
-	echo '<br/>';
-	echo '*************';
-	echo '*************';
-	echo '<br/>';
-	echo 'Posted by '.$first_name.' '.$last_name;
-	echo '<br/>';
-	echo ' on '.$announ_array[0]->get_announcement_time();
-	echo '<br/>';
-	echo '*************';
-	echo '*************';
-echo '</div>';
-echo '</a>';
+	echo '</div><br/><div class="text-right"> '.$first_name.' '.$last_name;
+	echo '<br/>'.$announ_array[0]->get_announcement_time();
+echo '</div></p></div></div>';
+
 }
 
 ?>
@@ -65,6 +60,8 @@ echo '</a>';
 
 
 
+
+</div>
 <?php
 $page->nav_body_close();
 ?>

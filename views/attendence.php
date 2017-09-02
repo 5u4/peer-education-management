@@ -32,10 +32,13 @@ $current_user = get_manager($_SESSION['manager_id']);
         } );
     </script>
 </head>
-<body>
-
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Attendance</h1>
+    </div>
 <?php
 $page->nav_body_start();
+
 
 //* Constructing a section table in course page
 
@@ -46,18 +49,17 @@ $date_id = get_last_date_id();
 $date = get_date($date_id);
 $current_week = $date->get_week();
 
-echo '<h1>Your section ID is '.$current_section.'.</h1>';
 
 $pe = list_all_pe_on_with_week_number($current_section, $current_week); // fetch all courses and return as object array
 
 // table structure
-echo '
-    <table id="sections">
+echo '    <div class="well text-center">
+    <table class="table-hover" id="sections">
     <thead>
         <tr>
             <th>PE Name</th>
             <th>Attendence</th>
-            <th>set to</th>
+            <th>Contributed Minutes on Week '.$current_week.'</th>
             <th></th>
         </tr>
     </thead>
@@ -72,14 +74,14 @@ foreach ($pe as $key=>$pe_obj) {
     echo '<td>'.$pe_obj->get_contributed_mins($current_section, $current_week).'</td>';
     echo '
     <form method="post" action="">
-        <td><input type="number" name="number"></td>
+        <td><input class="form-control" type="number" name="number" placeholder="Minutes Contributed" required></td>
         <input type="hidden" name="key_num" value="'.$key.'">
-        <td><input type="submit" value="Change" name="submit"></td>
+        <td><input class="form-control btn btn-primary" type="submit" value="Change" name="submit"></td>
     </form>
     ';
     echo '</tr>'; // end table row
 }
-echo '</tbody></table>'; // end table structure
+echo '</tbody></table></div>'; // end table structure
 
 // if Change button is clicked call function
 if (isset($_POST['number']) && isset($_POST['key_num'])) {
@@ -98,9 +100,6 @@ $page->nav_body_close_with_table();
 
 
 
-
-
-
-
+</div>
 </body>
 </html>

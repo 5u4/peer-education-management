@@ -23,10 +23,13 @@ $page = new Page($_SESSION['current_user']);
 </head>
 
 <body>
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Dashboard</h1>
+    </div>
 <?php
 $page->nav_body_start();
 ?>
-<div class="container-fluid">
 <?php
 // -----------------------
 // To display announcement
@@ -61,10 +64,11 @@ echo '</div></p></div></div>';
 
 
 
-</div>
+
 <?php
 $page->nav_body_close();
 ?>
+</div>
 </body>
 
 </html>

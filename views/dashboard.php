@@ -11,18 +11,20 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/manager.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/_check_login.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
-$nav = new Page($_SESSION['current_user']);
+$current_user = get_manager($_SESSION['manager_id']);
+
+$page = new Page($_SESSION['current_user']);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php $nav->nav_head();?>
+<?php $page->nav_head();?>
 </head>
 
 <body>
 <?php
-$nav->nav_body_start();
+$page->nav_body_start();
 ?>
 
 <?php
@@ -64,7 +66,7 @@ echo '</a>';
 
 
 <?php
-$nav->nav_body_close();
+$page->nav_body_close();
 ?>
 </body>
 

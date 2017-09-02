@@ -12,33 +12,9 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/configs/config.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/section.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 
-$nav = new Page($_SESSION['current_user']);
+$page = new Page($_SESSION['current_user']);
 
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php $nav->nav_head();?>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#sections').DataTable( {} );
-        } );
-    </script>
-</head>
-<body>
-<?php
-$nav->nav_body_start();
-?>
-<?php
-//* Constructing a section table in course page
-
-$current_section = $_SESSION['current_user'] -> get_section_id(); 
+$current_section = $_SESSION['current_user'] -> get_section_id();
 
 // get seme_name by initializing a section object
 $sec_obj = new Section($current_section);
@@ -46,9 +22,25 @@ $seme_name = $sec_obj->get_section_seme();
 
 $current_week = 1;
 
-echo '<h1>Section Schedule for Semester '.$seme_name.'</h1>';
+?>
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php $page->nav_head();?>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Schedule of <?php echo $seme_name; ?></h1>
+    </div>
+<?php
+$page->nav_body_start();
+?>
+<?php
+//* Constructing a section table in course page
 
 // To get section name
 $con_sec_name = connection();
@@ -61,7 +53,7 @@ $all_sec_id_array = list_all_sections_on($seme_name);
 	
 }*/
 echo '
-   <table id="sections">
+   <table class="table-hover" id="sections">
 	
 ';
 
@@ -127,7 +119,7 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
     echo "<meta http-equiv='refresh' content='0'>";
 }
 
-$nav->nav_body_close();
+$page->nav_body_close();
 
 ?>
 

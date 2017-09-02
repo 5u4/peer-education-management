@@ -53,7 +53,7 @@ $courses = list_all_courses(); // fetch all courses and return as object array
 // table structure
 echo '
     <div class="well text-center">
-    <table id="courses">
+    <table class="table-hover" id="courses">
     <thead>
         <tr>
             <th>Course Name</th>

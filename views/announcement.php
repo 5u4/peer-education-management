@@ -45,22 +45,19 @@ if ($manager->can_edit($announcement))
 </head>
 
 <body>
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Announcement</h1>
+    </div>
 <?php
 $nav->nav_body_start();
 ?>
-<div>
-<fieldset style="width:30%"><legend>Submit Announcement</legend>
-<table border="0">
-<tr>
+<div class="well">
 <form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
-<td> <textarea rows="10" cols="60" name="content"></textarea></td>
-</tr>
-<tr>
-<td><input id="button" type="submit" name="submit" value="Submit"></td>
-</tr>
+<textarea class="form-group form-control" rows="3" name="content" placeholder="Insert an announcement..."></textarea>
+
+<input class="form-group form-control btn btn-primary" id="button" type="submit" name="submit" value="Submit">
 </form>
-</table>
-</fieldset>
 </div>
 
 <?php
@@ -95,46 +92,48 @@ if(empty($announ_array)) {
 
 
 
-echo '<table>';
-
+//echo '<table class="table-hover">';
+echo '<div class="container-fluid well">';
 foreach ($announ_array as $key => $value) {
-	echo '<tr>';
-	echo '<td>';
-	echo '------------------------------------------------';
-	echo '------------------------------------------------';
-	echo '<br/>';
-	echo $value->get_content();
-	echo '<br/>';
-	$mid = $value->get_manager_id();
+
+    echo '<div class="panel panel-primary"><div class="panel-body">'; //
+
+
+    echo '<h4 class="text-left">';
+    echo $value->get_content();
+    echo '</h4>';
+
+    $mid = $value->get_manager_id();
 	$manager = new Manager($mid);
 	$first_name = $manager->get_first_name();
 	$last_name = $manager->get_last_name();
-	echo '<br/>';
-	echo '*************';
-	echo '*************';
-	echo '<br/>';
-	echo 'Posted by '.$first_name.' '.$last_name;
-	echo '<br/>';
-	echo ' on '.$value->get_announcement_time();
-	echo '<br/>';
-	echo '*************';
-	echo '*************';
-	if($mid == $_SESSION['current_user']->get_manager_id()) {
-		echo '<br/>';
+
+    echo '</div>'; //
+
+	echo '<div class="panel-footer">';
+
+    echo '<p class="text-right">';
+	echo $first_name.' '.$last_name.'<br>';
+	echo $value->get_announcement_time();
+    echo '</p>';
+
+	if($same_auth = $mid == $_SESSION['current_user']->get_manager_id()) {
 		echo '<form method="post" action="">';
 		echo '<input type="hidden" name="announ_id" value="'.$value->get_announcement_id().'">';
-		echo '<input id="button" type="submit" name="delete" value="Delete">';
+
+
+		echo '<input class="btn btn-group-justified btn-danger" id="button" type="submit" name="delete" value="Delete">';
+
+
 		echo '</form>';
 	}
-	echo '<br/>';
-	echo '------------------------------------------------';
-	echo '------------------------------------------------';
-	echo '</td>';
-	echo '</tr>';
+
+	echo '</div>'; //
+	echo '</div>'; //
 }
 
-
-echo '</table>';
+echo '</div>';
+//echo '</table>';
 
 if(isset($_POST['delete']) && isset($_POST['announ_id'])) {
 	$delete_id = $_POST['announ_id'];

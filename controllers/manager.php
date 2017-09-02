@@ -231,4 +231,18 @@ function insert_manager($username, $password, $first_name, $last_name, $section_
     echo 'Manager with id '.$manager_id.' is inserted.';
     return new Manager($manager_id);
 }
+
+function list_all_managers() {
+    // select database
+    $con = connection();
+    $sql = "SELECT manager_id  
+            FROM managers;";
+    $result = mysqli_query($con, $sql);
+
+    // store into array
+    $arr = [];
+    while ($row = mysqli_fetch_array($result))
+        array_push($arr, get_manager($row['manager_id']));
+    return $arr;
+}
 ?>

@@ -140,7 +140,8 @@ function list_all_sections() {
     // select database
     $con = connection();
     $sql = "SELECT section_id
-            FROM sections;";
+            FROM sections
+            ORDER BY section_seme DESC;";
     $result = mysqli_query($con, $sql);
 
     // store into array

@@ -33,6 +33,7 @@ $page = new Page(get_manager($_SESSION['manager_id']));
 <?php $page->nav_body_start(); ?>
 
 <?php
+/*
 // Section Setting
 $sections = list_all_sections();
 
@@ -97,7 +98,7 @@ if (isset($_POST['section_insert'])) {
 
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
-}
+}//*/
 ?>
 
 

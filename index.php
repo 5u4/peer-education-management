@@ -21,13 +21,14 @@ if(isset($_SESSION['manager_id'])) {
 <head>
     <meta charset="utf-8">
     <link href="../assets/css/landing.css" rel="stylesheet">
+    <title>PE Management Tool</title>
 </head>
 <body>
 
 <!--made by vipul mirajkar thevipulm.appspot.com-->
 <h1>
-    <a href="" class="typewrite" data-period="1000" data-type='[
-    "Hi! This is Peer Education Management Tool...",
+    <a href="" class="typewrite" data-period="700" data-type='[
+    "Peer Education Management Tool...",
     "An Application for Managers...",
     "Made by David Chou & Alex Wong."
     ]'>

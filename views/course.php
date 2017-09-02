@@ -40,20 +40,19 @@ $current_week = $date->get_week();
 
 </head>
 <body>
-
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Course</h1>
+    </div>
 <?php
 $page->nav_body_start();
 
-//* Constructing a course table in course page
-//$current_week = 1; // will be change to a table # (or something else) in the future
-//$current_seme_id = 1; // semester id (will also be change into the table)
-
-echo '<h1>This is week '.$current_week.' in semester id '.$current_seme_id.'</h1>';
 
 $courses = list_all_courses(); // fetch all courses and return as object array
 
 // table structure
 echo '
+    <div class="well text-center">
     <table id="courses">
     <thead>
         <tr>
@@ -74,14 +73,14 @@ foreach ($courses as $key=>$course) {
     echo '<td>'.$course->get_times_been_taught_on_with_section($current_week, $current_seme_id).'</td>';
     echo '
     <form method="post" action="">
-        <td><input type="number" name="number"></td>
+        <td><input class="form-control" type="number" name="number" placeholder="times been taught"></td>
         <input type="hidden" name="key_num" value="'.$key.'">
-        <td><input type="submit" value="Change" name="submit"></td>
+        <td><input class="form-control btn btn-default" type="submit" value="Change" name="submit"></td>
     </form>
     
     <form method="post" action="">
        <input type="hidden" name="key_num_inc" value="'.$key.'">
-       <td><input type="submit" value="+" name="inc"></td>
+       <td><input class="form-control btn btn-primary" type="submit" value="+" name="inc"></td>
     </form>
     ';
     echo '</tr>'; // end table row
@@ -103,29 +102,30 @@ if (isset($_POST['number']) && isset($_POST['key_num'])) {
 //    echo "<meta http-equiv='refresh' content='0'>";
 }
 
-// if increment button is clicked
-if (isset($_POST['inc']) && isset($_POST['key_num_inc'])) {
-	$key_num = $_POST['key_num_inc']; // the row number
-	$courses[$key_num]->set_times_been_taught_by_inc($current_week, $current_seme_id);
 
-	// refresh the website
-	echo "<meta http-equiv='refresh' content='0'>";
-}
 
 
 // insert a course
-echo '
-    Add a new course into the list: 
+echo '<br/>
     <form method="post" action="">
-        <td><input type="text" name="course_name"></td>
-        <td><input type="submit" value="Add" name="submit"></td>
-    </form>';
+        <div class="form-group"><input class="form-control-static" type="text" name="course_name" placeholder="Add a new course" required>
+        <input class="form-control-static btn btn-warning" type="submit" value="Add" name="submit"></div>
+    </form></div>';
 
 if (isset($_POST['course_name'])) {
     $course_name = $_POST['course_name'];
 
     // insert the course
     insert_course($course_name);
+
+    // refresh the website
+    echo "<meta http-equiv='refresh' content='0'>";
+}
+
+// if increment button is clicked
+if (isset($_POST['inc']) && isset($_POST['key_num_inc'])) {
+    $key_num = $_POST['key_num_inc']; // the row number
+    $courses[$key_num]->set_times_been_taught_by_inc($current_week, $current_seme_id);
 
     // refresh the website
     echo "<meta http-equiv='refresh' content='0'>";
@@ -139,6 +139,6 @@ $page->nav_body_close_with_table();
 
 
 
-
+</div>
 </body>
 </html>

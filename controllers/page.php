@@ -43,7 +43,7 @@ class Page {
     // ----------------------
     public function get_name() {
         // manager_admin
-        if ($this->permission <= 3) {
+        if ($this->permission <= 4) { // for manager
             return $this->current_user->get_first_name();
         }
     }
@@ -65,7 +65,7 @@ class Page {
     }
 
     public function nav_general_settings() {
-        if ($this->permission >= 3) {
+        if ($this->permission <= 2) {
             // dropdown list start
             echo '            
             <li class="dropdown">

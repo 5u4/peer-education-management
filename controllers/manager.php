@@ -22,6 +22,16 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/announcement.php';
 // create an announcement: insert_announcement($content) return new Announcement($announcement_id)
 // check if current_user posted the announcement: can_edit($announcement) return true/false
 
+// ----------------------
+// permission
+// ----------------------
+// 0 - 4 are permission for managers; the smaller the number, the higher the permission
+// 0:
+// 1:
+// 2: GENERAL SETTINGS
+// 3: WRITE ANNOUNCEMENT
+// 4: DEFAULT, WEEKLY SECTION, VIEW ANNOUNCEMENT
+
 class Manager {
     // ----------------------
     // database connection
@@ -84,9 +94,15 @@ class Manager {
         return $this->section_id;
     }
 
-    public function get_permission() { // testing function | for further application expansion
-	// This will be done on next version.
-        return 3;
+    public function get_permission() {
+        // fetch manager row
+        $sql = "SELECT * 
+                FROM managers 
+                WHERE manager_id=$this->manager_id;";
+        $result = mysqli_query($this->connect_to_db, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        return $row['permission'];
     }
 
     // ----------------------

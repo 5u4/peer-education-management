@@ -27,13 +27,13 @@ if(isset($_SESSION['manager_id'])) {
 
 <!--made by vipul mirajkar thevipulm.appspot.com-->
 <h1>
-    <a href="" class="typewrite" data-period="700" data-type='[
+    <div href="" class="typewrite" data-period="700" data-type='[
     "Peer Education Management Tool...",
     "An Application for Managers...",
     "Made by David Chou & Alex Wong."
     ]'>
         <span class="wrap"></span>
-    </a>
+    </div>
 </h1>
 <br/>
 <br/>

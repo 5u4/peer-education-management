@@ -161,6 +161,24 @@ class Peducator {
 		return $row['contributed_mins'];
 	}
 
+	public function get_sum_over_mins() {
+		$total = 0;		
+
+		$id = $this->peducator_id;
+
+		$sql_sum_over = "SELECT contributed_mins FROM peducator_sections WHERE peducator_id='$id'";
+
+		$result_sum_over = mysqli_query($this->connect_to_db, $sql_sum_over);
+
+		while($row_sum_over = mysqli_fetch_array($result_sum_over)) {
+			$total = $total + $row_sum_over['contributed_mins'];
+		}
+
+		return $total;
+
+
+	}
+
 
 	// ----------------------
 	// setters methods

@@ -5,10 +5,12 @@ include_once '../controllers/course.php';
 include_once '../configs/config.php';
 include_once '../controllers/section.php';
 
-echo sha1(40bd001563085fc35165329ea1ff5c5ecbdbbeef);
+$pe = get_peducator(1);
+
+echo $pe->get_sum_over_mins();
+
 
 
 ?>
 
 
-http://jsfiddle.net/CsgK9/2/

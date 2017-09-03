@@ -34,7 +34,7 @@ a {
 }
 a:hover {
     /*color: #333333;*/
-    color: #aaaaaa;
+    color: #999999;
     text-decoration: none;
 }
 /*=== 3. Text Outside the Box ===*/
@@ -86,8 +86,8 @@ a:hover {
 }
 .login-group {
     background: #ffffff;
-    /*color: #999999;*/
-    color: #ffffff;
+    color: #999999;
+    /*color: #ffffff;*/
     border-radius: 8px;
     padding: 10px 20px;
 }

@@ -20,35 +20,89 @@ $con = connection();
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Sign-Up</title>
+    <!-- All the files that are required -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href='/assets/css/login.css' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/login.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Sign Up - PE Management Tool</title>
 </head>
-<body id="body-color">
-<div id="Sign-Up">
-<fieldset style="width:30%"><legend>Registration Form</legend>
-<table border="0">
-<tr>
-<form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
-<td>First Name</td><td> <input type="text" name="first_name"></td>
-</tr>
-<tr>
-<td>Last Name</td><td> <input type="text" name="last_name"></td>
-</tr>
-<tr>
-<td>Username</td><td> <input type="text" name="username"></td>
-</tr>
-<tr>
-<td>Password</td><td> <input type="password" name="password"></td>
-</tr>
-<tr>
-<td>Confirm Password </td><td><input type="password" name="cpassword"></td>
-</tr>
-<tr>
-<td><input id="button" type="submit" name="submit" value="Sign-Up"></td>
-</tr>
-</form>
-</table>
-</fieldset>
+<body>
+<!--<td>First Name</td><td> <input type="text" ></td>-->
+<!--<td>Last Name</td><td> <input type="text" ></td>-->
+<!--<td>Username</td><td> <input type="text" ></td>-->
+<!--<td>Password</td><td> <input type="password" ></td>-->
+<!--<td>Confirm Password </td><td><input type="password" ></td>-->
+<!--<td><input id="button" type="submit"  value="Sign-Up"></td>-->
+
+<!-- REGISTRATION FORM -->
+<div class="text-center" style="padding:50px 0">
+    <div class="logo">Register</div>
+    <!-- Main Form -->
+    <div class="login-form-1">
+        <form id="register-form" class="text-left" method="POST" action="">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+                        <label for="reg_firstname" class="sr-only">First Name</label>
+                        <input type="text" class="form-control" id="reg_firstname" name="first_name" placeholder="first name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_lastname" class="sr-only">Last Name</label>
+                        <input type="text" class="form-control" id="reg_lastname" name="last_name" placeholder="last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg_username" class="sr-only">Username</label>
+                        <input type="text" class="form-control" id="reg_username" name="username" placeholder="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="reg_password" name="password" placeholder="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                        <input type="password" class="form-control" id="reg_password_confirm" name="cpassword" placeholder="confirm password" required>
+                    </div>
+
+<!--                    <div class="form-group">-->
+<!--                        <label for="reg_email" class="sr-only">Email</label>-->
+<!--                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">-->
+<!--                    </div>-->
+
+
+<!--                    <div class="form-group login-group-checkbox">-->
+<!--                        <input type="radio" class="" name="reg_gender" id="male" placeholder="username">-->
+<!--                        <label for="male">male</label>-->
+<!---->
+<!--                        <input type="radio" class="" name="reg_gender" id="female" placeholder="username">-->
+<!--                        <label for="female">female</label>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group login-group-checkbox">-->
+<!--                        <input type="checkbox" class="" id="reg_agree" name="reg_agree">-->
+<!--                        <label for="reg_agree">i agree with <a href="#">terms</a></label>-->
+<!--                    </div>-->
+                </div>
+                <button type="submit" class="login-button" name="submit"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div class="etc-login-form">
+                <p>Already have an account? <a href="login.php">Login here</a></p>
+            </div>
+        </form>
+    </div>
+    <!-- end:Main Form -->
 </div>
+
+
+
 </body>
 </html>
 

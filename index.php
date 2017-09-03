@@ -20,7 +20,7 @@ if(isset($_SESSION['manager_id'])) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="../assets/css/landing.css" rel="stylesheet">
+    <link href="/assets/css/landing.css" rel="stylesheet">
     <title>PE Management Tool</title>
 </head>
 <body>

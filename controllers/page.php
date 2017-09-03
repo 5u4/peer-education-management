@@ -43,7 +43,7 @@ class Page {
     // ----------------------
     public function get_name() {
         // manager_admin
-        if ($this->permission >= 2) {
+        if ($this->permission <= 3) {
             return $this->current_user->get_first_name();
         }
     }

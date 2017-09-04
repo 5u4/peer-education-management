@@ -39,6 +39,23 @@ $current_user = get_manager($_SESSION['manager_id']);
 <?php
 $page->nav_body_start();
 
+if (!isset($_GET['week'])) {
+
+
+    echo '<form method="get" action="?week='.$week.'">';
+    echo 'Please select a week: <select name="week">';
+    for ($week = 1; $week < 14; $week++) {
+        echo '<option value="'.$week.'">'.$week.'</option>';
+    }
+    echo '
+        </select>
+        <input type="submit" value="Confirm">
+        </form>
+        ';
+
+    $page->nav_body_close();
+    die();
+}
 
 //* Constructing a section table in course page
 
@@ -47,10 +64,10 @@ $current_section = $_SESSION['current_user'] -> get_section_id(); // will be cha
 $current_seme_id = $current_user->get_section_id();
 $date_id = get_last_date_id();
 $date = get_date($date_id);
-$current_week = $date->get_week();
+$current_week = $_GET['week'];
 
 
-$pe = list_all_pe_on_with_week_number($current_section, $current_week); // fetch all courses and return as object array
+$pe = list_all_pe_on_with_week_number($current_section, 0); // fetch all courses and return as object array
 
 // table structure
 echo '    <div class="well text-center">

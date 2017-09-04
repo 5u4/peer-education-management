@@ -9,10 +9,6 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/page.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/course.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/controllers/date.php';
 $current_user = get_manager($_SESSION['manager_id']);
-$current_seme_id = $current_user->get_section_id();
-$date_id = get_last_date_id();
-$date = get_date($date_id);
-$current_week = $date->get_week();
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +42,29 @@ $current_week = $date->get_week();
     </div>
 <?php
 $page->nav_body_start();
+
+if (!isset($_GET['week'])) {
+
+
+    echo '<form method="get" action="?week='.$week.'">';
+    echo 'Please select a week: <select name="week">';
+    for ($week = 1; $week < 14; $week++) {
+        echo '<option value="'.$week.'">'.$week.'</option>';
+    }
+    echo '
+        </select>
+        <input type="submit" value="Confirm">
+        </form>
+        ';
+
+    $page->nav_body_close();
+    die();
+}
+
+$current_seme_id = $current_user->get_section_id();
+//$date_id = get_last_date_id();
+//$date = get_date($date_id);
+$current_week = $_GET['week'];
 
 
 $courses = list_all_courses(); // fetch all courses and return as object array

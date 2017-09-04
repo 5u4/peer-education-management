@@ -61,9 +61,9 @@ if (!isset($_GET['week'])) {
 
 $current_section = $_SESSION['current_user'] -> get_section_id(); // will be change to a table # (or something else) in the future
 
-$current_seme_id = $current_user->get_section_id();
-$date_id = get_last_date_id();
-$date = get_date($date_id);
+//$current_seme_id = $current_user->get_section_id();
+//$date_id = get_last_date_id();
+//$date = get_date($date_id);
 $current_week = $_GET['week'];
 
 

@@ -67,9 +67,12 @@ $current_section = $_SESSION['current_user'] -> get_section_id(); // will be cha
 $current_week = $_GET['week'];
 
 echo '<div class="panel panel-default"><form method="get" action="?week='.$week.'">';
-echo '<div class="panel-heading"><h3 class="panel-title">Please select a week</h3></div><div class="panel-body"><div class="col-md-10"><select class="form-control" name="week">';
+echo '<div class="panel-heading"><h3 class="panel-title">Week Number</h3></div><div class="panel-body"><div class="col-md-10"><select class="form-control" name="week">';
 for ($week = 1; $week < 14; $week++) {
-    echo '<option value="'.$week.'">'.$week.'</option>';
+    echo '<option value="'.$week.'"';
+    if ($_GET['week'] == $week)
+        echo ' selected';
+    echo '>'.$week.'</option>';
 }
 echo '
         </select></div>

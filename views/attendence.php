@@ -41,16 +41,16 @@ $page->nav_body_start();
 
 if (!isset($_GET['week'])) {
 
-
-    echo '<form method="get" action="?week='.$week.'">';
-    echo 'Please select a week: <select name="week">';
+    $week = 1;
+    echo '<div class="panel panel-default"><form method="get" action="?week='.$week.'">';
+    echo '<div class="panel-heading"><h3 class="panel-title">Please select a week</h3></div><div class="panel-body"><div class="col-md-10"><select class="form-control" name="week">';
     for ($week = 1; $week < 14; $week++) {
         echo '<option value="'.$week.'">'.$week.'</option>';
     }
     echo '
-        </select>
-        <input type="submit" value="Confirm">
-        </form>
+        </select></div>
+        <input class="btn btn-default col-md-2" type="submit" value="Go!">
+        </form></div></div>
         ';
 
     $page->nav_body_close();
@@ -65,6 +65,17 @@ $current_section = $_SESSION['current_user'] -> get_section_id(); // will be cha
 //$date_id = get_last_date_id();
 //$date = get_date($date_id);
 $current_week = $_GET['week'];
+
+echo '<div class="panel panel-default"><form method="get" action="?week='.$week.'">';
+echo '<div class="panel-heading"><h3 class="panel-title">Please select a week</h3></div><div class="panel-body"><div class="col-md-10"><select class="form-control" name="week">';
+for ($week = 1; $week < 14; $week++) {
+    echo '<option value="'.$week.'">'.$week.'</option>';
+}
+echo '
+        </select></div>
+        <input class="btn btn-default col-md-2" type="submit" value="Go!">
+        </form></div></div>
+        ';
 
 
 $pe = list_all_pe_on_with_week_number($current_section, 0); // fetch all courses and return as object array

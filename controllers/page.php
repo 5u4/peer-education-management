@@ -98,7 +98,7 @@ class Page {
         // dropdown list
         $this->nav_attendence();
         $this->nav_course();
-        $this->nav_schedule();
+//        $this->nav_schedule();
 
         // dropdown list end
         echo '</ul></li>';

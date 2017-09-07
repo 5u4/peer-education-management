@@ -38,23 +38,28 @@ $current_week = $date->get_week();
     </script>
 </head>
 <body>
+<div class="container-fluid">
+    <div class="page-header text-center">
+        <h1>Peer Educators</h1>
+    </div>
 <?php
 $page->nav_body_start();
 
 // Get week number and semester id
 //$current_week = 1; // will be change to a table # (or something else) in the future
 //$current_seme_id = 2; // semester name (will also be change into the table)
-$current_section = get_section($current_seme_id);
-echo '<h1>This is week '.$current_week.' in semester '.$current_seme_id.'</h1>';
+//$current_section = get_section($current_seme_id);
+//echo '<h1>This is week '.$current_week.' in semester '.$current_seme_id.'</h1>';
 
 // Get all PEs
 $peducators = list_all_pe();
-$section_seme = $current_section->get_section_seme();
+//$section_seme = $current_section->get_section_seme();
 
 
 // Constructing Table
     echo '
-    <table id="pe_list">
+    <div class="well">
+    <table class="table-hover" id="pe_list">
     <thead>
         <tr>
             <th>Name</th>
@@ -123,7 +128,7 @@ $section_seme = $current_section->get_section_seme();
 
 
 // Add New PE
-    echo '<a target="_blank" href="new_pe.php">Add A New PE</a>';
+    echo '<a target="_blank" href="new_pe.php">Add A New PE</a></div>';
 
 
     $page->nav_body_close_with_table();

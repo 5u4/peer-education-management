@@ -75,7 +75,6 @@ class Page {
 
             // dropdown list
             echo '
-                    <li><a href="setting_semester.php">Semester</a></li>
                     <li><a href="setting_section.php">Section</a></li>
                     <li><a href="setting_manager.php">Manager</a></li>
                     <li><a href="setting_course.php">Course</a></li>

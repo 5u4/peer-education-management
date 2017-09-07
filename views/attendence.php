@@ -65,6 +65,7 @@ $current_section = $_SESSION['current_user'] -> get_section_id(); // will be cha
 //$date_id = get_last_date_id();
 //$date = get_date($date_id);
 $current_week = $_GET['week'];
+$week = $_GET['week'];
 
 echo '<div class="panel panel-default"><form method="get" action="?week='.$week.'">';
 echo '<div class="panel-heading"><h3 class="panel-title">Week Number</h3></div><div class="panel-body"><div class="col-md-10"><select class="form-control" name="week">';

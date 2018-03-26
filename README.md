@@ -1,10 +1,4 @@
-# Peer Education Management Tool
-Build on `PHP` `MySQL` `Bootstrap`
+[demo](https://peered.000webhostapp.com/)
 
-## Introduction
-
-## Features
-
-## Setup and Host
-
-## Future Updates
+username: test
+password: qwe123
